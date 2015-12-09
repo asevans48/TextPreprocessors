@@ -1,0 +1,49 @@
+
+
+nc
+
+location  nc campus  person person person
+
+usmc pfc
+number/number/number
+
+ma
+
+person  person person  organization organization organization
+
+usmc lcpl number/number/number
+
+tx
+
+el campo  tx cole  person person person
+usmc pfc
+number/number/number
+
+oh
+
+ludlow falls  person person  marcus a
+
+organization organization
+spnumber
+number/number/number
+
+tx
+
+location  tx comas  juan organization organization usmc pfc
+number/number/number
+
+fl
+
+location  fl conley  person organization
+usmc sgt
+number/number/number
+
+fl
+
+orlando  fl cook  person person person
+usmc cpl
+number/number/number
+
+nc
+
+advance  nc cooper  curtis organization organization usmc lcpl number/number/number

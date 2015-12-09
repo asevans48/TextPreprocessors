@@ -1,0 +1,44 @@
+
+
+pa
+
+stroudsburgh  pa lamb  thomas g
+
+usmc lcpl number/number/number
+
+mn
+
+person person  mn langon  person person iv
+usmc lcpl number/number/number
+
+nj
+
+lakehurst  person lariviere  person person person
+
+usmc sgt
+number/number/number
+
+fl
+
+perry  fl lariviere  person person person usmc cpl
+number/number/number
+
+ma
+
+location  ma lemnah  organization organization organization
+
+usmc organization organization number/number/number
+
+nc
+
+camp lejeune  nc lewis  person a
+organization
+
+usmc cpl
+number/number/number
+
+oh
+
+person person  oh lewis  val s organization
+usmc sgt
+number/number/number

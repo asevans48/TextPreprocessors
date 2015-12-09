@@ -1,0 +1,40 @@
+
+
+usmc lcpl number/number/number
+
+tx
+
+location  tx person  person person person
+
+usmc lcpl number/number/number
+
+nc
+
+midway park  nc buckmaster  john b
+usmc cpl
+number/number/number
+
+oh
+
+vandalia  oh person  organization organization organization
+
+usmc pfc
+number/number/number
+
+nj
+
+person  person person  jimmy r organization usn
+hn
+
+number/number/number
+
+al
+
+birmington  person person  person person person usmc cpl
+number/number/number
+
+oh
+
+location  person person  mecot e
+usmc sgt
+number/number/number

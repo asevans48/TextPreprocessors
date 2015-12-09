@@ -1,0 +1,52 @@
+
+
+sc
+
+person  organization organization  organization organization organization
+usmc numberstlt
+
+number/number/number
+
+nc
+
+camp lejeune  person person  organization organization organization usmc pfc
+number/number/number
+
+ny
+
+keeseville  ny scialabba  person person person
+usmc capt number/number/number
+
+nc
+
+moorehead city  nc person  gary r organization usmc cpl
+number/number/number
+
+il
+
+person  person person  organization organization organization usmc cpl
+number/number/number
+
+ny
+
+hudson  ny shipp  thomas a
+organization
+usmc cpl
+number/number/number
+
+nc
+
+location  nc shropshire  jerryl d
+
+usmc lcpl number/number/number
+
+ga
+
+location  ga silvia  organization organization organization
+usmc lcpl number/number/number
+
+ri
+
+portsmouth  person person  stanley organization organization
+
+usmc lcpl number/number/number

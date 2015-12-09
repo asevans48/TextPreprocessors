@@ -1,0 +1,44 @@
+person repeats myth person misc ' descent yesterday radio show  conservative talker rush limbaugh falsely claimed sen
+person person ( d-il ) arab
+'s arab
+know  's africa
+'s arab parts africa  limbaugh claimed
+today limbaugh repeated lie
+attempting deny race may play role presidential campaign  person read portions organization daily news article person person
+limbaugh inaccurately quoted davies 's article  inserting word arab description person 's ethnicity
+according person  article read  obama 's name arab-african heritage obstacles party 's chances capturing white house  party activists finding
+watch  ( undefined===window
+scriptalreadyrequested ) { window
+scriptalreadyrequested = false ; } ( undefined===window
+scriptalreadyloaded ) { window
+scriptalreadyloaded = false ; } ( !
+scriptalreadyrequested ) { var head = document
+getelementsbytagname ( `` head `` ) [ number ] ; var script = document
+createelement ( `` script `` ) ; script
+setattribute ( `` type ``  `` text/javascript `` ) ; script
+setattribute ( `` src ``  `` http  //video
+techprogress
+org/scripts/player
+js `` ) ; head
+appendchild ( script ) ; scriptalreadyrequested = true ; } function playernumberfunction ( ) { ( scriptalreadyloaded = = true ) { clearinterval ( playernumberinterval ) ; ( detectflashver ( number ) ) { ac_fl_runcontent ( ' codebase '  ' http  //download
+macromedia
+com/pub/shockwave/cabs/flash/swflash
+cab # version=number '  ' width '  ' number '  ' height '  ' number '  ' src '  ' player '  ' quality '  ' high '  ' pluginspage '  ' http  //www
+macromedia
+com/go/getflashplayer '  ' align '  ' middle '  ' play '  ' true '  ' loop '  ' true '  ' scale '  ' noscale '  ' wmode '  ' window '  ' devicefont '  ' false '  ' id '  ' object_playernumber '  ' bgcolor '  ' # number '  ' name '  ' player '  ' menu '  ' true '  ' allowscriptaccess '  ' always '  ' allowfullscreen '  ' true '  ' movie '  ' http  //video
+techprogress
+org/player '  ' salign '  ' tl '  ' flashvars '  ' postwidth=number & amp ; postheight=number & amp ; id=playernumber & amp ; title= & amp ; skin=http  //video
+techprogress
+org/skins/think_progress
+xml & amp ; video=http  //video
+thinkprogress
+org/number/number/limbaugh
+flv & amp ; link=http  //thinkprogress
+org/number/number/number/limbaugh-obama-arab-number/ '  ' divid '  ' playernumber ' ) ; } } } var playernumberinterval = setinterval ( playernumberfunction  math
+round ( math
+random ( ) * number ) + number ) ; reality  davies 's article reads  obama 's name african heritage obstacles party 's chances capturing white house  party activists finding
+yglesias notes  person 's father  record  location arab part africa
+limbaugh 's latest attempt stoke racist fears person particularly ironic considering fact person penned op-ed wall street journal last friday accusing person stoking racial antagonism
+limbaugh  however  used radio show exactly
+last number months  person repeatedly played song called person barack magic negro  argued person disowned white half  referred person affirmative action candidate
+digg !

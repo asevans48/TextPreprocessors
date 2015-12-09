@@ -1,0 +1,101 @@
+
+
+mn
+
+virginia  mn cyzick  organization organization organization
+
+usmc lcpl number/number/number
+
+wv
+
+star city  person person  organization organization organization
+usmc maj
+number/number/number
+
+nc
+
+location  person person  person person usmc pfc
+number/number/number
+
+ky
+
+clarkson  person person  person person person
+
+usmc pfc
+number/number/number
+
+ma
+
+westwood  person person  thomas a
+usmc lcpl number/number/number
+
+ct
+
+mansfield center  ct person  organization organization organization usmc pvt
+number/number/number
+
+md
+
+baltimore  md douglass  frederick organization organization
+usmc sgtmaj
+number/number/number
+
+ma
+
+cataumet  person person  timothy organization organization usmc cpl
+number/number/number
+
+wv
+
+location  wv earle  organization organization organization
+
+usn
+hn
+
+number/number/number
+
+oh
+
+painsville  oh edwards  organization organization organization
+
+usmc organization organization number/number/number
+
+nc
+
+camp lejeune  nc elliot  person person person
+
+usn
+hmnumber
+number/number/number
+
+pa
+
+lancaster  person person  organization organization organization organization organization organization number/number/number
+
+wi
+
+soldiers grove  wi person  person person person
+
+usmc pfc
+number/number/number
+
+
+
+gary  estler  organization organization organization
+
+usmc pfc
+number/number/number
+
+nj
+
+kenall park  nj faulk  organization organization organization
+
+usn
+hmnumber
+number/number/number
+
+fl
+
+location city  fl fluegel  person a
+usmc pfc
+number/number/number

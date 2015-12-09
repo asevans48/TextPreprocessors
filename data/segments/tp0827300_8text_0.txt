@@ -1,0 +1,43 @@
+person criticizes person refusing applaud victory ' location
+yesterday organization 's meet press  sen
+person person 's ( d-il ) chief strategist person person noted friday 's presidential debate  sen
+person person ( r-az ) never mentioned middle class
+response  person 's top adviser person person noted person never said victory regarding wars country 's fighting
+later  host person person noted gen
+person person person called one great military leaders misc history organization also refuses use word victory regarding location
+person walked back original comment slightly  saying location location edge victory
+watch  ( undefined===window
+scriptalreadyrequested ) { window
+scriptalreadyrequested = false ; } ( undefined===window
+scriptalreadyloaded ) { window
+scriptalreadyloaded = false ; } ( !
+scriptalreadyrequested ) { var head = document
+getelementsbytagname ( `` head `` ) [ number ] ; var script = document
+createelement ( `` script `` ) ; script
+setattribute ( `` type ``  `` text/javascript `` ) ; script
+setattribute ( `` src ``  `` http  //video
+techprogress
+org/scripts/player
+js `` ) ; head
+appendchild ( script ) ; scriptalreadyrequested = true ; } function playernumberfunction ( ) { ( scriptalreadyloaded = = true ) { clearinterval ( playernumberinterval ) ; ( detectflashver ( number ) ) { ac_fl_runcontent ( ' codebase '  ' http  //download
+macromedia
+com/pub/shockwave/cabs/flash/swflash
+cab # version=number '  ' width '  ' number '  ' height '  ' number '  ' src '  ' player '  ' quality '  ' high '  ' pluginspage '  ' http  //www
+macromedia
+com/go/getflashplayer '  ' align '  ' middle '  ' play '  ' true '  ' loop '  ' true '  ' scale '  ' noscale '  ' wmode '  ' window '  ' devicefont '  ' false '  ' id '  ' object_playernumber '  ' bgcolor '  ' # number '  ' name '  ' player '  ' menu '  ' true '  ' allowscriptaccess '  ' always '  ' allowfullscreen '  ' true '  ' movie '  ' http  //video
+techprogress
+org/player '  ' salign '  ' tl '  ' flashvars '  ' postwidth=number & amp ; postheight=number & amp ; id=playernumber & amp ; title= & amp ; skin=http  //video
+techprogress
+org/skins/think_progress
+xml & amp ; video=http  //video
+thinkprogress
+org/number/number/thebulletweb
+flv & amp ; link=http  //thinkprogress
+org/number/number/number/schmidt-iraq-victory/ '  ' divid '  ' playernumber ' ) ; } } } var playernumberinterval = setinterval ( playernumberfunction  math
+round ( math
+random ( ) * number ) + number ) ; also segment  person falsely claimed mccain called firing rumsfeld
+transcript  axelrod  phenomenal debate number minutes economy  senator person never mentioned middle class  never talked struggles people going
+need create economic recovery plan puts core middle class country
+schmidt  well  person  know  debate national security  foreign policy
+never heard word victory senator person came wars country 's fighting
+[

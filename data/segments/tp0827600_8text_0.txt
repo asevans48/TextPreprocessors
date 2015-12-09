@@ -1,0 +1,39 @@
+person jokes  person 'm rich man
+morning msnbc 's morning joe  sen
+person person talked baseball person person
+organization  calling person gambling man  asked baseball team would make world series
+person said dodgers potential  jokingly adding  shows 'm rich man  think dodgers underestimated given fact 've got pretty strong pitching
+think 's possible teams  dodgers red sox  could surprise everybody
+shows 'm rich man
+( laughter ) watch  ( undefined===window
+scriptalreadyrequested ) { window
+scriptalreadyrequested = false ; } ( undefined===window
+scriptalreadyloaded ) { window
+scriptalreadyloaded = false ; } ( !
+scriptalreadyrequested ) { var head = document
+getelementsbytagname ( `` head `` ) [ number ] ; var script = document
+createelement ( `` script `` ) ; script
+setattribute ( `` type ``  `` text/javascript `` ) ; script
+setattribute ( `` src ``  `` http  //video
+techprogress
+org/scripts/player
+js `` ) ; head
+appendchild ( script ) ; scriptalreadyrequested = true ; } function playernumberfunction ( ) { ( scriptalreadyloaded = = true ) { clearinterval ( playernumberinterval ) ; ( detectflashver ( number ) ) { ac_fl_runcontent ( ' codebase '  ' http  //download
+macromedia
+com/pub/shockwave/cabs/flash/swflash
+cab # version=number '  ' width '  ' number '  ' height '  ' number '  ' src '  ' player '  ' quality '  ' high '  ' pluginspage '  ' http  //www
+macromedia
+com/go/getflashplayer '  ' align '  ' middle '  ' play '  ' true '  ' loop '  ' true '  ' scale '  ' noscale '  ' wmode '  ' window '  ' devicefont '  ' false '  ' id '  ' object_playernumber '  ' bgcolor '  ' # number '  ' name '  ' player '  ' menu '  ' true '  ' allowscriptaccess '  ' always '  ' allowfullscreen '  ' true '  ' movie '  ' http  //video
+techprogress
+org/player '  ' salign '  ' tl '  ' flashvars '  ' postwidth=number & amp ; postheight=number & amp ; id=playernumber & amp ; title= & amp ; skin=http  //video
+techprogress
+org/skins/think_progress
+xml & amp ; video=http  //video
+thinkprogress
+org/number/number/mccainnumberflv & amp ; link=permalink '  ' divid '  ' playernumber ' ) ; } } } var playernumberinterval = setinterval ( playernumberfunction  math
+round ( math
+random ( ) * number ) + number ) ; course  person owns roughly eight homes number cars always bizarre definition rich
+pastor person person asked define rich  mccain responded joke  asking  $ number million
+august  person said defines rich ways beside income
+added people poor 're billionaires
+digg !

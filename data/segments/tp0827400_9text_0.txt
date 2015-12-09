@@ -1,0 +1,42 @@
+media  bush picture beaten dog ' wake yesterday 's congressional meltdown bailout bill  president person gave speech morning  meant reassure public volatile financial markets
+four minutes long  address expressed disappointment congress warned consequences grow worse day act
+bush 's speech unlikely much effect
+immediately following address  msnbc turned new york magazine 's person person  commented  ' think comforts anybody
+' think moves single vote
+due respect sympathy man  picture beaten dog
+picture presidential impotence right
+looked terrible like bell rung
+looked drawn
+wall street journal 's person person added  strikes lately  president talks economic crisis  seems like commentator upon crisis opposed leader crisis
+sense watching saying need something  opposed something
+watch bush 's speech  followed msnbc 's commentary ( view youtube version )  ( undefined===window
+scriptalreadyrequested ) { window
+scriptalreadyrequested = false ; } ( undefined===window
+scriptalreadyloaded ) { window
+scriptalreadyloaded = false ; } ( !
+scriptalreadyrequested ) { var head = document
+getelementsbytagname ( `` head `` ) [ number ] ; var script = document
+createelement ( `` script `` ) ; script
+setattribute ( `` type ``  `` text/javascript `` ) ; script
+setattribute ( `` src ``  `` http  //video
+techprogress
+org/scripts/player
+js `` ) ; head
+appendchild ( script ) ; scriptalreadyrequested = true ; } function playernumberfunction ( ) { ( scriptalreadyloaded = = true ) { clearinterval ( playernumberinterval ) ; ( detectflashver ( number ) ) { ac_fl_runcontent ( ' codebase '  ' http  //download
+macromedia
+com/pub/shockwave/cabs/flash/swflash
+cab # version=number '  ' width '  ' number '  ' height '  ' number '  ' src '  ' player '  ' quality '  ' high '  ' pluginspage '  ' http  //www
+macromedia
+com/go/getflashplayer '  ' align '  ' middle '  ' play '  ' true '  ' loop '  ' true '  ' scale '  ' noscale '  ' wmode '  ' window '  ' devicefont '  ' false '  ' id '  ' object_playernumber '  ' bgcolor '  ' # number '  ' name '  ' player '  ' menu '  ' true '  ' allowscriptaccess '  ' always '  ' allowfullscreen '  ' true '  ' movie '  ' http  //video
+techprogress
+org/player '  ' salign '  ' tl '  ' flashvars '  ' postwidth=number & amp ; postheight=number & amp ; id=playernumber & amp ; title= & amp ; skin=http  //video
+techprogress
+org/skins/think_progress
+xml & amp ; video=http  //video
+thinkprogress
+org/number/number/heilenoon
+flv & amp ; link=http  //thinkprogress
+org/number/number/number/bush-beaten-dog '  ' divid '  ' playernumber ' ) ; } } } var playernumberinterval = setinterval ( playernumberfunction  math
+round ( math
+random ( ) * number ) + number ) ; location post writes today  yesterday 's failed bailout vote marked biggest legislative defeat bush 's tenure underscored vanishing influence president could bend pliant congress wars  taxes  surveillance host high-profile initiatives
+coinciding developments  gallup released new poll today showing bush 's approval rating dropped lowest point tenure

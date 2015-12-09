@@ -1,0 +1,52 @@
+
+
+nc
+
+location  organization organization  rafael i
+
+usmc sgt
+number/number/number
+
+pa
+
+philadelphia  pa prevatt  victor organization organization
+
+usmc cpl
+number/number/number
+
+ga
+
+columbus  ga price  person person organization
+
+usmc pfc
+number/number/number
+
+al
+
+attala  person person  organization organization organization usmc ssgt number/number/number
+
+fl
+
+location  organization organization  person a
+organization
+usmc pfc
+number/number/number
+
+il
+
+e st
+louis  il quirante  diomedes j
+
+usn
+hmnumber
+number/number/number
+
+rp
+
+calcoocan city  rp randolph  person person person
+
+usmc lcpl number/number/number
+
+az
+
+siloam springs  organization organization  organization organization organization

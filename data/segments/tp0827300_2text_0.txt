@@ -1,0 +1,56 @@
+rep
+frank gop  somebody hurt feelings  decide punish country ' soon bailout proposal failed house  republican lawmakers began blaming house speaker person person ( d-ca ) defeat
+press conference  gop leadership faulted person giving partisan speech prior vote
+subsequent democratic press conference  rep
+person person ( d-ma ) responded absurd charge  's story
+'s terrible crisis affecting american economy
+come together bill alleviate crisis
+somebody hurt feelings  decide punish country
+mean  would imputed degree pettiness hypersensitivity
+also person leader tell  's working ' believe votes  believe 're covering embarrassment votes
+think
+somebody hurt feelings  punish country
+'s hardly plausible
+number republican members ready stand economic interest location  anybody insulted
+'ll make offer
+give number people 's names go talk uncharacteristically nicely tell wonderful people maybe 'll think country
+watch ( view youtube version )  ( undefined===window
+scriptalreadyrequested ) { window
+scriptalreadyrequested = false ; } ( undefined===window
+scriptalreadyloaded ) { window
+scriptalreadyloaded = false ; } ( !
+scriptalreadyrequested ) { var head = document
+getelementsbytagname ( `` head `` ) [ number ] ; var script = document
+createelement ( `` script `` ) ; script
+setattribute ( `` type ``  `` text/javascript `` ) ; script
+setattribute ( `` src ``  `` http  //video
+techprogress
+org/scripts/player
+js `` ) ; head
+appendchild ( script ) ; scriptalreadyrequested = true ; } function playernumberfunction ( ) { ( scriptalreadyloaded = = true ) { clearinterval ( playernumberinterval ) ; ( detectflashver ( number ) ) { ac_fl_runcontent ( ' codebase '  ' http  //download
+macromedia
+com/pub/shockwave/cabs/flash/swflash
+cab # version=number '  ' width '  ' number '  ' height '  ' number '  ' src '  ' player '  ' quality '  ' high '  ' pluginspage '  ' http  //www
+macromedia
+com/go/getflashplayer '  ' align '  ' middle '  ' play '  ' true '  ' loop '  ' true '  ' scale '  ' noscale '  ' wmode '  ' window '  ' devicefont '  ' false '  ' id '  ' object_playernumber '  ' bgcolor '  ' # number '  ' name '  ' player '  ' menu '  ' true '  ' allowscriptaccess '  ' always '  ' allowfullscreen '  ' true '  ' movie '  ' http  //video
+techprogress
+org/player '  ' salign '  ' tl '  ' flashvars '  ' postwidth=number & amp ; postheight=number & amp ; id=playernumber & amp ; title= & amp ; skin=http  //video
+techprogress
+org/skins/think_progress
+xml & amp ; video=http  //video
+thinkprogress
+org/number/number/franknice
+flv & amp ; link=http  //thinkprogress
+org/number/number/number/frank-republican-feelings/ '  ' divid '  ' playernumber ' ) ; } } } var playernumberinterval = setinterval ( playernumberfunction  math
+round ( math
+random ( ) * number ) + number ) ; person 's speech mentions word republican context praising bipartisanship  past several days  worked republican colleagues fashion alternative original plan bush administration misc looking person 's speech  cnn 's person person said couldn ' find partisan thing say sort inflamed republican members
+( view full speech  )
+gop staffer wrote national review 's rich lowry acknowledged person right  rich 'm afraid rep
+frank point one
+feelings gop side hurt  voted economic well-being country
+update politico notes person 's speech house floor `` deviated substantially `` prepared remarks
+speech  person ad-libbed stinging rebuke conservative policies  saying  `` democrats believe free market
+
+
+case  unbridled form encouraged  supported republicans republican party  created jobs  capital  created chaos  ``
+person 's office returned politico 's request comment

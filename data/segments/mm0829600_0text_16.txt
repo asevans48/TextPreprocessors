@@ -1,0 +1,52 @@
+
+
+usmc pfc
+number/number/number
+
+pr
+
+location location menkins  person person person
+usmc sgt
+number/number/number
+
+ny
+
+tully  person person  person person
+
+usmc cpl
+number/number/number
+
+nc
+
+vale  nc meurer  organization organization organization usmc lcpl number/number/number
+
+nc
+
+location  person person  organization organization organization usn
+hmnumber
+number/number/number
+
+ny
+
+person  person person  organization organization organization
+usmc cpl
+number/number/number
+
+mo
+
+st
+louis  mo morrow  person a
+
+usmc lcpl number/number/number
+
+pa
+
+clairton  pa muffler  person person person
+usmc lcpl number/number/number
+
+pa
+
+philadelphia  person person  organization organization usmc cpl
+number/number/number
+
+nm

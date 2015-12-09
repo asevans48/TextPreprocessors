@@ -1,0 +1,32 @@
+
+
+va
+
+location  person person  mark organization organization
+organization organization
+ssgt number/number/number
+
+ca
+
+location  ca twine  organization organization organization organization
+sfc
+number/number/number
+
+uk
+
+salop  uk losey  donald george usmc numberlt
+number/number/number
+
+nc
+
+person person  nc ortega  organization organization organization usmc ssgt number/number/number
+
+ny
+
+location  ny clark  randy w
+
+usmc lcpl number/number/number
+
+wi
+
+minong  person person  organization organization organization

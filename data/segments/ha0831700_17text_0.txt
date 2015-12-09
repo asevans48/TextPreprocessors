@@ -1,0 +1,37 @@
+story hennepin county election continues curious path today new revelation transmission process
+yesterday  spoke election judge hennepin county told modems ballot-counting machines known county elections officials four days prior election
+today  speaking official involved elections process county  confirmed none machines hennepin county could electronically transmit results night election  county officials knew failure eleven days advance
+location uses optical-scan balloting system makes entire process secure
+allow voters catch unusable ballots leave well automate counting process  removes human error vote reporting county election centers
+hennepin county spent lot money systems explicitly selected wireless modem option purpose
+machines wireless modems pre-programmed specific ip address securely transmit results directly election centers
+reason  machines wrong ip address entered cards
+cards would needed reprogrammed correct error  hundred precincts hennepin ( includes location )  would taken significant effort
+person  eleven days accomplish  failure take corrective action national election mystifying
+source spoke said county officials aware october numberrd  possibly earlier
+would hennepin county refuse correct fundamental failure elections process eleven days ahead everyone expected close senate race  let alone presidential election
+answer  spoke person person  elections manager hennepin county
+person said county know failure october numberrd  didn ' enough time reprogram number + memory cards meet statutory deadlines public testing seven days advance elections
+'s strange part
+desjardin confirmed electronic transmission system worked primaries
+cards get reprogrammed  destination ip address change primaries
+reason transmission cards required reprogramming
+person acknowledged failure number + machines connect mystery  higher priority statutory deadlines meet begin investigating failure
+another question arises
+didn ' county test system time make changes
+entire point testing find broken processes correct time election
+desjardin also told county provided written procedures cities work-around transmission process
+cities responsible sending written instructions precincts
+hennepin county could confirm precincts received  desjardin confirmed city
+also contacted secretary state 's office spoke director governmental affairs  person person
+person explained hennepin county responsible managing elections process jurisdiction
+issue custody  person said rules vary depending whether ballots get counted precinct county election centers
+latter case  requires two judges times carry ballots back election center
+location  ballots counted  sealed  signed judges precincts ( using optical-scan precinct tabulators )  state requires one person custody transporting ballots
+therefore  nothing untoward happened process
+hopefully  local media start asking crucial safeguard election process knowingly allowed fail  caused failure
+minnesotans spend lot money elections  populous county state performed better
+update  've made edits clarity conferring sources
+'s one final question
+number + machines failed  changes made destination ip  didn ' hennepin conclude problem wasn ' machines destination
+didn ' try fix problem receiving end

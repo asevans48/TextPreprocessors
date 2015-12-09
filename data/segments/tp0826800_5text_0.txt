@@ -1,0 +1,43 @@
+americans blame financial crisis lack regulation  person says people ' want regulation ' interview tuesday person location  sen
+person person ( r-az ) backed away sept
+number claim believes excess government regulation  saying americans actually want deregulation  welker  sounds like 're calling regulation
+yet throughout career 've advocated deregulation
+see failed economic policy deregulation
+mccain  oh
+people ' want regulation
+want live freely
+'s smart regulation
+look  've called fixing fannie freddie long time ago
+watch  ( undefined===window
+scriptalreadyrequested ) { window
+scriptalreadyrequested = false ; } ( undefined===window
+scriptalreadyloaded ) { window
+scriptalreadyloaded = false ; } ( !
+scriptalreadyrequested ) { var head = document
+getelementsbytagname ( `` head `` ) [ number ] ; var script = document
+createelement ( `` script `` ) ; script
+setattribute ( `` type ``  `` text/javascript `` ) ; script
+setattribute ( `` src ``  `` http  //video
+techprogress
+org/scripts/player
+js `` ) ; head
+appendchild ( script ) ; scriptalreadyrequested = true ; } function playernumberfunction ( ) { ( scriptalreadyloaded = = true ) { clearinterval ( playernumberinterval ) ; ( detectflashver ( number ) ) { ac_fl_runcontent ( ' codebase '  ' http  //download
+macromedia
+com/pub/shockwave/cabs/flash/swflash
+cab # version=number '  ' width '  ' number '  ' height '  ' number '  ' src '  ' player '  ' quality '  ' high '  ' pluginspage '  ' http  //www
+macromedia
+com/go/getflashplayer '  ' align '  ' middle '  ' play '  ' true '  ' loop '  ' true '  ' scale '  ' noscale '  ' wmode '  ' window '  ' devicefont '  ' false '  ' id '  ' object_playernumber '  ' bgcolor '  ' # number '  ' name '  ' player '  ' menu '  ' true '  ' allowscriptaccess '  ' always '  ' allowfullscreen '  ' true '  ' movie '  ' http  //video
+techprogress
+org/player '  ' salign '  ' tl '  ' flashvars '  ' postwidth=number & amp ; postheight=number & amp ; id=playernumber & amp ; title= & amp ; skin=http  //video
+techprogress
+org/skins/think_progress
+xml & amp ; video=http  //video
+thinkprogress
+org/number/number/mccainfreelynumberflv & amp ; link=http  //thinkprogress
+org/number/number/number/regulation-poll/ '  ' divid '  ' playernumber ' ) ; } } } var playernumberinterval = setinterval ( playernumberfunction  math
+round ( math
+random ( ) * number ) + number ) ; new la times/bloomberg poll doesn ' bear person 's claims  however
+finds americans actually blaming financial crisis lack government regulation  person consistently strong advocate deregulation
+september  said deregulation probably helpful growth economy  also called similar deregulation health care industry
+course  one person 's top economic confidantes person person  drove much financial industry 's deregulation
+digg !

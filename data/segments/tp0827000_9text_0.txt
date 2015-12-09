@@ -1,0 +1,46 @@
+person declares victory ' location interview cbs 's person person aired yesterday  gov
+person person ( r-ak ) outlined foreign policy positions
+laying location different location  called surge troops location  exactly bush administration location
+noted led victory location would therefore location  couric  much challenging
+explain
+palin  logistics 're already suggesting  enough troops area right
+thethings like terrain  even  location border location location  know  believe person person hiding right still leader terrorist movement
+many challenges
+believe surge location also lead us victory  proven done location
+watch  ( undefined===window
+scriptalreadyrequested ) { window
+scriptalreadyrequested = false ; } ( undefined===window
+scriptalreadyloaded ) { window
+scriptalreadyloaded = false ; } ( !
+scriptalreadyrequested ) { var head = document
+getelementsbytagname ( `` head `` ) [ number ] ; var script = document
+createelement ( `` script `` ) ; script
+setattribute ( `` type ``  `` text/javascript `` ) ; script
+setattribute ( `` src ``  `` http  //video
+techprogress
+org/scripts/player
+js `` ) ; head
+appendchild ( script ) ; scriptalreadyrequested = true ; } function playernumberfunction ( ) { ( scriptalreadyloaded = = true ) { clearinterval ( playernumberinterval ) ; ( detectflashver ( number ) ) { ac_fl_runcontent ( ' codebase '  ' http  //download
+macromedia
+com/pub/shockwave/cabs/flash/swflash
+cab # version=number '  ' width '  ' number '  ' height '  ' number '  ' src '  ' player '  ' quality '  ' high '  ' pluginspage '  ' http  //www
+macromedia
+com/go/getflashplayer '  ' align '  ' middle '  ' play '  ' true '  ' loop '  ' true '  ' scale '  ' noscale '  ' wmode '  ' window '  ' devicefont '  ' false '  ' id '  ' object_playernumber '  ' bgcolor '  ' # number '  ' name '  ' player '  ' menu '  ' true '  ' allowscriptaccess '  ' always '  ' allowfullscreen '  ' true '  ' movie '  ' http  //video
+techprogress
+org/player '  ' salign '  ' tl '  ' flashvars '  ' postwidth=number & amp ; postheight=number & amp ; id=playernumber & amp ; title= & amp ; skin=http  //video
+techprogress
+org/skins/think_progress
+xml & amp ; video=http  //video
+thinkprogress
+org/number/number/palinvictory
+flv & amp ; link=http  //thinkprogress
+org/number/number/number/palin-victory-iraq '  ' divid '  ' playernumber ' ) ; } } } var playernumberinterval = setinterval ( playernumberfunction  math
+round ( math
+random ( ) * number ) + number ) ; victory location
+gen
+person person reportedly banned use words like triumph  victory  're winning
+sort struggle take hill  plant flag go home victory parade
+'s war simple slogan  told organization news earlier month
+like running mate  sen
+person person ( r-az ) frequently declares success location  recently stating country peaceful stable  location location winning location
+digg !

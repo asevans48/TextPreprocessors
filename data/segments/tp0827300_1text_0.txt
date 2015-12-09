@@ -1,0 +1,37 @@
+white house press corps fails ask single question us attorney investigation today  office public responsibility department justice inspector general released culmination number-month investigation  report finding firing process nine us attorneys fundamentally flawed cases  governed politics
+investigation also found former attorney general person person  justice department aide person person  justice officials made inconsistent  misleading  inaccurate statements reasons firing attorneys
+investigators also noted report many ways incomplete  due white house 's stonewalling  [ ] gaps investigation refusal certain key witnesses interviewed us  including former white house officials karl rove  person person  person person  former department justice white house liaison person person  senator person person  chief staff
+addition  white house would provide us internal documents related removals us attorneys
+today  attorney general person person appointed special prosecutor continue investigation person officials determine whether prosecutable offense committed attorney firings
+despite action  white house press corps made mention investigation number-minute briefing spokesman person person
+reacting report today  senate judiciary committee chairman person person ( d-vt ) said abuses documented report corrosive foundations system justice
+also warned president person misuse pardon power benefit administration officials involved seen admission wrongdoing misuse power
+watch  ( undefined===window
+scriptalreadyrequested ) { window
+scriptalreadyrequested = false ; } ( undefined===window
+scriptalreadyloaded ) { window
+scriptalreadyloaded = false ; } ( !
+scriptalreadyrequested ) { var head = document
+getelementsbytagname ( `` head `` ) [ number ] ; var script = document
+createelement ( `` script `` ) ; script
+setattribute ( `` type ``  `` text/javascript `` ) ; script
+setattribute ( `` src ``  `` http  //video
+techprogress
+org/scripts/player
+js `` ) ; head
+appendchild ( script ) ; scriptalreadyrequested = true ; } function playernumberfunction ( ) { ( scriptalreadyloaded = = true ) { clearinterval ( playernumberinterval ) ; ( detectflashver ( number ) ) { ac_fl_runcontent ( ' codebase '  ' http  //download
+macromedia
+com/pub/shockwave/cabs/flash/swflash
+cab # version=number '  ' width '  ' number '  ' height '  ' number '  ' src '  ' player '  ' quality '  ' high '  ' pluginspage '  ' http  //www
+macromedia
+com/go/getflashplayer '  ' align '  ' middle '  ' play '  ' true '  ' loop '  ' true '  ' scale '  ' noscale '  ' wmode '  ' window '  ' devicefont '  ' false '  ' id '  ' object_playernumber '  ' bgcolor '  ' # number '  ' name '  ' player '  ' menu '  ' true '  ' allowscriptaccess '  ' always '  ' allowfullscreen '  ' true '  ' movie '  ' http  //video
+techprogress
+org/player '  ' salign '  ' tl '  ' flashvars '  ' postwidth=number & amp ; postheight=number & amp ; id=playernumber & amp ; title= & amp ; skin=http  //video
+techprogress
+org/skins/think_progress
+xml & amp ; video=http  //video
+thinkprogress
+org/number/number/leahy-gonzales
+flv & amp ; link=permalink '  ' divid '  ' playernumber ' ) ; } } } var playernumberinterval = setinterval ( playernumberfunction  math
+round ( math
+random ( ) * number ) + number ) ;

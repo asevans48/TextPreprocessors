@@ -1,0 +1,69 @@
+
+
+ft
+sill  ok owen  person person person
+usmc pfc
+number/number/number
+
+va
+
+virginia beach  person person  joseph a
+organization
+usmc cpl
+number/number/number
+
+va
+
+chesterfield  va page  connie ray organization
+usmc cpl
+number/number/number
+
+nc
+
+erwin  person person  ulysses organization
+
+usmc lcpl number/number/number
+
+md
+
+baltimore  md payne  mark w organization organization organization organization organization number/number/number
+
+ny
+
+location  person person  person person person
+usmc gysgt
+
+number/number/number
+
+nc
+
+location  person person  thomas s organization usmc pfc
+number/number/number
+
+ma
+
+person  person person  person person person
+
+
+usmc sgt
+number/number/number
+
+il
+
+wilmette  il piercy  george w usn
+hmc
+number/number/number
+
+md
+
+mt
+savage  md plymel  clyde organization organization
+usmc numberstlt
+
+number/number/number
+
+fl
+
+person  person person  organization organization organization
+usmc sgt
+number/number/number

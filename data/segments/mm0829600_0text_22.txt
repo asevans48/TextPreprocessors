@@ -1,0 +1,399 @@
+
+
+oh
+
+niles  person person  organization organization organization organization organization organization organization number/number/number
+
+fl
+
+location  person person  thomas g
+usmc ssgt number/number/number
+
+ct
+
+location  ct person  vincent organization organization usmc capt number/number/number
+
+nc
+
+location  person person  organization organization organization organization organization organization number/number/number
+
+ri
+
+tiverton  person person  person organization organization
+
+usmc numberstlt
+
+number/number/number
+
+il
+
+location  il spaulding  person person
+
+usmc lcpl number/number/number
+
+oh
+
+location  oh spearing  organization organization organization usmc lcpl number/number/number
+
+pa
+
+lancaster  person person  organization organization organization
+usmc lcpl number/number/number
+
+ri
+
+portsmouth  ri stelpflug  bill organization organization
+
+usmc lcpl number/number/number
+
+al
+
+organization  organization organization  horace r
+usmc lcpl number/number/number
+
+md
+
+capitol heights  person person  craig s
+
+usmc pfc
+number/number/number
+
+ny
+
+location  person person  person person person
+
+usmc lcpl number/number/number
+
+ga
+
+person  ga stowe  thomas d
+usmc lcpl number/number/number
+
+nc
+
+location  nc sturghill  person d
+
+usmc lcpl number/number/number
+
+il
+
+chicago  il sundar  organization organization organization
+usmc lcpl number/number/number
+
+ct
+
+standford  ct surch  person person person
+
+usn
+lt
+
+number/number/number
+
+ca
+
+lompoc  ca thompson  dennis a
+usmc cpl
+number/number/number
+
+ny
+
+bronx  ny thorstad  thomas p
+usmc ssgt number/number/number
+
+
+
+chesterton  tingley  person d
+usmc pfc
+number/number/number
+
+ct
+
+person  ct tishmack  person person person usmc lcpl number/number/number
+
+mn
+
+location  mn trahan  lex d organization usmc pvt
+number/number/number
+
+la
+
+lafayette  person person  person person person
+
+usmc pfc
+number/number/number
+
+ca
+
+location  person person  person r
+
+usmc cpl
+number/number/number
+
+il
+
+chicago  person person  organization organization organization
+
+usmc cpl
+number/number/number
+
+al
+
+dothan  organization organization  person g
+usmc cpl
+number/number/number
+
+va
+
+location  person person  obrian organization usmc cpl
+number/number/number
+
+ny
+
+location  person person  tandy w
+
+usmc organization organization
+number/number/number
+
+nc
+
+location  organization organization  person person person usmc lcpl number/number/number
+
+pa
+
+reading  person person  allen organization organization
+usmc sgt
+number/number/number
+
+pa
+
+philadelphia  pa west  organization organization organization usmc gysgt
+
+number/number/number
+
+nc
+
+location  nc weyl  john r organization
+usmc ssgt number/number/number
+
+nc
+
+location  nc wherland  person person person
+usmc cpl
+number/number/number
+
+nc
+
+location  nc wigglesworth  dwayne organization organization usmc lcpl number/number/number
+
+ct
+
+naugatuck  ct williams  person person
+usmc lcpl number/number/number
+
+fl
+
+opa locka  fl williams  scipio jr
+usmc gysgt
+
+number/number/number
+
+sc
+
+location  organization organization  johnny a
+
+usmc lcpl number/number/number
+
+nc
+
+person  nc wint  person person person
+
+usmc capt number/number/number
+
+pa
+
+person  pa winter  organization organization organization
+
+usmc capt number/number/number
+
+sc
+
+fripp island  organization organization  organization organization organization usmc cpl
+number/number/number
+
+az
+
+phoenix  person person  organization organization organization
+usmc numberstlt
+
+number/number/number
+
+ok
+
+barthesville  ok worley  organization organization organization
+usn
+hmnumber
+number/number/number
+
+md
+
+baltimore  person person  organization organization organization
+
+usmc pfc
+number/number/number
+
+ny
+
+location  person person  person person person
+organization organization
+sfc
+number/number/number
+
+ca
+
+location  ca young  person person person usmc sgt
+number/number/number
+
+nj
+
+moorestown  person person  person a
+
+usmc numberstlt
+
+number/number/number
+
+mi
+
+grand haven  mi townsend  person person
+
+usmc cpl
+number/number/number
+
+al
+
+person  person person  person d
+
+usmc cpl
+number/number/number
+
+al
+
+valley head  person person  person person
+
+usmc cpl
+number/number/number
+
+ny
+
+queens  ny person  manuel a
+organization usmc sgt
+number/number/number
+
+nj
+
+union city  person person  person person person
+usmc cpl
+number/number/number
+
+oh
+
+eastlake  oh person  thomas a
+organization
+usmc cpl
+number/number/number
+
+mt
+
+conrad  mt person  person t usmc pfc
+number/number/number
+
+fl
+
+location  fl kraft  todd a
+organization usmc cpl
+number/number/number
+
+nd
+
+devilslake  nd lange  mark a
+organization usn
+lt
+number/number/number
+
+mi
+
+fraser  person person  person person person
+
+usmc cpl
+number/number/number
+
+tn
+
+person  tn gargano  organization organization organization
+
+usmc cpl
+number/number/number
+
+ma
+
+quincy  ma dramis  george organization organization usmc lcpl number/number/number
+
+nj
+
+cape may court house  nj * hernandez  person person
+usmc number/number/number
+
+tx
+
+location location  tx butler  alfred iii
+
+usmc capt number/number/number
+
+fl
+
+cocoa beach  person person  organization organization
+
+usn
+isnumber
+number/number/number
+
+nc
+
+zebulon   person person  organization organization organization organization
+wonumber
+number/number/number
+
+mi
+
+grand rapids  mi * hendrickson  person person
+
+usmc number/number/number
+
+
+
+* simpson  person person person
+
+usmc number/number/number
+
+
+
+hasenfus  organization organization organization organization
+cpl
+number/number/number
+
+ma
+
+location  ma stethem  organization organization organization
+
+usn
+swnumber
+number/number/number
+
+md
+
+waldorf  person person  person r
+usmc col
+number/number/number
+
+ky
+
+location  ky * * * flashback  american victims organization

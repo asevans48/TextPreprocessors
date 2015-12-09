@@ -1,0 +1,8 @@
+okay lets make list countries closest population location location fair let 's use number high-income oecd countries
+( following data comes world health report number ) country | % world | us/ % location location location location numbernumber numberjapan numbernumber numbernumbergermany numbernumber numbernumberfrance numbernumber numbernumberunited kingdom numbernumber numbernumbernow let 's sort overall healthcare performancecountry | performance | cost per capita - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - france number numberjapan number numberunited kingdom number numbergermany number numberunited states number numbersince interested cost let 's sort performance / cost per capita
+'s better metric
+country | p/c -- -- -- -- -- -- -- -- -- -- france numbernumberunited kingdom numbernumberjapan numbernumbergermany numbernumberunited states numbernumberand let 's scale population
+( ( p/c ) ( us/ % world ) ) let 's also reveal system healthcare country uses
+country | ( p/c ) ( us/ % world ) | system healthcare - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - france numbernumber single-payerjapan numbernumber single-payerunited kingdom numbernumber single-payergermany numbernumber compulsory national insuranceunited states numbernumber voluntary private insuranceso see single-payer clearly affordable better performance either cni vpi systems healthcare
+hunch sample included even countries would trend compulsory private insurance ( like live mass  )
+would better vpi still good organization

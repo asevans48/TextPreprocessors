@@ -1,0 +1,104 @@
+
+
+usmc ssgt number/number/number
+
+sc
+
+beaufort  organization organization  person s
+
+usn
+hmnumber
+number/number/number
+
+ky
+
+person  ky hollingshead  bruce a
+usmc lcpl number/number/number
+
+oh
+
+fairborn  oh holmes  organization organization organization usmc pfc
+number/number/number
+
+il
+
+chicago  il howard  person person person
+usmc cpl
+number/number/number
+
+
+
+strong  hudson  person person person
+
+usn
+lt
+
+number/number/number
+
+ga
+
+location  ga hudson  person person person
+usmc cpl
+number/number/number
+
+al
+
+person  al hue  organization organization organization organization organization organization organization number/number/number
+
+la
+
+des allemands  la hukill  organization organization organization
+
+usmc numberndlt
+
+number/number/number
+
+nc
+
+location  nc person  person person person
+usmc lcpl number/number/number
+
+ri
+
+warwick  ri ingalls  person person person
+usmc pfc
+number/number/number
+
+ny
+
+interlaken  ny innocenzi  person person person
+usmc wonumber
+number/number/number
+
+nj
+
+location  nj jackowski  person person person
+usmc lcpl number/number/number
+
+ny
+
+person person  person person  person person person usmc lcpl number/number/number
+
+md
+
+baltimore  person person  person person
+
+usmc lcpl number/number/number
+
+fl
+
+location location  fl johnson  person person person
+usn
+hmnumber
+number/number/number
+
+mi
+
+detroit  person person  edward a
+usmc cpl
+number/number/number
+
+oh
+
+struthers  person person  person person
+usmc lcpl number/number/number

@@ -1,0 +1,36 @@
+
+
+gov/apps/sos/election/general/generalnumber michigan  http  //miboecfr
+nictusa
+com/election/results/numbergen/ minnesota  http  //www
+sos
+state
+mn
+us/home/index
+asp
+page=number missouri  http  //www
+sos
+mo
+gov/enrweb/allresults
+asp
+eid=number location  http  //sos
+state
+nv
+us/elections/ location location  http  //results
+enr
+clarityelections
+com/nc/number/number/en/summary
+html ohio  http  //www
+sos
+state
+oh
+us/sos/elections/electresultsmain/numberelectionresults
+aspx pennsylvania  http  //www
+electionreturns
+state
+pa
+us/ virginia  http  //www
+sbe
+virginia
+gov/cms/election_information/election_results/index
+html

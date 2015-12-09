@@ -1,0 +1,38 @@
+
+
+person  person person  person person person
+
+usmc cpl
+number/number/number
+
+nc
+
+whittler  nc nairn  person person person
+
+usmc numberstlt
+
+number/number/number
+
+nc
+
+location  person person  luis a
+organization
+usmc lcpl number/number/number
+
+ca
+
+location  person person  john a
+organization usmc cpl
+number/number/number
+
+mn
+
+person  person person  person person person
+usmc pfc
+number/number/number
+
+ny
+
+lawtons  person person  person person organization usmc cwonumber number/number/number
+
+ok

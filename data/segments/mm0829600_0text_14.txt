@@ -1,0 +1,46 @@
+
+
+ga
+
+atlanta  ga organization  organization organization organization
+
+usmc cpl
+number/number/number
+
+il
+
+location  il lyon  person person person
+organization usmc lcpl number/number/number
+
+fl
+
+person  fl macroglou  person person person
+
+usmc maj
+number/number/number
+
+nc
+
+location  nc maitland  person person
+usmc cpl
+number/number/number
+
+nc
+
+location  nc person  person person
+
+usmc ssgt number/number/number
+
+nc
+
+camp lejeune  nc person  person person person
+
+usmc pfc
+number/number/number
+
+fl
+
+oveido  fl massa  person s organization
+
+usmc cpl
+number/number/number

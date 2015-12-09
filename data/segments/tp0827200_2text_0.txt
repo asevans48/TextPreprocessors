@@ -1,0 +1,46 @@
+attacking earmarks  person unable defend pork  person 'm part problem ' presidential debate friday  sen
+person person ( r-az ) responded question would lead country financial crisis railing tangential issue earmark pork-barrel spending
+first thing get spending control location  said person  adding earmarks evil
+asked fox news sunday today person 's narrow focus earmarks  sen
+person person ( r-sc ) claimed believe earmarks narrow problem  ' understand 's happened earmarks
+asked host person person  earmarks bad  ask number projects totaling $ number million dollar last fiscal year
+person could respond saying part problem would change  person  part problem
+earmarks authorized  number one
+'re look
+'m part problem  'd like part solution good part earmarks overwhelmed bad part
+let 's start
+let 's start $ number million dna bear studies location  $ number million bridge location fifty people drowning good things 've done person 's done
+'m willing start
+'s one guy town hasn ' gotten penny
+'m willing follow lead 's convinced greater good would achieved time
+watch  ( undefined===window
+scriptalreadyrequested ) { window
+scriptalreadyrequested = false ; } ( undefined===window
+scriptalreadyloaded ) { window
+scriptalreadyloaded = false ; } ( !
+scriptalreadyrequested ) { var head = document
+getelementsbytagname ( `` head `` ) [ number ] ; var script = document
+createelement ( `` script `` ) ; script
+setattribute ( `` type ``  `` text/javascript `` ) ; script
+setattribute ( `` src ``  `` http  //video
+techprogress
+org/scripts/player
+js `` ) ; head
+appendchild ( script ) ; scriptalreadyrequested = true ; } function playernumberfunction ( ) { ( scriptalreadyloaded = = true ) { clearinterval ( playernumberinterval ) ; ( detectflashver ( number ) ) { ac_fl_runcontent ( ' codebase '  ' http  //download
+macromedia
+com/pub/shockwave/cabs/flash/swflash
+cab # version=number '  ' width '  ' number '  ' height '  ' number '  ' src '  ' player '  ' quality '  ' high '  ' pluginspage '  ' http  //www
+macromedia
+com/go/getflashplayer '  ' align '  ' middle '  ' play '  ' true '  ' loop '  ' true '  ' scale '  ' noscale '  ' wmode '  ' window '  ' devicefont '  ' false '  ' id '  ' object_playernumber '  ' bgcolor '  ' # number '  ' name '  ' player '  ' menu '  ' true '  ' allowscriptaccess '  ' always '  ' allowfullscreen '  ' true '  ' movie '  ' http  //video
+techprogress
+org/player '  ' salign '  ' tl '  ' flashvars '  ' postwidth=number & amp ; postheight=number & amp ; id=playernumber & amp ; skin=http  //video
+techprogress
+org/skins/think_progress
+xml & amp ; video=http  //video
+thinkprogress
+org/number/number/grahamearmarks
+flv & amp ; link=http  //thinkprogress
+org '  ' divid '  ' playernumber ' ) ; } } } var playernumberinterval = setinterval ( playernumberfunction  math
+round ( math
+random ( ) * number ) + number ) ; considering person demagogued earmarks years  's laughable person claim willing follow person 's lead even continues request pork
+fact  despite person 's previous vote earmark moratorium fiscal year number  person recently placed $ number million earmarks number defense authorization bill

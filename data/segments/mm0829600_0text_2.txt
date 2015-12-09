@@ -1,0 +1,56 @@
+
+
+usmc cpl
+number/number/number
+
+rp
+
+san juan  rp soifert  person person person
+usmc sgt
+number/number/number
+
+nh
+
+location  nh ohler  organization organization organization usmc capt number/number/number
+
+ny
+
+location  person person  terry w
+usmc cpl
+number/number/number
+
+oh
+
+new richmond  oh alexander  clemon s usmc lcpl number/number/number
+
+fl
+
+location  fl allman  person person person
+
+usmc pfc
+number/number/number
+
+nm
+
+location nm arnold  person person person
+usmc cpl
+number/number/number
+
+pa
+
+philadelphia  person person  person person person
+
+usmc pfc
+number/number/number
+
+md
+
+location  md baker  organization organization
+
+usmc lcpl number/number/number
+
+va
+
+location  va banks  organization organization
+
+usmc lcpl number/number/number

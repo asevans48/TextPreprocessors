@@ -1,0 +1,66 @@
+person blames president person  person  person minorities ' current financial crisis yesterday house hearing financial crisis  rep
+person person ( r-mn ) spoke caused situation
+make point  read article called clinton-era rule rewrite made subprime crisis inevitable  written person person right-wing publication investor 's business daily
+article criticizes community reinvestment act ( cra ) pushing person person person aggressively lend minority communities
+jones goes say person misguided push homeownership way open door blacks minorities enter middle class
+rep
+person person ( d-mn ) sharply criticized person conservatives trying pin economic crisis minorities  personally going sit let people trash programs helped folks get housing struggling get
+fannie person person ' think failed models
+cra certainly isn ' failed program
+important good programs protected
+want find blame somewhere  let 's look gramm-leach-bliley
+let 's look deregulation many people called clamor see deregulation  lack corporate responsibility put together flat declining wages american people bring
+'s brought
+watch  ( undefined===window
+scriptalreadyrequested ) { window
+scriptalreadyrequested = false ; } ( undefined===window
+scriptalreadyloaded ) { window
+scriptalreadyloaded = false ; } ( !
+scriptalreadyrequested ) { var head = document
+getelementsbytagname ( `` head `` ) [ number ] ; var script = document
+createelement ( `` script `` ) ; script
+setattribute ( `` type ``  `` text/javascript `` ) ; script
+setattribute ( `` src ``  `` http  //video
+techprogress
+org/scripts/player
+js `` ) ; head
+appendchild ( script ) ; scriptalreadyrequested = true ; } function playernumberfunction ( ) { ( scriptalreadyloaded = = true ) { clearinterval ( playernumberinterval ) ; ( detectflashver ( number ) ) { ac_fl_runcontent ( ' codebase '  ' http  //download
+macromedia
+com/pub/shockwave/cabs/flash/swflash
+cab # version=number '  ' width '  ' number '  ' height '  ' number '  ' src '  ' player '  ' quality '  ' high '  ' pluginspage '  ' http  //www
+macromedia
+com/go/getflashplayer '  ' align '  ' middle '  ' play '  ' true '  ' loop '  ' true '  ' scale '  ' noscale '  ' wmode '  ' window '  ' devicefont '  ' false '  ' id '  ' object_playernumber '  ' bgcolor '  ' # number '  ' name '  ' player '  ' menu '  ' true '  ' allowscriptaccess '  ' always '  ' allowfullscreen '  ' true '  ' movie '  ' http  //video
+techprogress
+org/player '  ' salign '  ' tl '  ' flashvars '  ' postwidth=number & amp ; postheight=number & amp ; id=playernumber & amp ; title= & amp ; skin=http  //video
+techprogress
+org/skins/think_progress
+xml & amp ; video=http  //video
+thinkprogress
+org/number/number/ellisonbachm
+flv & amp ; link=http  //thinkprogress
+org/number/number/number/bachmann-ellison-economy/ '  ' divid '  ' playernumber ' ) ; } } } var playernumberinterval = setinterval ( playernumberfunction  math
+round ( math
+random ( ) * number ) + number ) ; blaming cra one conservatives ' favorite talking points peddled person person  fox news  freerepublic
+com  wall street journal  location times  national review
+center misc progress 's person person noted american prospect  lenders approve bad loans comply cra ; make money  number ) subprime loans intensified time activity cra slowed law weakened  number ) cra doesn ' even apply many loans behind mortgage meltdown  number ) lenders subject cra engaged less   dangerous lending
+transcript  ellison  one things concerned housing financing efforts resulted giving moderate low-income people opportunities able get housing come attack last week blamed problem
+want soundly reject idea
+plan asking  mr
+director
+hoping ask yesterday  didn ' get chance
+even heard things like community reinvestment act cause current crisis  even though community reinvestment act applies commercial banks
+apply mortgage originators  ones originated overwhelming number subprime loans
+fact  cras probably reduced impact problem limited ability subprime loan issued banks regulated
+also today 've heard quite bit criticism fannie freddie model
+want remind friends person person person person pretty late game accepting  part assets  illiquid 're calling illiquid assets today
+subprime subprime model  going number years  fannie freddie really  really added part business number  number  number  late game
+want make clear part want make sure protect programs low - moderate-income people able gain housing
+personally going sit let people trash programs helped folks get housing struggling get
+fannie person person ' think failed models
+cra certainly isn ' failed program
+important good programs protected
+want find blame somewhere  let 's look gramm-leach-bliley
+let 's look deregulation many people called clamor see deregulation  lack corporate responsibility put together flat declining wages american people bring
+'s brought
+look forward debate
+update national review wonders whether location mutual failed diverse staff

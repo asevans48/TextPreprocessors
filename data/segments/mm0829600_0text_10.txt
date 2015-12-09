@@ -1,0 +1,112 @@
+
+
+
+
+location  person  organization organization organization
+
+usmc lcpl number/number/number
+
+ma
+
+location  person person  organization organization organization
+
+usmc lcpl number/number/number
+
+ny
+
+conoes  ny greaser  person person person
+
+usmc sgt
+number/number/number
+
+pa
+
+lansdale  pa green  davin organization organization
+
+usmc lcpl number/number/number
+
+md
+
+baltimore  person person  thomas a
+usmc lcpl number/number/number
+
+pa
+
+philadelphia  person person  person person
+
+
+usmc sgt
+number/number/number
+
+sc
+
+little mountain  organization organization  virgil d
+usmc lcpl number/number/number
+
+ky
+
+location  oh hanton  organization organization
+
+usmc sgt
+number/number/number
+
+dc
+
+location  person person  organization organization
+usmc lcpl number/number/number
+
+nc
+
+location  nc person  person s
+usmc capt number/number/number
+
+nc
+
+camp lejeune  nc hastings  person a usmc pfc
+number/number/number
+
+de
+
+seaford  de hein  paul a
+organization
+usmc capt number/number/number
+
+nc
+
+camp lejeune  nc held  organization organization organization
+usmc lcpl number/number/number
+
+nc
+
+location  organization organization  mark a
+organization usmc pfc
+number/number/number
+
+ne
+
+dwight  ne henderson  ferrandy d
+usmc lcpl number/number/number
+
+fl
+
+tampa  person person  matilde jr
+
+usmc organization organization number/number/number
+
+nc
+
+midway park  nc hester  stanley g
+
+usmc cpl
+number/number/number
+
+nc
+
+location  nc hildreth  donald w
+usmc gysgt
+
+number/number/number
+
+nc
+
+sneads ferry  person person  organization organization organization

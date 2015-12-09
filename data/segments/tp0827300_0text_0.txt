@@ -1,0 +1,46 @@
+day us attorney scandal report  senate lauds person 's honesty ' bipartisanship ' today  sen
+person person ( r-nm ) gave farewell address senate  mostly talking loyal staff  work nuclear issues mental illnesses  memories times fellow lawmakers
+senate minority leader person person ( r-ky ) singled person 's honesty  stating  person six terms  pete built reputation honesty second none
+domenici said learned best way solve big problem bipartisan
+watch ( view youtube version )  ( undefined===window
+scriptalreadyrequested ) { window
+scriptalreadyrequested = false ; } ( undefined===window
+scriptalreadyloaded ) { window
+scriptalreadyloaded = false ; } ( !
+scriptalreadyrequested ) { var head = document
+getelementsbytagname ( `` head `` ) [ number ] ; var script = document
+createelement ( `` script `` ) ; script
+setattribute ( `` type ``  `` text/javascript `` ) ; script
+setattribute ( `` src ``  `` http  //video
+techprogress
+org/scripts/player
+js `` ) ; head
+appendchild ( script ) ; scriptalreadyrequested = true ; } function playernumberfunction ( ) { ( scriptalreadyloaded = = true ) { clearinterval ( playernumberinterval ) ; ( detectflashver ( number ) ) { ac_fl_runcontent ( ' codebase '  ' http  //download
+macromedia
+com/pub/shockwave/cabs/flash/swflash
+cab # version=number '  ' width '  ' number '  ' height '  ' number '  ' src '  ' player '  ' quality '  ' high '  ' pluginspage '  ' http  //www
+macromedia
+com/go/getflashplayer '  ' align '  ' middle '  ' play '  ' true '  ' loop '  ' true '  ' scale '  ' noscale '  ' wmode '  ' window '  ' devicefont '  ' false '  ' id '  ' object_playernumber '  ' bgcolor '  ' # number '  ' name '  ' player '  ' menu '  ' true '  ' allowscriptaccess '  ' always '  ' allowfullscreen '  ' true '  ' movie '  ' http  //video
+techprogress
+org/player '  ' salign '  ' tl '  ' flashvars '  ' postwidth=number & amp ; postheight=number & amp ; id=playernumber & amp ; title= & amp ; skin=http  //video
+techprogress
+org/skins/think_progress
+xml & amp ; video=http  //video
+thinkprogress
+org/number/number/domenici
+flv & amp ; link=http  //thinkprogress
+org/number/number/number/domenici-resign/ '  ' divid '  ' playernumber ' ) ; } } } var playernumberinterval = setinterval ( playernumberfunction  math
+round ( math
+random ( ) * number ) + number ) ; person 's departure coincides release report us attorney scandal office professional responsibility justice department inspector general
+person mentioned number times throughout number-page report involvement firing former us attorney person person
+report concludes iglesias 's removal purely political
+last year  iglesias revealed person rep
+person person ( r-nm ) separately called october number inappropriately pressured bring indictment pending corruption case november election
+iglesias failed cooperate  person complained bush administration officials
+according report  person failed cooperate investigators  addition  senator person chief staff  person person  also declined interviewed us
+person initially told us counsel would pleased assist investigation pending senate ethics committee investigation phone call iglesias completed
+renewed requests interviews senate ethics inquiry concluded
+person person also declined interviewed  said would provide written answers questions attorney
+declined offer believe would reliable appropriate investigative method circumstances
+location  representative wilson cooperated investigation interviewed us three separate times
+former deputy attorney general person person testified june number person 's complaint iglesias person significant factor us attorney fired

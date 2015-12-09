@@ -1,0 +1,45 @@
+
+
+ri
+
+warren  person person  person person
+usmc sgt
+number/number/number
+
+mi
+
+port huron  mi mattacchione  organization organization organization usmc pvt
+number/number/number
+
+nc
+
+person  nc person  john organization
+
+usmc lcpl number/number/number
+
+ny
+
+location  person person  organization organization organization
+usmc sgt
+number/number/number
+
+pa
+
+new castle  person person  timothy r
+usmc lcpl number/number/number
+
+tx
+
+location  tx mcneely  timothy d
+usmc lcpl number/number/number
+
+nc
+
+location  nc mcvicker  george n ii
+usn
+hmnumber
+number/number/number
+
+
+
+wabash  person  louis organization

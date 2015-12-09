@@ -1,0 +1,91 @@
+presidential debate live-blogging number  number  cnn 's person person 's reaction debate  john person  dare come give debate ' even say word middle class
+number  number  fox pollster person person 's focus group showed majority moved person 's performance
+especially liked answer pointing person wrong nearly every aspect location war  including said location war would quick easy americans would greeted liberators  ( undefined===window
+scriptalreadyrequested ) { window
+scriptalreadyrequested = false ; } ( undefined===window
+scriptalreadyloaded ) { window
+scriptalreadyloaded = false ; } ( !
+scriptalreadyrequested ) { var head = document
+getelementsbytagname ( `` head `` ) [ number ] ; var script = document
+createelement ( `` script `` ) ; script
+setattribute ( `` type ``  `` text/javascript `` ) ; script
+setattribute ( `` src ``  `` http  //video
+techprogress
+org/scripts/player
+js `` ) ; head
+appendchild ( script ) ; scriptalreadyrequested = true ; } function playernumberfunction ( ) { ( scriptalreadyloaded = = true ) { clearinterval ( playernumberinterval ) ; ( detectflashver ( number ) ) { ac_fl_runcontent ( ' codebase '  ' http  //download
+macromedia
+com/pub/shockwave/cabs/flash/swflash
+cab # version=number '  ' width '  ' number '  ' height '  ' number '  ' src '  ' player '  ' quality '  ' high '  ' pluginspage '  ' http  //www
+macromedia
+com/go/getflashplayer '  ' align '  ' middle '  ' play '  ' true '  ' loop '  ' true '  ' scale '  ' noscale '  ' wmode '  ' window '  ' devicefont '  ' false '  ' id '  ' object_playernumber '  ' bgcolor '  ' # number '  ' name '  ' player '  ' menu '  ' true '  ' allowscriptaccess '  ' always '  ' allowfullscreen '  ' true '  ' movie '  ' http  //video
+techprogress
+org/player '  ' salign '  ' tl '  ' flashvars '  ' postwidth=number & amp ; postheight=number & amp ; id=playernumber & amp ; title= & amp ; skin=http  //video
+techprogress
+org/skins/think_progress
+xml & amp ; video=http  //video
+thinkprogress
+org/number/number/luntz
+flv & amp ; link=replace '  ' divid '  ' playernumber ' ) ; } } } var playernumberinterval = setinterval ( playernumberfunction  math
+round ( math
+random ( ) * number ) + number ) ; number  number  yglesias observes  person 've seen person person aggressive surrogate appearances every network 've flipped
+imagine 's hitting
+person person  person  isn ' networks
+number  number  cnn chief international correspondent person person said giggled person messed pronunciation person 's name
+anderson cooper asked really fair criticize  replied
+'s fair anybody
+stumbled  would fair comment
+number  number  person person highlights fact person admitted us tortures
+person previously said waterboarding torture  noting us waterboarded
+also references person gaffe  ( undefined===window
+scriptalreadyrequested ) { window
+scriptalreadyrequested = false ; } ( undefined===window
+scriptalreadyloaded ) { window
+scriptalreadyloaded = false ; } ( !
+scriptalreadyrequested ) { var head = document
+getelementsbytagname ( `` head `` ) [ number ] ; var script = document
+createelement ( `` script `` ) ; script
+setattribute ( `` type ``  `` text/javascript `` ) ; < /p > < p > script
+setattribute ( `` src ``  `` http  //video
+techprogress
+org/scripts/player
+js `` ) ; head
+appendchild ( script ) ; scriptalreadyrequested = true ; } function playernumberfunction ( ) { ( scriptalreadyloaded = = true ) { clearinterval ( playernumberinterval ) ; ( detectflashver ( number ) ) { ac_fl_runcontent ( ' codebase '  ' http  //download
+macromedia
+com/pub/shockwave/cabs/flash/swflash
+cab # version=number '  ' width '  ' number '  ' height '  ' number '  ' src '  ' player '  ' quality '  ' high '  ' pluginspage '  ' http  //www
+macromedia
+com/go/getflashplayer '  ' align '  ' middle '  ' play '  ' true '  ' loop '  ' true '  ' scale '  ' noscale '  ' wmode '  ' window '  ' devicefont '  ' false '  ' id '  ' object_playernumber '  ' bgcolor '  ' # number '  ' name '  ' player '  ' menu '  ' true '  ' allowscriptaccess '  ' always '  ' allowfullscreen '  ' true '  ' movie '  ' http  //video
+techprogress
+org/player '  ' salign '  ' tl '  ' flashvars '  ' postwidth=number & amp ; postheight=number & amp ; id=playernumber & amp ; title= & amp ; skin=http  //video
+techprogress
+org/skins/think_progress
+xml & amp ; video=http  //video
+thinkprogress
+org/number/number/keith
+flv & amp ; link=http  //thinkprogress
+org/number/number/number/presidential-debate-live-blogging/ '  ' divid '  ' playernumber ' ) ; } } } var playernumberinterval = setinterval ( playernumberfunction  math
+round ( math
+random ( ) * number ) + number ) ; number  number  abc  new york times columnist person person called person 's claim consistently supported alternative energy person howler
+friedman also quipped person wouldn ' able pay new nuclear power plants cutting $ number billion earmarks
+number  number  sen
+person person fox  senator person  're naive  're dangerous
+number  number  cnn  wolf blitzer mentions gaffe person 's name says  person ' know got
+'s difficult name americans remember pronounce  wouldn ' think person person would slip
+number  number  fox 's person person observed person said person agree john least eight times
+conversely  person said person didn ' understand least seven times
+number  number  msnbc 's person person claims person winner person came tough almost meanobama came across nice guy
+number  number  abc 's person person pbs 's person person mark shields note person never looked person debate
+debate endspost-debate commentary begins number  number  veterans organizations come person
+received grade d location location veterans location number percent vote rating disabled veterans america ; location veterans location noted person voted us number key votes
+misc legion veterans foreign wars criticized person opposing sen
+person person 's numberst century gi bill
+number  number  person hard time pronouncing name president location  president location ( person  kidari )  number  number  sen
+person first mention climate change  thomas fingar  top intelligence analyst location location  warned central foreign security threat next administration beyond
+number  number  person referred offshore drilling bridge technique would lower prices short run
+fact  bush administration 's energy department concluded could significant impact number
+number  number  person correctly identified resurgence misc military power driven increased oil wealth  record shown consistent opposition alternative energy initiatives might undercut aspect person 's strength
+number  number  person mocks idea person supports talks location without preconditions
+yesterday  cbs news 's person person interviewing person person  called idea meeting without preconditions nave checked person
+couric  incidentally  confirmed person person 's position following interview
+told us supports talks  person  high level misc officials

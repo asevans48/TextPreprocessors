@@ -1,0 +1,10 @@
+
+
+]
+get number-hours exercise time day kinds activities
+play ping-pong  basketball  soccer
+garden
+check library books
+number titles
+favorite person person series
+[

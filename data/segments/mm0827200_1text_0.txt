@@ -1,0 +1,170 @@
+house website
+'ve uploaded recent bailout draft bill right  click
+* * * via nz
+bear  's quick-and-dirty  section-by-section analysis latest draft going around hill  section-by-section analysis legislation section number
+short title
+emergency economic stabilization act number
+section number
+purposes
+provides authority treasury secretary restore liquidity stability us financial system ensure economic well-being americans
+section number
+definitions
+contains various definitions used act
+title i troubled assets relief program
+section number
+purchases troubled assets
+authorizes secretary establish troubled asset relief program ( tarp ) purchase troubled assets financial institutions
+establishes office financial stability within treasury department implement tarp consultation board governors federal reserve system  organization  comptroller currency  director office thrift supervision secretary housing urban development
+requires treasury secretary establish guidelines policies carry purposes act
+includes provisions prevent unjust enrichment participants program
+section number
+insurance troubled assets
+secretary establishes tarp program  secretary required establish program guarantee troubled assets financial institutions
+secretary required establish risk-based premiums guarantees sufficient cover anticipated claims
+secretary must report congress establishment guarantee program
+section number
+considerations
+using authority act  treasury secretary required take number considerations account  including interests taxpayers  minimizing impact national debt  providing stability financial markets  preserving homeownership  needs financial institutions regardless size characteristics  needs local communities
+requires secretary examine long-term viability institution determining whether directly purchase assets tarp
+section number
+financial stability oversight board
+section establishes financial stability oversight board review make recommendations regarding exercise authority act
+addition  board must ensure policies implemented secretary protect taxpayers  economic interests location location  accordance act
+board comprised chairman board governors federal reserve system  secretary treasury  director federal home finance agency  chairman securities exchange commission secretary department housing urban development
+section number
+reports
+monthly reports  within number days first exercise authority act every month thereafter  secretary required report congress activities tarp  including detailed financial statements
+tranche reports  every $ number billion assets purchased  secretary required report congress detailed description transactions  description pricing mechanisms used  justifications financial terms transactions
+regulatory modernization report  prior april number  number  secretary required submit report congress current state financial markets  effectiveness financial regulatory system  provide recommendations
+section number
+rights ; management ; sale troubled assets ; revenues sale proceeds
+establishes right secretary exercise authorities act time
+provides secretary authority manage troubled assets  including ability determine terms conditions associated disposition troubled assets
+requires profits sale troubled assets used pay national debt
+section number
+contracting procedures
+allows secretary waive provisions federal acquisition regulation compelling circumstances make compliance contrary public interest
+waivers must reported congress within number days
+provisions related minority contracting waived  secretary must develop alternate procedures ensure inclusion minority contractors
+allows organization selected asset manager residential mortgage loans mortgage-backed securities
+section number
+conflicts interest
+secretary required issue regulations guidelines manage prohibit conflicts interest administration program
+section number
+foreclosure mitigation efforts
+mortgages mortgage-backed securities acquired tarp  secretary must implement plan mitigate foreclosures encourage servicers mortgages modify loans hope homeowners programs
+allows secretary use loan guarantees credit enhancement avoid foreclosures
+requires secretary coordinate federal entities hold troubled assets order identify opportunities modify loans  considering net present value taxpayer
+section number
+assistance homeowners
+requires federal entities hold mortgages mortgage-backed securities  including federal housing finance agency  organization  federal reserve develop plans minimize foreclosures
+requires federal entities work servicers encourage loan modifications  considering net present value taxpayer
+section number
+executive compensation corporate governance
+provides treasury promulgate executive compensation rules governing financial institutions sell troubled assets
+treasury buys assets directly  institution must observe standards limiting incentives  allowing clawback prohibiting golden parachutes
+treasury buys assets auction  institution sold $ number million assets subject additional taxes  including number % excise tax golden parachute payments triggered events retirement  tax deduction limits compensation limits $ number
+section number
+coordination foreign authorities central banks
+requires secretary coordinate foreign authorities central banks establish programs similar tarp
+section number
+minimization long-term costs maximization benefits taxpayers
+order cover losses administrative costs  well allow taxpayers share equity appreciation  requires treasury receive non-voting warrants participating financial institutions
+section number
+market transparency
+number-hour reporting requirement  secretary required  within number business days exercising authority act  publicly disclose details transaction
+section number
+graduated authorization purchase
+authorizes full $ number billion requested treasury secretary implementation tarp
+allows secretary immediately use $ number billion authority act
+upon presidential certification need  secretary may access additional $ number billion
+final $ number billion may accessed president transmits written report congress requesting authority
+secretary may use additional authority unless within number days congress passes joint resolution disapproval may considered expedited basis
+section number
+oversight audits
+requires comptroller general location location conduct ongoing oversight activities performance tarp  report every number days congress
+comptroller general required conduct annual audit tarp
+addition  tarp required establish maintain effective system internal controls
+section number
+study report margin authority
+directs comptroller general conduct study report back congress role leverage sudden deleveraging financial institutions factor behind current financial crisis
+section number
+funding
+provides authorization appropriation funds consistent section number
+section number
+judicial review related matters
+provides standards judicial review  including injunctive relief  ensure actions secretary arbitrary  capricious  accordance law
+section number
+termination authority
+provides authorities purchase guarantee assets terminate december number  number
+secretary may extend authority additional year upon certification need congress
+section number
+special inspector general troubled asset relief program
+establishes office special inspector general troubled asset relief program conduct  supervise  coordinate audits investigations actions undertaken secretary act
+special inspector general required submit quarterly report congress summarizing activities activities secretary act
+section number
+increase statutory limit public debt
+raises debt ceiling $ number trillion $ numbernumber trillion
+section number
+credit reform
+details manner legislation treated budgetary purposes federal credit reform act
+section number
+hope homeowners amendments
+strengthens hope homeowners program increase eligibility improve tools available prevent foreclosures
+section number
+congressional oversight panel
+establishes congressional oversight panel review state financial markets  regulatory system  use authority tarp
+panel required report congress every number days submit special report regulatory reform prior january number  number
+panel consist number outside experts appointed house senate minority majority leadership
+section number
+fdic enforcement enhancement
+prohibits misuse fdic logo name falsely represent deposits insured
+strengthens enforcement appropriate federal banking agencies  allows organization take enforcement action person institution banking agency acted
+section number
+cooperation organization
+requires federal financial regulatory agency cooperate organization law enforcement agencies investigating fraud  misrepresentation  malfeasance respect development  advertising  sale financial products
+section number
+acceleration effective date
+provides federal reserve ability pay interest reserves
+section number
+disclosures exercise loan authority
+requires federal reserve provide detailed report congress  expedited manner  upon use emergency lending authority section number ( number ) federal reserve act
+section number
+technical corrections
+makes technical corrections truth lending act
+section number
+exchange stabilization fund reimbursement
+protects exchange stabilization fund incurring losses due temporary money market mutual fund guarantee requiring program created act reimburse fund
+prohibits future use fund guarantee program money market mutual fund industry
+section number
+authority suspend mark-to-market accounting
+restates securities exchange commission 's authority suspend application statement number number financial accounting standards board sec determines public interest protects investors
+section number
+study mark-to-market accounting
+requires organization  consultation federal reserve treasury  conduct study mark-to-market accounting standards provided fas number  including effects balance sheets  impact quality financial information  matters  report congress within number days findings
+section number
+recoupment
+requires number years  president submit congress proposal recoups financial industry projected losses taxpayer
+section number
+preservation authority
+clarifies nothing act shall limit authority secretary federal reserve provision law
+title iibudget-related provisions section number
+information congressional support agencies
+requires information used treasury secretary connection activities act made available organization jct
+section number
+reports office management budget congressional budget office
+requires cbo organization report cost estimates related information congress president regarding authorities secretary treasury exercised act
+section number
+analysis president 's budget
+requires president include annual budget submission congress certain analyses estimates relating costs incurred result act ; section number
+emergency treatment
+specifies scoring act purposes budget enforcement
+title iiitax provisions section number
+gain loss sale exchange certain preferred stock
+details certain changes tax treatment losses preferred stock certain gses financial institutions
+section number
+special rules tax treatment executive compensation employers participating troubled assets relief program
+applies limits executive compensation golden parachutes certain executives employers participate auction program
+section number
+extension exclusion income discharge qualified principal residence indebtedness
+extends current law tax forgiveness cancellation mortgage debt

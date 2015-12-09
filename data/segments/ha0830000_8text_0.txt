@@ -1,0 +1,19 @@
+yes  another geek post
+deal
+quest play ubuntu linux  've look around alternatives software use windows
+firefox  opera  thunderbird linux versions work like charm  fortunately  difficulty finding feedreader liked
+feedreaders critical tool bloggers  monitor dozens different newspapers  wire services  blogs keep moment
+without reliable flexible feedreader  'd sunk
+tried using newsfox  embedded organization feedreader firefox  didn ' quite flexibility liked timing  retention  grouping
+akregator  newsgator liferea good points  spoiled sharpreader omea  fell short options well
+'ve used google reader  helps making reader portable  even less control order  grouping  retention hosted service
+eventually  discovered rss owl  could never figure get run linux
+linux version installer package  'm adept enough ubuntu figure get run
+instead  installed windows machine see whether would make suitable substitute omea
+'ve problems corruption omea database  causing entries get corrupted  repeated rebuilds fixes haven ' resolved problem
+rss owl loads faster  cleaner  almost options like omea
+also highlights updated posts  new entries  tell bloggers edited existing entries
+person plays misc scripts windows  allowing see video clips without open pages browser
+far  least  haven ' seen hint corruption files omea
+'m going keep using rss owl proves unworthy
+hopefully  'll able figure load ubuntu  needed first place

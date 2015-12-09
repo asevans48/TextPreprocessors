@@ -1,0 +1,110 @@
+
+
+mi
+
+detroit  person person  organization organization organization
+usmc lcpl number/number/number
+
+va
+
+tappahanock  person person  person person person
+
+usn
+hmnumber
+number/number/number
+
+sc
+
+person  organization battle  person person person
+usmc organization organization
+number/number/number
+
+nc
+
+person  nc baynard  organization organization organization usmc lcpl number/number/number
+
+va
+
+location  person person  organization organization organization
+usn
+hn
+
+number/number/number
+
+fl
+
+haines city  fl belmer  alvin
+organization usmc gysgt
+
+number/number/number
+
+nc
+
+location  nc bland  organization organization usmc pfc
+number/number/number
+
+nc
+
+midway park  nc blankenship  organization organization organization usmc sgt
+number/number/number
+
+nc
+
+person  nc blocker  person person person
+usmc lcpl number/number/number
+
+fl
+
+yulee  fl boccia  person person person
+
+
+usmc capt number/number/number
+
+ny
+
+location  person person  person person
+
+
+usmc cpl
+number/number/number
+
+nc
+
+location  nc bohnet  person person person
+
+usmc ssgt number/number/number
+
+tn
+
+memphis  person person  person person person
+organization usmc cpl
+number/number/number
+
+pa
+
+philadelphia  person person  person person person
+
+usmc lcpl number/number/number
+
+ny
+
+location  ny bousum  person person person
+usmc cpl
+number/number/number
+
+mi
+
+fife lake  mi boyett  john n organization
+
+usmc numberstlt
+
+number/number/number
+
+nc
+
+camp lejeune  nc brown  anthony organization usmc cpl
+number/number/number
+
+mi
+
+detroit  person person  organization organization organization

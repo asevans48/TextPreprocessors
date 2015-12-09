@@ -1,0 +1,46 @@
+person comments involvement keating five  unhappy period life ' savings loan scandal late numbers  person person wealthy location businessman chairman failed lincoln savings loan association person turned person person ask assistance trying stave government intervention
+person found champion deregulation person
+soon arriving congress  person flew person 's corporate plane vacations location
+pay trips years later  matter became public
+number  person received $ number political contributions person associates
+mccain investigated ultimately admonished senate ethics committee
+person went prison
+person 's involvement last great financial scandal country largely ignored media
+local location reporter person person finally forced person comment person five scandal interview yesterday
+talk greedy bankers  lax regulation brings back memories keating five  beres reported  beres  relevance chapter  think acknowledged maybe proudest moment
+mccain  unhappy period life
+fact moved forward greatest voice reform corruption location anybody
+watch  ( undefined===window
+scriptalreadyrequested ) { window
+scriptalreadyrequested = false ; } ( undefined===window
+scriptalreadyloaded ) { window
+scriptalreadyloaded = false ; } ( !
+scriptalreadyrequested ) { var head = document
+getelementsbytagname ( `` head `` ) [ number ] ; var script = document
+createelement ( `` script `` ) ; script
+setattribute ( `` type ``  `` text/javascript `` ) ; script
+setattribute ( `` src ``  `` http  //video
+techprogress
+org/scripts/player
+js `` ) ; head
+appendchild ( script ) ; scriptalreadyrequested = true ; } function playernumberfunction ( ) { ( scriptalreadyloaded = = true ) { clearinterval ( playernumberinterval ) ; ( detectflashver ( number ) ) { ac_fl_runcontent ( ' codebase '  ' http  //download
+macromedia
+com/pub/shockwave/cabs/flash/swflash
+cab # version=number '  ' width '  ' number '  ' height '  ' number '  ' src '  ' player '  ' quality '  ' high '  ' pluginspage '  ' http  //www
+macromedia
+com/go/getflashplayer '  ' align '  ' middle '  ' play '  ' true '  ' loop '  ' true '  ' scale '  ' noscale '  ' wmode '  ' window '  ' devicefont '  ' false '  ' id '  ' object_playernumber '  ' bgcolor '  ' # number '  ' name '  ' player '  ' menu '  ' true '  ' allowscriptaccess '  ' always '  ' allowfullscreen '  ' true '  ' movie '  ' http  //video
+techprogress
+org/player '  ' salign '  ' tl '  ' flashvars '  ' postwidth=number & amp ; postheight=number & amp ; id=playernumber & amp ; title= & amp ; skin=http  //video
+techprogress
+org/skins/think_progress
+xml & amp ; video=http  //video
+thinkprogress
+org/number/number/davisfinal
+flv & amp ; link=http  //thinkprogress
+org/number/number/number/mccain-keating-number-comment/ '  ' divid '  ' playernumber ' ) ; } } } var playernumberinterval = setinterval ( playernumberfunction  math
+round ( math
+random ( ) * number ) + number ) ; person made comments day new york times reported campaign manager 's lobbying firm receiving $ number monthly payments organization organization company person said rife corruption
+also day  reported person 's transition director made $ number lobbying person person
+new york times reports person received $ number directors  officers  lobbyists person person person person number campaign cycle
+digg !
+update blogging huffington post  jed lewinson posts video explains person five scandal number seconds  update progressive accountability detailed look person 's involvement person

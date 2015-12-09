@@ -1,0 +1,38 @@
+white house threatens veto second stimulus food stamps unemployment benefits today  white house office management budget ( organization ) released statement administrative policy today recommending bush veto proposed second stimulus package
+$ numbernumber billion package  announced yesterday  would extend unemployment benefits seven weeks  increase food stamp benefits number percent  provide $ number million food banks  among proposals
+afternoon  senate conservatives successfully blocked bill  motion proceed won number votes  eight shy necessary number
+press briefing today  hour senate vote  person person said white house opposed measure  specifically citing extension unemployment food stamp benefits explanation  perino  's elements package put forward democrats think would stimulative economy  unemployment insurance
+food stamps  believe met need
+watch  ( undefined===window
+scriptalreadyrequested ) { window
+scriptalreadyrequested = false ; } ( undefined===window
+scriptalreadyloaded ) { window
+scriptalreadyloaded = false ; } ( !
+scriptalreadyrequested ) { var head = document
+getelementsbytagname ( `` head `` ) [ number ] ; var script = document
+createelement ( `` script `` ) ; script
+setattribute ( `` type ``  `` text/javascript `` ) ; script
+setattribute ( `` src ``  `` http  //video
+techprogress
+org/scripts/player
+js `` ) ; head
+appendchild ( script ) ; scriptalreadyrequested = true ; } function playernumberfunction ( ) { ( scriptalreadyloaded = = true ) { clearinterval ( playernumberinterval ) ; ( detectflashver ( number ) ) { ac_fl_runcontent ( ' codebase '  ' http  //download
+macromedia
+com/pub/shockwave/cabs/flash/swflash
+cab # version=number '  ' width '  ' number '  ' height '  ' number '  ' src '  ' player '  ' quality '  ' high '  ' pluginspage '  ' http  //www
+macromedia
+com/go/getflashplayer '  ' align '  ' middle '  ' play '  ' true '  ' loop '  ' true '  ' scale '  ' noscale '  ' wmode '  ' window '  ' devicefont '  ' false '  ' id '  ' object_playernumber '  ' bgcolor '  ' # number '  ' name '  ' player '  ' menu '  ' true '  ' allowscriptaccess '  ' always '  ' allowfullscreen '  ' true '  ' movie '  ' http  //video
+techprogress
+org/player '  ' salign '  ' tl '  ' flashvars '  ' postwidth=number & amp ; postheight=number & amp ; id=playernumber & amp ; title= & amp ; skin=http  //video
+techprogress
+org/skins/think_progress
+xml & amp ; video=http  //video
+thinkprogress
+org/number/number/perino-foodstamps
+flv & amp ; link=http  //thinkprogress
+org/number/number/number/perino-second-stimulus/ '  ' divid '  ' playernumber ' ) ; } } } var playernumberinterval = setinterval ( playernumberfunction  math
+round ( math
+random ( ) * number ) + number ) ; fact  tanking economy left americans need food assistance ever  number million americans expected receive food stamps year  highest level since aid program began numbers
+time  purchasing power food stamps declined dramatically
+alongside unemployment benefits food stamps  organization also objected provision increasing infrastructure spending  arguing  infrastructure spending never effective means create rapid stimulus
+however  center misc progress study found two million jobs could created within two years robust investment green energy infrastructure

@@ -1,0 +1,42 @@
+
+
+usmc gysgt
+
+number/number/number
+
+nc
+
+location  nc relvas  person a
+organization usmc pfc
+number/number/number
+
+pa
+
+philadelphia  pa rich  organization organization organization usmc pfc
+number/number/number
+
+ny
+
+location  person person  organization organization
+
+usmc lcpl number/number/number
+
+ny
+
+location  person person  juan c
+
+usmc sgt
+number/number/number
+
+fl
+
+location  fl rotondo  louis j usmc lcpl number/number/number
+
+pa
+
+philadelphia  person person  person person
+usmc lcpl number/number/number
+
+fl
+
+location  person person  person person organization usmc lcpl number/number/number

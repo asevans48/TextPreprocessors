@@ -1,0 +1,37 @@
+
+
+pa
+
+north wales  person person  person person person
+usmc lcpl number/number/number
+
+nc
+
+location  organization organization  person person person usmc cpl
+number/number/number
+
+ny
+
+location  ny cosner  person person person
+usmc lcpl number/number/number
+
+wv
+
+person  wv coulman  person person person usmc sgt
+number/number/number
+
+ny
+
+seminary  ny croft  brett a
+organization
+
+usmc lcpl number/number/number
+
+fl
+
+location  fl crudale  person person person
+usmc lcpl number/number/number
+
+ri
+
+warwick  ri custard  organization organization organization usmc lcpl number/number/number

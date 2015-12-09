@@ -1,0 +1,68 @@
+
+
+pa
+
+erie  pa forrester  person person person usmc cpl
+number/number/number
+
+nc
+
+location  nc foster  person person person
+
+usn
+hmnumber
+number/number/number
+
+va
+
+location  va fulcher  person person
+
+usmc cpl
+number/number/number
+
+va
+
+location location  va fuller  person e organization
+
+usmc lcpl number/number/number
+
+ga
+
+location  ga fulton  person s
+
+usmc lcpl number/number/number
+
+tx
+
+ft
+worth  tx gaines  person person
+
+usmc cpl
+number/number/number
+
+fl
+
+port location  person person  sean r
+
+usmc lcpl number/number/number
+
+ma
+
+location location  ma gander  person person person
+usmc lcpl number/number/number
+
+wi
+
+milwaulkee  wi gangur  george organization organization usmc lcpl number/number/number
+
+oh
+
+location  oh gann  organization organization organization
+
+usmc ssgt number/number/number
+
+nc
+
+camp lejeune  person person  organization organization organization
+
+usmc lcpl number/number/number

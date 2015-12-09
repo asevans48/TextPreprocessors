@@ -1,0 +1,58 @@
+durbin  person 's return location brought razzle-dazzle process nothing substantive ' today interview thinkprogress  sen
+person person ( d-il ) sharply criticized sen
+person person 's ( r-az ) decision suspend campaign return location talks bailout package
+person said person brought razzle-dazzle process nothing substantive  noting asked spell views yesterday 's white house meeting  nothing offer
+durbin also gave insight person pulled political stunt  pointing slumping poll numbers recent gaffes  person person returned location slumping polls
+economic issues hurt  sadly  part problem
+believer person person texas 's philosophy  government taking hands-off view toward credit industry
+led abuses  created rotten portfolios today
+pronounced fundamentals economy strong hours collapse major companies  great embarrassment
+notion shake scene suspending campaign returning location
+help
+fact  hurt
+watch  ( undefined===window
+scriptalreadyrequested ) { window
+scriptalreadyrequested = false ; } ( undefined===window
+scriptalreadyloaded ) { window
+scriptalreadyloaded = false ; } ( !
+scriptalreadyrequested ) { var head = document
+getelementsbytagname ( `` head `` ) [ number ] ; var script = document
+createelement ( `` script `` ) ; script
+setattribute ( `` type ``  `` text/javascript `` ) ; script
+setattribute ( `` src ``  `` http  //video
+techprogress
+org/scripts/player
+js `` ) ; head
+appendchild ( script ) ; scriptalreadyrequested = true ; } function playernumberfunction ( ) { ( scriptalreadyloaded = = true ) { clearinterval ( playernumberinterval ) ; ( detectflashver ( number ) ) { ac_fl_runcontent ( ' codebase '  ' http  //download
+macromedia
+com/pub/shockwave/cabs/flash/swflash
+cab # version=number '  ' width '  ' number '  ' height '  ' number '  ' src '  ' player '  ' quality '  ' high '  ' pluginspage '  ' http  //www
+macromedia
+com/go/getflashplayer '  ' align '  ' middle '  ' play '  ' true '  ' loop '  ' true '  ' scale '  ' noscale '  ' wmode '  ' window '  ' devicefont '  ' false '  ' id '  ' object_playernumber '  ' bgcolor '  ' # number '  ' name '  ' player '  ' menu '  ' true '  ' allowscriptaccess '  ' always '  ' allowfullscreen '  ' true '  ' movie '  ' http  //video
+techprogress
+org/player '  ' salign '  ' tl '  ' flashvars '  ' postwidth=number & amp ; postheight=number & amp ; id=playernumber & amp ; title= & amp ; skin=http  //video
+techprogress
+org/skins/think_progress
+xml & amp ; video=http  //video
+thinkprogress
+org/number/number/durbinnumberflv & amp ; link=http  //www
+thinkprogress
+org '  ' divid '  ' playernumber ' ) ; } } } var playernumberinterval = setinterval ( playernumberfunction  math
+round ( math
+random ( ) * number ) + number ) ; person 's comments echo lawmakers  including republicans
+fact  recently yesterday  person reportedly still unfamiliar details house gop proposal
+transcript  durbin  person person returned location slumping polls
+economic issues hurt  sadly  part problem
+believer person person texas 's philosophy  government taking hands-off view toward credit industry
+led abuses  created rotten portfolios today
+pronounced fundamentals economy strong hours collapse major companies  great embarrassment
+notion shake scene suspending campaign returning location
+help
+fact  hurt
+came  brought razzle-dazzle process nothing substantive
+went white house  asked finally spell views ; couldn '
+given chance yesterday really didn ' anything offer
+continues make rounds hill  ' think 's productive
+think 's opposite
+think 's emboldening critics effort making difficult us get anything done
+update person person person talking stimulus inequality

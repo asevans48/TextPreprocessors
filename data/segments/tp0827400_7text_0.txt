@@ -1,0 +1,41 @@
+person give marching orders house gop vote bailout
+house republicans insisting vote bailout yesterday nothing speaker person person 's supposedly partisan speech  wondering fact turned least number republican votes blunt thought bill
+nbc 's person person reported morning conservatives may taking marching orders former house speaker person person  whipping last minute despite issuing statement supporting bill vote taking place  person  'm told reliably leading republicans close  whipping last minute issued face-saving statement
+person person telling people strongest possible language terrible deal  terrible deal  disaster  end democracy know  socialism
+last minute comes statement vote already place
+watch  ( undefined===window
+scriptalreadyrequested ) { window
+scriptalreadyrequested = false ; } ( undefined===window
+scriptalreadyloaded ) { window
+scriptalreadyloaded = false ; } ( !
+scriptalreadyrequested ) { var head = document
+getelementsbytagname ( `` head `` ) [ number ] ; var script = document
+createelement ( `` script `` ) ; script
+setattribute ( `` type ``  `` text/javascript `` ) ; script
+setattribute ( `` src ``  `` http  //video
+techprogress
+org/scripts/player
+js `` ) ; head
+appendchild ( script ) ; scriptalreadyrequested = true ; } function playernumberfunction ( ) { ( scriptalreadyloaded = = true ) { clearinterval ( playernumberinterval ) ; ( detectflashver ( number ) ) { ac_fl_runcontent ( ' codebase '  ' http  //download
+macromedia
+com/pub/shockwave/cabs/flash/swflash
+cab # version=number '  ' width '  ' number '  ' height '  ' number '  ' src '  ' player '  ' quality '  ' high '  ' pluginspage '  ' http  //www
+macromedia
+com/go/getflashplayer '  ' align '  ' middle '  ' play '  ' true '  ' loop '  ' true '  ' scale '  ' noscale '  ' wmode '  ' window '  ' devicefont '  ' false '  ' id '  ' object_playernumber '  ' bgcolor '  ' # number '  ' name '  ' player '  ' menu '  ' true '  ' allowscriptaccess '  ' always '  ' allowfullscreen '  ' true '  ' movie '  ' http  //video
+techprogress
+org/player '  ' salign '  ' tl '  ' flashvars '  ' postwidth=number & amp ; postheight=number & amp ; id=playernumber & amp ; title= & amp ; skin=http  //video
+techprogress
+org/skins/think_progress
+xml & amp ; video=http  //video
+thinkprogress
+org/number/number/andrea-newt
+flv & amp ; link=http  //thinkprogress
+org/number/number/number/gingrich-against-bailout/ '  ' divid '  ' playernumber ' ) ; } } } var playernumberinterval = setinterval ( playernumberfunction  math
+round ( math
+random ( ) * number ) + number ) ; reacting news  organization 's person person said told congressional conservatives move opening salvo person person 's presidential campaign four years hence
+speaking national press club today  gingrich denied person 's claim  saying organization wrong probably wrong deliberately stunningly dishonest network
+actually reluctantly trying help get  said
+even throughout yesterday  person 's position nearly impossible pin
+person person 's radio show  admitted  person 'm sure congress could vote also declaring treasury secretary person person fired bailout plan still bad bill
+fox news last night  seemed praise house 's rejection bill  vote today indicated even 'd worked five days try improve really pretty terrible original plan [ paulson ] sent  still couldn ' get majority house
+apparently  person bailout

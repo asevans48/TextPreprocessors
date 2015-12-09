@@ -1,0 +1,55 @@
+
+
+ny
+
+location  person person  thomas a
+organization usmc pfc
+number/number/number
+
+ri
+
+person  person person  marion e
+
+usn
+hmnumber
+number/number/number
+
+wv
+
+location  person person  thomas c organization
+usmc sgt
+number/number/number
+
+ky
+
+location  ky kimm  organization organization organization
+
+usmc gysgt
+
+number/number/number
+
+ia
+
+atlantic  person person  walter v
+usmc lcpl number/number/number
+
+wi
+
+wisconsin dells  wi kluck  person s organization
+organization organization
+sgt
+number/number/number
+
+ky
+
+person  ky knipple  person person organization usmc lcpl number/number/number
+
+va
+
+location  person person  freas person person usmc lcpl number/number/number
+
+fl
+
+indiatlantic  fl laise  organization organization organization
+
+usmc lcpl number/number/number
