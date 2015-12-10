@@ -3,13 +3,14 @@ package com.simplrtek.preprocessors
 import scala.concurrent.{Future,Await}
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.Duration
+import java.util.concurrent.ConcurrentHashMap
 
 /**
  * Replace words in an object and create a replacement model.
  */
 object WordGraphReplacer {
   
-  var reaplacementMap:Map[String,String] = Map[String,String]()
+  var replacementMap:ConcurrentHashMap[String,String] = new ConcurrentHashMap[String,String]()
   
   /**
    * Take in a string and perform replacement.
