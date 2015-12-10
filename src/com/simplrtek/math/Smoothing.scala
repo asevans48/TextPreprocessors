@@ -16,7 +16,10 @@ object Smoother {
   
   /**
    * Perform Triangular smoothing
-   * 
+   *
+   * @param		scores		The scores to smooth
+   * @param		m					The smoothing score to use
+   * @return	A list of smoothed scores.
    */
   def triangularSmoother(scores:List[Double],m:Integer = 5):List[Double]={
     
