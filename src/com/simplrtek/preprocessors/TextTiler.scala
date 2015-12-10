@@ -178,6 +178,15 @@ class TextTiler(w:Integer = 20, k:Integer = 10,stopwords:Set[String] = StopWords
     gapScores
   }
   
+  /**
+   * Smooth a list of data.
+   * 
+   * @param		scores			The scores to be smoothed in a list of doubles.
+   * @param		windowLen		The window length to use
+   * @param		stype				The smoothing type (simple,hanning,hamming,traingular,rectangular)
+   * 
+   * @return	A list of smoothed doubles the size of the original list
+   */
   def smooth(scores:List[Double],windowLen:Integer,stype:String = "simple"):List[Double]={
     var s:List[Double] = List[Double]()
     if(scores.length < windowLen){
@@ -194,16 +203,17 @@ class TextTiler(w:Integer = 20, k:Integer = 10,stopwords:Set[String] = StopWords
        s=Smoother.hanningSmoother(scores)
      }else if(stype.equals("hamming")){
        s=Smoother.hammingSmoother(scores)
+     }else if(stype.equals("triangular")){
+       s = Smoother.triangularSmoother(scores)
+     }else if(stype.equals("rectangular")){
+       s = Smoother.rectangularSmoother(scores)
      }else{
-     
        try{
          throw new NullPointerException
        }catch{
          case t:Throwable => log.error("Filter Not Found ("+stype+")"+t.getStackTraceString)
        }
      }
-     
-      
     }
     s
   }
