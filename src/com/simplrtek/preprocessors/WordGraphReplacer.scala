@@ -5,6 +5,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.Duration
 import java.util.concurrent.ConcurrentHashMap
 
+import com.simplrtek.vectorizers.WordCountVectorizer
 
 import breeze.linalg.DenseMatrix
 import breeze.linalg.DenseVector
@@ -19,8 +20,8 @@ import com.simplrtek.pickle.Pickler
  * Replace words in an object and create a replacement model. This is not distributable because of the iterative nature of building a replacement model.
  * However, concurrency is used where possible.
  */
-object WordGraphReplacer {
-  var tokenizer:List[String] = List[String]() //for tokenizing a sentence to a vector (must be built first)
+class WordGraphReplacer(cols:Integer = 100, rows:Integer = 100){
+  var tokenizer:WordCountVectorizer = new WordCountVectorizer(cols,rows) //for tokenizing a sentence to a vector (must be built first)
   var replacementMap:ConcurrentHashMap[String,String] = new ConcurrentHashMap[String,String]()
   
   /**
@@ -38,7 +39,7 @@ object WordGraphReplacer {
    * @param		tokenizerPath		The java.io.File where the path is.
    */
   def loadTokenizer(tokenizerPath:File)={
-    tokenizer = Pickler.unpickleFrom[List[String]](tokenizerPath)
+    tokenizer = Pickler.unpickleFrom[WordCountVectorizer](tokenizerPath)
   }
   
   
@@ -75,7 +76,7 @@ object WordGraphReplacer {
    */
   def replaceWords(text:String,cosCutoff:Double = .9,binFile:String = "data/models/en-token.bin",termTime:Duration = Duration.Inf,tokenizerPath:File = null):List[List[String]]={
     
-    if(tokenizer.size == 0){
+    if(tokenizer.posMap.keys.size == 0){
       try{
         throw new NullPointerException("This is a two pass algorithm. Tokenizer must be generated first")
       }catch{
@@ -132,7 +133,6 @@ object WordGraphReplacer {
 
 object TestSDriver{
   def main(args:Array[String])={
-    val tst = WordGraphReplacer.saveTokenizer(new File("data/models/tst.dat"))
-    WordGraphReplacer.loadTokenizer(new File("data/models/tst.dat"))
+
   }
 }
