@@ -7,7 +7,7 @@ import com.simplrtek.pickle.Pickler
 
 class WordCountVectorizer(cols:Integer,rows:Integer) extends Vectorizer[String,Double] with Serializable{
   var matrix:DenseMatrix[Double] = new DenseMatrix[Double](cols,rows)
-  var posMap:Map[String,Integer] = Map[String,Integer]()
+  var posMap:Map[String,Integer] = Map[String,Integer]() //serves as a lookup table
   
   def vectorize(text:String):DenseVector[Double]={
     null
@@ -38,7 +38,8 @@ class WordCountVectorizer(cols:Integer,rows:Integer) extends Vectorizer[String,D
    * @param		posFile		The position map file
    */
   def save(matFile:File,posFile:File)={
-     Pickler.pickleTo(matrix, posFile)
+     Pickler.pickleTo(matrix, matFile)
+     Pickler.pickleTo(posMap, posFile)
   }
   
   /**
