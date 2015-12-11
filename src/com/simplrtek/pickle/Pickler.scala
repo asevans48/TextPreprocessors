@@ -53,7 +53,7 @@ object Pickler {
    * @param		file		The file to unpickle from.
    * @return	The object of type [T] from the file.
    */
-  def unpickle[T](file:File):T={
+  def unpickleFrom[T](file:File):T={
     try{
       val fois:FileInputStream = new FileInputStream(file)
       val ois:ObjectInputStream = new ObjectInputStream(fois)

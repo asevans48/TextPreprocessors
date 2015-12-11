@@ -12,8 +12,7 @@ import breeze.linalg.DenseVector
 import sbt.io.IO
 import java.io.File
 
-import java.io.{ObjectOutputStream, ObjectInputStream}
-import java.io.{FileOutputStream, FileInputStream}
+import com.simplrtek.pickle.Pickler
 
 
 /**
@@ -39,10 +38,7 @@ object WordGraphReplacer {
    * @param		tokenizerPath		The java.io.File where the path is.
    */
   def loadTokenizer(tokenizerPath:File)={
-    val ois = new ObjectInputStream(new FileInputStream(tokenizerPath))
-    tokenizer = ois.readObject().asInstanceOf[List[String]]
-    ois.close
-    println(tokenizer)
+    tokenizer = Pickler.unpickleFrom[List[String]](tokenizerPath)
   }
   
   
@@ -50,27 +46,21 @@ object WordGraphReplacer {
    * Save the tokenizer
    */
   def saveTokenizer(file:File)={
-     val ostream = new ObjectOutputStream(new FileOutputStream(file))
-     ostream.writeObject(tokenizer)
-     ostream.close
+     Pickler.pickleTo(tokenizer, file)
   }
   
   /**
    * Save the model.
    */
   def saveModel(file:File)={
-    val ostream = new ObjectOutputStream(new FileOutputStream(file))
-     ostream.writeObject(replacementMap)
-     ostream.close
+    Pickler.pickleTo(replacementMap, file)
   }
   
   /**
    * Load a model.
    */
   def loadModel(modelPath:File)={
-    val ois = new ObjectInputStream(new FileInputStream(modelPath))
-    replacementMap = ois.readObject().asInstanceOf[ConcurrentHashMap[String,String]]
-    ois.close
+    replacementMap = Pickler.unpickleFrom[ConcurrentHashMap[String,String]](modelPath)
   }
   
   /**
