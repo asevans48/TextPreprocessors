@@ -4,7 +4,7 @@ import java.io.{ObjectInputStream,ObjectOutputStream}
 import java.io.{File,FileOutputStream,FileInputStream}
 import java.io.{IOException,FileNotFoundException}
 
-import com.simplrtek.preprocessors.logger
+import com.simplrtek.logger.logger
 
 /**
  * Pickles objects (which is the process) using Java Object Array Streams to maintain compatibility with

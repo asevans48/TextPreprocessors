@@ -1,13 +1,10 @@
-package com.simplrtek.preprocessors
+package com.simplrtek.distributedprep
 
-import org.apache.commons.lang3.exception.ExceptionUtils
 import scala.collection.JavaConversions._
 import org.apache.spark.rdd.RDD
-
-import java.util.Properties
-
 import org.apache.spark.SparkContext._
 import org.apache.spark.{SparkConf,SparkContext}
+import com.simplrtek.preprocessors.SentTokenizer
 
 class DistributedTokenizer(hadoopDir:String = "C:\\Users/packe/Documents/hadoop-2.7.1",mRS:String ="15g",emx:String = "8g",dmx:String="4g"){
   System.setProperty("hadoop.home.dir", "C:\\Users/packe/Documents/hadoop-2.7.1")

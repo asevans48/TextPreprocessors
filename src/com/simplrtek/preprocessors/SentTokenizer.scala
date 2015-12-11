@@ -6,6 +6,7 @@ import epic.preprocess.{SentenceSegmenter,MLSentenceSegmenter,TreebankTokenizer}
 import org.apache.commons.lang3.exception.ExceptionUtils
 import java.io.{FileInputStream,IOException,File}
 import sbt.io.IO
+import com.simplrtek.logger.logger
 
 object SentTokenizer{
   var model:TokenizerModel = null 

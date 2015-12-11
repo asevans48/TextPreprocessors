@@ -1,4 +1,4 @@
-package com.simplrtek.preprocessors
+package com.simplrtek.logger
 
 import org.slf4j.{Logger,LoggerFactory}
 

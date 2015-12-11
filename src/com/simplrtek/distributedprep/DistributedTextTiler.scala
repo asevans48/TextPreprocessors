@@ -1,13 +1,11 @@
-package com.simplrtek.preprocessors
+package com.simplrtek.distributedprep
 
 import org.apache.spark.rdd.RDD
-
-import java.util.Properties
-
 import java.io.File
 import sbt.io.IO
 import org.apache.spark.SparkContext._
 import org.apache.spark.{SparkConf,SparkContext}
+import com.simplrtek.preprocessors.TextTiler
 
 /**
  * Distributes the Text Tiling algorithm via Spark.

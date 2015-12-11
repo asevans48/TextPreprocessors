@@ -1,15 +1,14 @@
-package com.simplrtek.preprocessors
+package com.simplrtek.distributedprep
 
-import org.apache.commons.lang3.exception.ExceptionUtils
 import edu.stanford.nlp.pipeline._
 import edu.stanford.nlp.ling.CoreAnnotation._
 import scala.collection.JavaConversions._
 import org.apache.spark.rdd.RDD
-
 import java.util.Properties
-
 import org.apache.spark.SparkContext._
 import org.apache.spark.{SparkConf,SparkContext}
+import com.simplrtek.preprocessors.Stemmer
+import com.simplrtek.preprocessors.StopWords
 
 /**
  * A class that distributes teh stemming process. Several parameters are available for tuning including the max result size, executor max memory,
