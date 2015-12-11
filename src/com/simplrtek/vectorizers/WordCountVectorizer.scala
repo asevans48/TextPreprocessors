@@ -9,11 +9,11 @@ class WordCountVectorizer(cols:Integer,rows:Integer) extends Vectorizer[String,D
   var matrix:DenseMatrix[Double] = new DenseMatrix[Double](cols,rows)
   var posMap:Map[String,Integer] = Map[String,Integer]() //serves as a lookup table
   
-  def vectorize(text:String):DenseVector[Double]={
+  def transform(text:String):DenseVector[Double]={
     null
   }//vectorize
   
-  def buildVectors(texts:List[String]):DenseMatrix[Double]={
+  def fit(vectorees:List[String]):DenseMatrix[Double]={
     null
   }//buildVectors
   

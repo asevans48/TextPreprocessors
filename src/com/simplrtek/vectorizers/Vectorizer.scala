@@ -30,14 +30,8 @@ abstract class Vectorizer[T,E]{
    * @param		vectoree		The data to vectorize
    * @return	A Dense Vector containing data of type E.
    */
-  def vectorize(vectoree:T):DenseVector[E]
+  def transform(vectoree:T):DenseVector[E]
   
-  /**
-   * Builds vectors from lists of data.
-   * @param		vectorees		The list of data to vectorize of type T
-   * @return	A Dense Matrix containting vectors with data type E
-   */
-  def buildVectors(vectorees:List[T]):DenseMatrix[E]
   
   /**
    * Get the dense matrix of type E.
