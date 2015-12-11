@@ -5,11 +5,16 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.Duration
 import java.util.concurrent.ConcurrentHashMap
 
+
 import breeze.linalg.DenseMatrix
 import breeze.linalg.DenseVector
 
 import sbt.io.IO
 import java.io.File
+
+import java.io.{ObjectOutputStream, ObjectInputStream}
+import java.io.{FileOutputStream, FileInputStream}
+
 
 /**
  * Replace words in an object and create a replacement model. This is not distributable because of the iterative nature of building a replacement model.
@@ -29,15 +34,56 @@ object WordGraphReplacer {
   }
   
   /**
+   * Load a tokenizer.
+   * 
+   * @param		tokenizerPath		The java.io.File where the path is.
+   */
+  def loadTokenizer(tokenizerPath:File)={
+    val ois = new ObjectInputStream(new FileInputStream(tokenizerPath))
+    tokenizer = ois.readObject().asInstanceOf[List[String]]
+    ois.close
+    println(tokenizer)
+  }
+  
+  
+  /**
+   * Save the tokenizer
+   */
+  def saveTokenizer(file:File)={
+     val ostream = new ObjectOutputStream(new FileOutputStream(file))
+     ostream.writeObject(tokenizer)
+     ostream.close
+  }
+  
+  /**
+   * Save the model.
+   */
+  def saveModel(file:File)={
+    val ostream = new ObjectOutputStream(new FileOutputStream(file))
+     ostream.writeObject(replacementMap)
+     ostream.close
+  }
+  
+  /**
+   * Load a model.
+   */
+  def loadModel(modelPath:File)={
+    val ois = new ObjectInputStream(new FileInputStream(modelPath))
+    replacementMap = ois.readObject().asInstanceOf[ConcurrentHashMap[String,String]]
+    ois.close
+  }
+  
+  /**
    * Take in a string and perform replacement.
    * 
    * @param		text									The string to replace words from
    * @param		cosCutoff							The cosine cutoff to consider in whether to replace a word (based on best definition)
    * @param		{String}{binFile}			The model to use in sentence tokenization
    * @param		{Duration}{termTime]	The durationt to wait for replacement to finish.
+   * @param		{File}{tokenizerPath}	The path where the tokenizer is. Deafult is null which expects a loaded tokenizer.
    * @return	A List of List of words representing sentences void of punctuation
    */
-  def replaceWords(text:String,cosCutoff:Double = .9,binFile:String = "data/models/en-token.bin",termTime:Duration = Duration.Inf):List[List[String]]={
+  def replaceWords(text:String,cosCutoff:Double = .9,binFile:String = "data/models/en-token.bin",termTime:Duration = Duration.Inf,tokenizerPath:File = null):List[List[String]]={
     
     if(tokenizer.size == 0){
       try{
@@ -48,6 +94,11 @@ object WordGraphReplacer {
       }
     }
     
+    /**
+     * Replace the words in a sentence
+     * 
+     * @param		sentence		The sentence to replace words in.
+     */
     def replaceWords(sentence:String):Future[List[String]]=Future{
       
       def getDefinition(words:List[String],word:String):List[String]={
@@ -56,7 +107,7 @@ object WordGraphReplacer {
       
       def checkDefs()={
         
-      }
+      }//
       
       var words = WordTokenizer.wordTokenize(PunctReplacer.replacePunct(text))
       words = words.filter({ word => !StopWords.stopList.contains(word) })
@@ -87,5 +138,11 @@ object WordGraphReplacer {
     sentences
     
   }
-  
+}
+
+object TestSDriver{
+  def main(args:Array[String])={
+    val tst = WordGraphReplacer.saveTokenizer(new File("data/models/tst.dat"))
+    WordGraphReplacer.loadTokenizer(new File("data/models/tst.dat"))
+  }
 }
