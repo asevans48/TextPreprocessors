@@ -98,10 +98,12 @@ class WordGraphReplacer(cols:Integer = 100, rows:Integer = 100){
       
       def checkDefs()={
         
-      }//
+      }//check definitions against existing defs using a cosine cutoff value
+      
+     
       
       var words = WordTokenizer.wordTokenize(PunctReplacer.replacePunct(text))
-      words = words.filter({ word => !StopWords.stopList.contains(word) })
+      words = words.filter({ word => !StopWords.stopList.contains(word)})
       
       
       null
