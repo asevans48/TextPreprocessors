@@ -34,7 +34,7 @@ object TestDriver {
   
   def main(args:Array[String]):Unit={
     val arr=List(1.0,2.0,3.0,7.0,9.0,11.0,12.0,14.0,16.0,18.0)
-    println(Smoother.rectangularSmoother(arr, 3))
+    println(Smoother.simpleExponentialSmoother(arr, 3))
     
   }
   

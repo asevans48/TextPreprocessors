@@ -192,11 +192,11 @@ object Smoother {
     var i = 0
     while(i < scores.size){
       if(i >= k-1){
-        sum += scores(i) - scores(i-k)
+        sum += scores(i) - scores(i-(k-1))
       }else{
         sum += scores(i)
       }
-      smoothScores.updated(i,sum/k)
+      smoothScores = smoothScores.updated(i,sum/k)
       i += 1
     }
 
