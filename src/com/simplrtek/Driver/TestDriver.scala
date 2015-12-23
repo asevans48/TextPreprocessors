@@ -15,7 +15,7 @@ class SmoothingTest extends FlatSpec with Matchers{
   
   
   "an array of integers" should "return a triangularly smoothed result" in{
-      //NOTE THIS NEEDS TO BE TESTED MANUALLY DUE TO FRACTIONS RESULTING FROM DIVISION, sorry
+      //still need to add fractions to this test, was doing this manually because of laziness and my own spreadsheet based test docs
       //val arr=List(1,2,3,7,9,11,12,14,16,18)
       //Smoother.triangularSmoother(arr.asInstanceOf[List[Double]], 3) should equal (List(1,2,4.11,6.44,8.67,10.67,12.33,14.11,16,18))
      

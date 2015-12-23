@@ -199,9 +199,7 @@ object Smoother {
       smoothScores.updated(i,sum/k)
       i += 1
     }
-   
-    
-    
+
     smoothScores
   }
   
