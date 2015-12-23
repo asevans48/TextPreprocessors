@@ -16,7 +16,7 @@ class FeatureHasher{
    */
   def resizeVector(arr:Array[Integer],size:Integer):Array[Integer]={
     var newArr = Array.fill[Integer][size](0)
-    Array.copy(arr, 0, newArr, 0, arr.length)
+    //Array.copy(arr, 0, newArr, 0, arr.length)
   }
   
   /**
@@ -25,39 +25,9 @@ class FeatureHasher{
    */
   def transform(counts:List[Map[String,Integer]],features:Integer = 10000):CSCMatrix[Integer]={
     //TODO Build out the transformer using Mahout or Breeze
-    val builder = new CSCMatrix.Builder[Double](rows=10, cols=10)
     
-    var size:Integer = 0
-    var indexList:List[Array[Integer]] = List[Array[Integer]]()
-    var datList:List[Array[Integer]] = List[Array[Integer]]()
-    for(sentence <- counts){
-      var indices:Array[Integer]= Array[Integer]()
-      var values:Array[Integer] = Array.fill[Integer][features](0) 
-      
-      for(key <- sentence.keys){
-        val v = sentence.get(key).get
-        val h = Hash.murmurHashString(key)
-        
-        if(indices.length > features){
-          indices = resizeVector(indices,indices.length + 1)
-        }
-        
-        indices(indices.length -1) = Math.abs(h) % features
-        v = v * ((h*2) -1)
-        values(size) = v
-        
-        size += 1
-        
-        if(size > values.length){
-          values=resizeVector(values,(values.length *2))
-        }
-        
-      }
-      
-      indexList = indexList :+ indices
-      datList = datList :+ values
-    }
+    
     //create a dense matrix from the list of arrays
-    
+    null
   }
 }
