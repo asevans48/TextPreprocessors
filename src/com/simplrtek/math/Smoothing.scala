@@ -66,8 +66,11 @@ object Smoother {
     var scores = inScores.sorted
 
     if(m > scores.size){
-      println("Array must be at least m")
-      return scores
+      try{
+        new ArrayIndexOutOfBoundsException("Array must be at least m")
+      }catch{
+        case e:ArrayIndexOutOfBoundsException => e.getMessage
+      }
     }
     
     var smoothScores:List[Double] = List[Double]()
