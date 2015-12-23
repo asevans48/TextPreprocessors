@@ -18,7 +18,7 @@ import reflect._
  * Simple Exponential Smoothing
  */
 object Smoother {
-  
+
   /**
    * Test for things that fit into Double.
    * @param	Any ref
@@ -47,6 +47,9 @@ object Smoother {
         }
         
       }
+      case _ =>{
+        println("Proper Type")
+      }
     }
   }
   
@@ -58,32 +61,24 @@ object Smoother {
    * @param		m					The smoothing score to use
    * @return	A list of smoothed scores.
    */
-  def triangularSmoother[T](scores:List[T],m:Integer = 5):List[Double]={
-    
-    if(scores.size < m){
-      return scores.asInstanceOf[List[Double]]
-    }else{
-      testDoubles(scores(0))
-    }
-    
-    
+  def triangularSmoother(scores:List[Double],m:Integer = 5):List[Double]={
+    var smoothScores:List[Double] = List[Double]()
     var d: List[Double] = scores.slice(0, m).asInstanceOf[List[Double]]
-    var n = m
+    var n = m - 1
     while(n < scores.size - (m+1)){
-      var score:Double = 0
-      var denom:Integer=0
-      var k = math.ceil(m/2).asInstanceOf[Integer]
-      var j = (-k) +1
-      while(j <= math.ceil(m/2).asInstanceOf[Integer]){
-        score = score + ((k - math.abs(j) * scores(n + j).asInstanceOf[Double])).asInstanceOf[Double]
-        denom = denom + (k - math.abs(j))
-        j = j + 1
+      var k = -1 * (m -1)
+      var score: Double = 0
+      var denom: Double = 0
+      while(k < m){
+        val x = m-math.abs(k)
+        denom += x
+        score += (x * scores(n + k))
+        k += 1
       }
-      d = d :+ (score/ (2*m)).asInstanceOf[Double]
-      n = n + 1
+      n += 1
+      smoothScores = smoothScores :+ (score/denom)
     }
-    d = d ++ d.slice(n,scores.size)
-    d
+    smoothScores
   }
   
   /**
@@ -93,14 +88,8 @@ object Smoother {
    * @param		scores		A list of doubles to smooth
    * @return	A smoothed list of double
    */
-  def rectangularSmoother[T](scores:List[T],m:Integer = 3):List[Double]={
-    
-    if(scores.size < m){
-      return scores.asInstanceOf[List[Double]]
-    }else{
-      testDoubles(scores)    
-    }
-    
+  def rectangularSmoother(scores:List[Double],m:Integer = 3):List[Double]={
+   
     var d: List[Double] = scores.slice(0, m).asInstanceOf[List[Double]]
     var n = m
     while(n < scores.size - (m+1)){
@@ -124,7 +113,7 @@ object Smoother {
    * @param		scores		The list of doubles to smooth
    * @return	A list of smoothed doubles.
    */
-  def hammingSmoother[T](scores:List[T]):List[Double]={
+  def hammingSmoother(scores:List[Double]):List[Double]={
     var m = scores.size/2
     var r = Math.PI  / m
     var d:List[Double] = scores.toList.asInstanceOf[List[Double]]
@@ -165,7 +154,7 @@ object Smoother {
    * @param		k					The number of prior variables to take into account.
    * @return	A list of doubles consisting of the smoothed variables		
    */
-  def simpleExponentialSmoother[T](scores:List[T],k:Integer = 3):List[Double]={
+  def simpleExponentialSmoother(scores:List[Double],k:Integer = 3):List[Double]={
     
     var d:List[Double] = List[Double]()
     

@@ -15,7 +15,8 @@ class SmoothingTest extends FlatSpec with Matchers{
   
   "an array of integers" should "return a triangularly smoothed result" in{
       val arr=List(1,2,3,7,9,11,12,14,16,18)
-      Smoother.triangularSmoother[Double](arr.asInstanceOf[List[Double]], 3) should equal (List(1,2,4.11,6.44,8.67,10.67,12.33,14.11,16,18))
+      println(Smoother.triangularSmoother(arr.asInstanceOf[List[Double]], 3))
+      Smoother.triangularSmoother(arr.asInstanceOf[List[Double]], 3) should equal (List(1,2,4.11,6.44,8.67,10.67,12.33,14.11,16,18))
   }
   /*
   "an m greater than array size" should "throw an array index out of bounds error" in{
@@ -45,8 +46,10 @@ class SmoothingTest extends FlatSpec with Matchers{
 object TestDriver {
   
   def main(args:Array[String]):Unit={
-    val sm = new SmoothingTest
-    sm.execute()
+    val arr=List(1.0,2.0,3.0,7.0,9.0,11.0,12.0,14.0,16.0,18.0)
+    //val sm = new SmoothingTest
+    //sm.execute()
+    println(Smoother.triangularSmoother(arr.asInstanceOf[List[Double]], 3))
     
   }
   
