@@ -179,23 +179,30 @@ object Smoother {
    * @return	A list of doubles consisting of the smoothed variables		
    */
   def simpleExponentialSmoother(scores:List[Double],k:Integer = 3):List[Double]={
-    
-    var d:List[Double] = List[Double]()
-    
-    if(scores.size > 0){
-      testDoubles(scores)
-      
-      for(i <- 0 to scores.size){
-        if(i > k){
-          d = d :+ (d(i-1) + (scores(i).asInstanceOf[Double] - scores(i-k).asInstanceOf[Double])/k)  
-        }else if(i>0){
-          d = d :+ (d(0) + (scores(i).asInstanceOf[Double]-scores(0).asInstanceOf[Double]/i)) 
-        }else{
-          d = d :+ d(0)
-        }
+   if(k > scores.size){
+      try{
+        new ArrayIndexOutOfBoundsException("Array must be at least k")
+      }catch{
+        case e:ArrayIndexOutOfBoundsException => e.getMessage
       }
     }
-    d
+   
+    var smoothScores:List[Double] = scores.sorted
+    var sum:Double  = 0
+    var i = 0
+    while(i < scores.size){
+      if(i >= k-1){
+        sum += scores(i) - scores(i-k)
+      }else{
+        sum += scores(i)
+      }
+      smoothScores.updated(i,sum/k)
+      i += 1
+    }
+   
+    
+    
+    smoothScores
   }
   
   
