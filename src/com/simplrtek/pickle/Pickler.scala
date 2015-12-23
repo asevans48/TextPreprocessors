@@ -3,6 +3,7 @@ package com.simplrtek.pickle
 import java.io.{ObjectInputStream,ObjectOutputStream}
 import java.io.{File,FileOutputStream,FileInputStream}
 import java.io.{IOException,FileNotFoundException}
+import org.apache.commons.lang3.exception.ExceptionUtils
 
 import com.simplrtek.logger.logger
 
@@ -36,13 +37,13 @@ object Pickler {
       foos.close()
     }catch{
       case e:IOException =>{
-        log.info("IO Exception in Writing Pickle: "+e.getMessage+"\n"+e.getStackTraceString)
+        log.info("IO Exception in Writing Pickle: "+e.getMessage+"\n"+ExceptionUtils.getStackTrace(e))
       }
       case e:NullPointerException =>{
-        log.info("Picklee object or file are Null: "+e.getMessage+"\n"+e.getStackTraceString)
+        log.info("Picklee object or file are Null: "+e.getMessage+"\n"+ExceptionUtils.getStackTrace(e))
       }
       case t:Throwable =>{
-        log.info("Error in Pickling: "+t.getMessage+"\n"+t.getStackTraceString)
+        log.info("Error in Pickling: "+t.getMessage+"\n"+ExceptionUtils.getStackTrace(t))
       }
     }
   }
@@ -60,15 +61,15 @@ object Pickler {
       ois.readObject().asInstanceOf[T]
     }catch{
        case e:IOException =>{
-        log.info("IO Exception in UnPickling from file: "+e.getMessage+"\n"+e.getStackTraceString)
+        log.info("IO Exception in UnPickling from file: "+e.getMessage+"\n"+ExceptionUtils.getStackTrace(e))
         sys.exit()
       }
       case e:NullPointerException =>{
-        log.info("Unpickle File is Null: "+e.getMessage+"\n"+e.getStackTraceString)
+        log.info("Unpickle File is Null: "+e.getMessage+"\n"+ExceptionUtils.getStackTrace(e))
         sys.exit()
       }
       case t:Throwable =>{
-        log.info("Error in UnPickling from File: "+t.getMessage+"\n"+t.getStackTraceString)
+        log.info("Error in UnPickling from File: "+t.getMessage+"\n"+ExceptionUtils.getStackTrace(t))
         sys.exit()
       }
       

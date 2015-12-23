@@ -24,6 +24,7 @@ class FeatureHasher{
    * using the hashing trick.
    */
   def transform(counts:List[Map[String,Integer]],features:Integer = 10000):CSCMatrix[Integer]={
+    //TODO Build out the transformer using Mahout or Breeze
     val builder = new CSCMatrix.Builder[Double](rows=10, cols=10)
     
     var size:Integer = 0
