@@ -74,7 +74,6 @@ object Smoother {
     }
     
     var smoothScores:List[Double] = List[Double]()
-    var d: List[Double] = scores.slice(0, m).asInstanceOf[List[Double]]
     var n = m - 1
     while(n <= scores.size - m){
       var k = -1 * (m -1)
@@ -103,21 +102,33 @@ object Smoother {
    */
   def rectangularSmoother(scores:List[Double],m:Integer = 3):List[Double]={
    
-    var d: List[Double] = scores.slice(0, m).asInstanceOf[List[Double]]
-    var n = m
-    while(n < scores.size - (m+1)){
-      var score:Double = 0
-       var k = math.ceil(m/2).asInstanceOf[Integer]
-      var j = (-k) +1
-      while(j < math.ceil(m/2).asInstanceOf[Integer]){
-        score = score + scores(n + j).asInstanceOf[Double]
-        j = j + 1
+    if(m > scores.size){
+      try{
+        new ArrayIndexOutOfBoundsException("Array must be at least m")
+      }catch{
+        case e:ArrayIndexOutOfBoundsException => e.getMessage
       }
-      d = d :+ (score/ m)
-      n = n + 1
     }
-    d = d ++ d.slice(n,scores.size)
-    d
+    
+    var smoothScores:List[Double] = scores.sorted
+    var st = (m/2).toInt
+    var n = st
+    
+    while(n < scores.size - 1){
+      var k = -1 * st
+      var score:Double = 0
+      while( k <= st){
+        score += scores(n+k)
+        k += 1
+      }
+      
+      smoothScores = smoothScores.updated(n,score/m)
+      
+      n += 1
+    }
+   
+    
+    smoothScores
   }
   
   /**
