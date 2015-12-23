@@ -61,11 +61,19 @@ object Smoother {
    * @param		m					The smoothing score to use
    * @return	A list of smoothed scores.
    */
-  def triangularSmoother(scores:List[Double],m:Integer = 5):List[Double]={
+  def triangularSmoother(inScores:List[Double],m:Integer = 5):List[Double]={
+    
+    var scores = inScores.sorted
+
+    if(m > scores.size){
+      println("Array must be at least m")
+      return scores
+    }
+    
     var smoothScores:List[Double] = List[Double]()
     var d: List[Double] = scores.slice(0, m).asInstanceOf[List[Double]]
     var n = m - 1
-    while(n < scores.size - (m+1)){
+    while(n <= scores.size - m){
       var k = -1 * (m -1)
       var score: Double = 0
       var denom: Double = 0
@@ -78,7 +86,9 @@ object Smoother {
       n += 1
       smoothScores = smoothScores :+ (score/denom)
     }
-    smoothScores
+    
+    smoothScores = scores.slice(0, m-1) ++ smoothScores
+    smoothScores ++ scores.slice(scores.size - (m-1), scores.size)
   }
   
   /**

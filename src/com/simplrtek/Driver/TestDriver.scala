@@ -18,11 +18,12 @@ class SmoothingTest extends FlatSpec with Matchers{
       println(Smoother.triangularSmoother(arr.asInstanceOf[List[Double]], 3))
       Smoother.triangularSmoother(arr.asInstanceOf[List[Double]], 3) should equal (List(1,2,4.11,6.44,8.67,10.67,12.33,14.11,16,18))
   }
-  /*
+  
   "an m greater than array size" should "throw an array index out of bounds error" in{
   
   }
   
+  /*
   "an array of negative integers" should "return a negative result" in{
     
   
