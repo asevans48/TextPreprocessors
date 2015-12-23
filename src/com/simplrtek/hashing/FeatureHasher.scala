@@ -15,8 +15,9 @@ class FeatureHasher{
    * If there are more than 10000 features a resize is necessary.
    */
   def resizeVector(arr:Array[Integer],size:Integer):Array[Integer]={
-    var newArr = Array.fill[Integer][size](0)
-    //Array.copy(arr, 0, newArr, 0, arr.length)
+    var newArr:Array[Integer] = Array.fill[Integer](arr.size + 1)(0)
+    Array.copy(arr, 0, newArr, 0, arr.length)
+    newArr
   }
   
   /**

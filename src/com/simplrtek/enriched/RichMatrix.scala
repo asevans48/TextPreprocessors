@@ -184,8 +184,8 @@ object RichMatrix {
   
   implicit class EnrichedSparseRowUtils(matrix : SparseRowMatrix){
     
-    def load(f:File):SparseRowMatrix{
-           
+    def load(f:File):SparseRowMatrix={
+        null   
     }//load
     
     def save(f:File)={
