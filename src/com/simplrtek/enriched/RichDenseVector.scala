@@ -29,26 +29,11 @@ class RichDenseVector(vector:DenseVector){
     
     /**
      * Build Sparse Vector From an index list and a data list.
-     * @param			indices		Integer array of indices
-     * @data			data			Specified array of data with the same length as indices
+     * @param			data			Specified array of data with the same length as indices
      * @return		The random access sparse vector created from the indices and data.
      */
-    def buildFromArrs[T](indices:Array[Integer],data:Array[T]):RandomAccessSparseVector={
-      var v:RandomAccessSparseVector = new RandomAccessSparseVector()
-      
-      if(indices.length != data.length){
-        try{
-          throw new ArrayIndexOutOfBoundsException("Indices do not Match data. ")
-        }catch{
-          case e:ArrayIndexOutOfBoundsException => println(e.getMessage+"\n"+ExceptionUtils.getStackTrace(e))
-          case t:Throwable => println("Unknown Error.\n"+t.getMessage+"\n"+ExceptionUtils.getStackTrace(t))
-        }
-      }
-      
-      for(i <- 0 to indices.length){
-        v.set(indices(i), data(i).asInstanceOf[Double])
-      }
-      v
+    def buildFromArr[T](data:Array[T]):DenseVector={
+      new DenseVector(data.asInstanceOf[Array[Double]])
     }
     
     /**
@@ -70,12 +55,8 @@ class RichDenseVector(vector:DenseVector){
      * @param		data		The list of data to convert from a dense array to sparse vector
      * @return	A random access sparse vector.
      */
-    def buildFromList[T](data:Array[T]):RandomAccessSparseVector={
-      var v:RandomAccessSparseVector = new RandomAccessSparseVector(data.size)
-      for(i <- 0 to data.size){
-        v.set(i, data(i).asInstanceOf[Double])
-      }
-      v
+    def buildFromList[T](data:List[T]):DenseVector={
+      new DenseVector(data.asInstanceOf[List[Double]].toArray)
     }
     
     /**
@@ -83,12 +64,20 @@ class RichDenseVector(vector:DenseVector){
      */
     def appendArray[T](data:Array[T]):DenseVector={
       var sz:Integer = vector.size()
+      var v:DenseVector = new DenseVector(data.length + vector.size())
+      val it = vector.iterator()      
+      var i = 0
       
-      for(currIndex <- 0 to data.length){
-        vector.set(sz + currIndex, data(currIndex).asInstanceOf[Double])
-        
+      while(it.hasNext()){
+        v.set(i, it.next().get)
+        i += 1
       }
-      vector
+      
+      for(j <- 0 to data.length){
+        v.set(i+j, data(j).asInstanceOf[Double])
+      }
+      
+      v
     }
     
     /**
@@ -96,28 +85,45 @@ class RichDenseVector(vector:DenseVector){
      */
     def appendDenseVector(v:DenseVector):DenseVector={
       var sz:Integer = vector.size()
-     
-      for(currIndex <- 0 to v.size()){
-        vector.set(sz + currIndex, vector.get(currIndex).asInstanceOf[Double])
+      var v2:DenseVector = new DenseVector(vector.size() + v.size())
+      
+      var it = vector.iterator()
+      var i = 0
+      while(it.hasNext()){
+        v2.set(i,it.next().get)
+        i += 1
       }
-      vector
+      
+      it = v.iterator()
+      while(it.hasNext()){
+        v2.set(i, it.next().get)
+        i += 1
+      }
+      
+
+      v2
     }
     
     /**
      * Append a sparse vector to this vector
      */
     def appendSparseVector(v:RandomAccessSparseVector):DenseVector={
-      var sz:Integer = v.size()
-      var currIndex = 0
-      var it = v.iterator()
-      
+      var v2:DenseVector = new DenseVector(v.size() + vector.size())
+      v2.assign(0.0)
+      var it = vector.iterator()
+      var i =0 
       while(it.hasNext()){
-        var el = it.next()
-        vector.set(el.index()+currIndex, el.get)
-        currIndex += 1
+        v2.set(i, it.next().get)
+        i += 1
       }
       
-      vector
+      it = v.iterator()
+      while(it.hasNext()){
+        val el = it.next()
+        v2.set(i + el.index(), el.get)
+      }
+      
+      v2
     }
     
     /**
@@ -129,7 +135,7 @@ class RichDenseVector(vector:DenseVector){
      * @param		length			The number of positions in the source pos to get
      * @return	A new dense vector
      */
-    def copyToSparseVector(src:DenseVector,srcpos:Integer,destpos:Integer,length:Integer):DenseVector = {
+    def copyToVector(src:DenseVector,srcpos:Integer,destpos:Integer,length:Integer):DenseVector = {
       if((destpos + length) > vector.size() || srcpos+length > src.size()){
         try{
           throw new ArrayIndexOutOfBoundsException("Copy will fall off end of vector")
@@ -145,6 +151,20 @@ class RichDenseVector(vector:DenseVector){
       vector
     }
     
-
+    
+    /**
+     * Convert the vector to an array of doubles.
+     * @return		An array of double values of the current data.
+     */
+    def toArray():Array[Double]={
+      
+      var it = vector.iterator()
+      var arr:Array[Double] = Array[Double]()
+      while(it.hasNext()){
+        arr = arr :+ it.next().get
+      }
+      arr
+    }
+    
 
 }

@@ -34,7 +34,7 @@ class SmoothingTest extends FlatSpec with Matchers{
 class VectorTest extends FlatSpec with Matchers{
   
   "a sparse vector" should "be created from a dense array" in{
-     var v:Vector = new DenseVector(Array(1.0,2.0,3.0))
+     var v:DenseVector = new DenseVector(Array(1.0,2.0,3.0))
      
   }
   

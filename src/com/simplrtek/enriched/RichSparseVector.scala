@@ -146,5 +146,19 @@ class RichSparseVector(vector:RandomAccessSparseVector) {
       vector
     }
     
+    
+    /**
+     * Convert the Sparse Vector to an Array
+     * @return		A double array of the data.
+     */
+    def toArray():Array[Double]={
+      var arr = Array.fill[Double](vector.size())(0.0)
+      var it = vector.iterator()
+      while(it.hasNext()){
+        val el = it.next()
+        arr.update(el.index(), el.get)
+      }
+      arr
+    }
 
 }
