@@ -6,20 +6,7 @@ import org.apache.mahout.math.{RandomAccessSparseVector,DenseVector,Vector}
 import com.simplrtek.pickle.Pickler
 import java.io.File
 
-/**
- * A matrx class that includes some numpy like functions for use with single core
- * tasks and betterment of others. 
- */
-object RichMatrix {
-  
-  //implicit enrichment
-  implicit def richDenseMatrix(matrix:DenseMatrix) = new EnrichedDenseUtils(matrix)
-  implicit def richSparseMatrix(matrix:SparseMatrix) = new EnrichedSparseUtils(matrix)
-  implicit def richSparseRowMatrix(matrix:SparseRowMatrix) = new EnrichedSparseRowUtils(matrix)
- 
-  
-  //enrichment classes
-  implicit class EnrichedDenseUtils(matrix:DenseMatrix){
+class EnrichedDenseMatrix(matrix:DenseMatrix){
     
     /**
      * Convert the dense matrix to an array. (Useful for instantiation of other Matrices)
@@ -148,67 +135,3 @@ object RichMatrix {
     }//hstack
     
   }
-  
-  implicit class EnrichedSparseUtils(matrix:SparseMatrix){
-    
-    def load(f:File):SparseMatrix={
-      null
-    }//load
-    
-    def save(f:File)={
-      
-    }//save
-    
-    def toCSRMatrix():SparseRowMatrix={
-      null
-    }
-    
-    def toDense():DenseMatrix={
-      null
-    }//todense
-    
-    def stackMatrix(matrix:SparseMatrix,prior:Boolean = false):SparseMatrix={
-      null
-    }//stackMatrix
-    
-    def vstack(matrix:SparseMatrix, prior:Boolean = false):SparseMatrix={
-      null
-    }//vstack
-    
-    def hstack(matrix:SparseMatrix, prior:Boolean = false):SparseMatrix={
-      null
-    }//hstack
-    
-  }
-  
-  implicit class EnrichedSparseRowUtils(matrix : SparseRowMatrix){
-    
-    def load(f:File):SparseRowMatrix={
-        null   
-    }//load
-    
-    def save(f:File)={
-      
-    }//save
-    
-    def toSparseMatrix():SparseMatrix={
-      null
-    }//toSparseMatrix
-    
-    def toDense():DenseMatrix={
-      null
-    }//toSparse
-    
-    def stackMatrix(matrix: SparseRowMatrix, prior:Boolean = false):SparseRowMatrix={
-      null
-    }//stackMatrix
-    
-    def vstack(matrix: SparseRowMatrix, prior:Boolean = false):SparseRowMatrix={
-      null
-    }//vstack
-    
-    def hstack(matrix: SparseRowMatrix, prior:Boolean = false):SparseRowMatrix={
-      null
-    }//hstack
-  }
-}
