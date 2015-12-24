@@ -6,7 +6,7 @@ import org.apache.mahout.math.{RandomAccessSparseVector,DenseVector,Vector}
 import com.simplrtek.pickle.Pickler
 import java.io.File
 
-class EnrichSparseMatrix(matrix:SparseMatrix){
+class EnrichedSparseMatrix(matrix:SparseMatrix){
     
     def load(f:File):SparseMatrix={
       null

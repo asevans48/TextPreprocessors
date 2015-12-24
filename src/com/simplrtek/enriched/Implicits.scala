@@ -16,5 +16,5 @@ object Implicits {
   //Matrices
   implicit def enrichDenseMatrix(matrix:DenseMatrix) = new EnrichedDenseMatrix(matrix)
   implicit def enrichSparseMatrix(matrix:SparseMatrix) = new EnrichedSparseMatrix(matrix)
-  
+  implicit def enrichSparseRowMatrix(matrix:SparseRowMatrix) = new EnrichedSparseRowMatrix(matrix)
 }
