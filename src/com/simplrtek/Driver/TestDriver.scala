@@ -1,4 +1,7 @@
 package com.simplrtek.Driver
+import com.simplrtek.enriched.PimpTest.StringImprovements
+import com.simplrtek.enriched.Implicits._
+import org.apache.mahout.math.{RandomAccessSparseVector,DenseVector,Vector}
 
 import org.scalatest._
 import org.scalatest.junit.AssertionsForJUnit
@@ -7,7 +10,6 @@ import org.junit.Assert._
 import org.junit.Test
 import org.junit.Before
 
-import com.simplrtek.math.Smoother
 import com.simplrtek.math.Smoother
 import java.lang.ArrayIndexOutOfBoundsException
 
@@ -30,12 +32,24 @@ class SmoothingTest extends FlatSpec with Matchers{
   
 }
 
-object TestDriver {
+class VectorTest extends FlatSpec with Matchers{
   
+  "a sparse vector" should "be created from a dense array" in{
+     var v:Vector = new DenseVector(Array(1.0,2.0,3.0))
+     
+  }
+  
+}
+
+object TestDriver {
+ 
   def main(args:Array[String]):Unit={
-    val arr=List(1.0,2.0,3.0,7.0,9.0,11.0,12.0,14.0,16.0,18.0)
-    println(Smoother.simpleExponentialSmoother(arr, 3))
+    //val arr=List(1.0,2.0,3.0,7.0,9.0,11.0,12.0,14.0,16.0,18.0)
+    //println(Smoother.simpleExponentialSmoother(arr, 3))
+    var v:DenseVector = new DenseVector(Array(1.0,2.0))
+    var v2:RandomAccessSparseVector = new RandomAccessSparseVector(6)
     
+    println("HAL".increment(""))
   }
   
 }

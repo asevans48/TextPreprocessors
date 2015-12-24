@@ -4,7 +4,6 @@ import org.apache.mahout.math.{SparseMatrix,SparseRowMatrix}
 import org.apache.mahout.math.DenseMatrix
 import org.apache.mahout.math.{RandomAccessSparseVector,DenseVector,Vector}
 import com.simplrtek.pickle.Pickler
-import com.simplrtek.enriched.RichVector._
 import java.io.File
 
 /**
