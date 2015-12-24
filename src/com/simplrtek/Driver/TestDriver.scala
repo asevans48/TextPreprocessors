@@ -1,5 +1,4 @@
 package com.simplrtek.Driver
-import com.simplrtek.enriched.PimpTest.StringImprovements
 import com.simplrtek.enriched.Implicits._
 import org.apache.mahout.math.{RandomAccessSparseVector,DenseVector,Vector}
 
@@ -48,8 +47,6 @@ object TestDriver {
     //println(Smoother.simpleExponentialSmoother(arr, 3))
     var v:DenseVector = new DenseVector(Array(1.0,2.0))
     var v2:RandomAccessSparseVector = new RandomAccessSparseVector(6)
-    
-    println("HAL".increment(""))
   }
   
 }
