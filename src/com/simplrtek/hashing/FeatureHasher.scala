@@ -20,12 +20,21 @@ class FeatureHasher{
     newArr
   }
   
+  def fit()={
+    
+  }
+  
   /**
-   * Converts a List of String,Count Pairs to a CSC Matrix
-   * using the hashing trick.
+   * Converts a List of String,Count Pairs to a Sparse Matrix
+   * using the hashing trick. Uses Mahout and the Implicits to
+   * build the matrix. The algorithm uses the Hashing Trick.
+   * 
+   * @param		counts										A list of document counts
+   * @param		{Integer}{features}				The minimum features size
+   * @return	A Sparse Matrix
    */
   def transform(counts:List[Map[String,Integer]],features:Integer = 10000):CSCMatrix[Integer]={
-    //TODO Build out the transformer using Mahout or Breeze
+    //TODO Build out the transformer using Ma
     
     
     //create a dense matrix from the list of arrays
