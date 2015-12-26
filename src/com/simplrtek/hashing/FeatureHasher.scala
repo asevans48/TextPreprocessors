@@ -1,8 +1,11 @@
 package com.simplrtek.hashing
 
 import com.simplrtek.tokenizers.CountTokenizer
-import breeze.linalg.{DenseVector,DenseMatrix}
-import breeze.linalg.{CSCMatrix,SparseVector}
+import org.apache.mahout.math.{SparseRowMatrix,SparseMatrix}
+import org.apache.mahout.math.{RandomAccessSparseVector,DenseVector}
+import com.simplrtek.hashing.Hash
+import com.simplrtek.enriched.Implicits._
+
 /**
  * https://github.com/scikit-learn/scikit-learn/blob/c9572494a82b364529374aafca15660a7366e2c4/sklearn/feature_extraction/_hashing.pyx
  * https://github.com/scikit-learn/scikit-learn/blob/c9572494a82b364529374aafca15660a7366e2c4/sklearn/utils/murmurhash.pyx
@@ -33,8 +36,29 @@ class FeatureHasher{
    * @param		{Integer}{features}				The minimum features size
    * @return	A Sparse Matrix
    */
-  def transform(counts:List[Map[String,Integer]],features:Integer = 10000):CSCMatrix[Integer]={
-    //TODO Build out the transformer using Ma
+  def transform(counts:List[Map[String,Integer]],features:Integer = 10000):SparseMatrix={
+    var data = new RandomAccessSparseVector(features)
+    var indices = new RandomAccessSparseVector(features)
+    var currIndex: Integer = 0
+    
+    for(map <- counts){
+      for(wtup <- map){
+        if(wtup._2 != 0){
+          val h = Hash.murmurHashString(wtup._1)
+          var value:Double = wtup._2.asInstanceOf[Double] 
+          if(!(h >= 0)){
+            value *= - 1
+          }
+          data.set(currIndex, value)
+          
+          currIndex += 1
+          
+          if(currIndex == features){
+            
+          }
+        }
+      }
+    }
     
     
     //create a dense matrix from the list of arrays

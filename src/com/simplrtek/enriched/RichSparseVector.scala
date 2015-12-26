@@ -37,6 +37,7 @@ class RichSparseVector(vector:RandomAccessSparseVector) {
     def buildFromArrs[T](indices:Array[Integer],data:Array[T]):RandomAccessSparseVector={
       var v:RandomAccessSparseVector = new RandomAccessSparseVector()
       
+      
       if(indices.length != data.length){
         try{
           throw new ArrayIndexOutOfBoundsException("Indices do not Match data. ")

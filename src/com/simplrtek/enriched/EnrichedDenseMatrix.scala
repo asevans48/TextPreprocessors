@@ -5,6 +5,7 @@ import org.apache.mahout.math.DenseMatrix
 import org.apache.mahout.math.{RandomAccessSparseVector,DenseVector,Vector}
 import com.simplrtek.pickle.Pickler
 import java.io.File
+import org.apache.commons.lang3.exception.ExceptionUtils
 
 class EnrichedDenseMatrix(matrix:DenseMatrix){
     
@@ -98,31 +99,33 @@ class EnrichedDenseMatrix(matrix:DenseMatrix){
      * @return	A stacked matrix (brand new so be careful)
      */
     def vstack(matrix2:DenseMatrix,prior:Boolean = false):DenseMatrix={
+      
+      if(matrix2.numCols() != matrix.numCols()){
+        try{
+          throw new ArrayIndexOutOfBoundsException("Number of columns in both matrices of vstack must be equal")
+        }catch{
+          case e:ArrayIndexOutOfBoundsException => println(e.getMessage+"\n"+ExceptionUtils.getStackTrace(e))
+        }
+      }
       var mat2:DenseMatrix = new DenseMatrix(matrix.numRows,matrix.numCols)
-      var matpointer:DenseMatrix = null
-      if(prior){
-        matpointer= matrix2
-      }else{
-       matpointer = matrix
+      
+      var it = if(prior) matrix2.iterator() else matrix.iterator()
+      
+      while(it.hasNext()){
+        val el = it.next()
+        mat2.assignRow(el.index(), el.vector())
       }
       
-      for(i <- 0 to matpointer.numRows()){
-        
+      it = if(prior) matrix.iterator() else matrix2.iterator()
+      var sz = if(prior) matrix2.numRows() else matrix.numRows()
+      
+      while(it.hasNext()){
+        val el = it.next()
+        mat2.assignRow(sz + el.index(), el.vector())
       }
       
-      //avoid array of pointers with its larger overhead
-      if(prior){
-        matpointer = matrix
-      }else{
-        matpointer = matrix2
-      }
-      
-      for(i <- 0 to matpointer.numRows()){
-        
-      }
-      
-      null
-    }//vstack
+      mat2
+    }
     
     /**
      * Horizontally stack all of the rows from a matrix to this matrix requires rewriting.
@@ -130,8 +133,31 @@ class EnrichedDenseMatrix(matrix:DenseMatrix){
      * @param		matrix		The dense matrix to stak
      * @param		prior			Whether to stack the provided matrix before the current matrix.  
      */
-    def hstack(matrix:DenseMatrix,prior:Boolean = false):DenseMatrix={
-      null
-    }//hstack
+    def hstack(mat:DenseMatrix,prior:Boolean = false):DenseMatrix={
+      if(matrix.numRows() != mat.numRows()){
+        try{
+          throw new ArrayIndexOutOfBoundsException("The number of rows in both matrices of hstack must match")
+        }catch{
+          case e:ArrayIndexOutOfBoundsException => println(e.getMessage+"\n"+ExceptionUtils.getStackTrace(e))
+        }
+      }
+      
+      val numCols:Integer = matrix.numCols() + mat.numCols()
+      var m2:DenseMatrix = new DenseMatrix(matrix.numRows(),numCols)
+      val m1P = if(prior) mat else matrix
+      val m2P = if(prior) matrix else mat
+      
+      for(i <- 0 to matrix.numRows()){
+        for(j <- 0 to numCols){
+          if(j < m1P.numCols()){
+             m2.set(i, j, m1P.get(i, j))
+          }else{
+            m2.set(i, j - m1P.numCols(), m2P.get(i, j - m1P.numCols()))
+          }
+        }
+      }
+      
+      m2
+    }
     
   }
