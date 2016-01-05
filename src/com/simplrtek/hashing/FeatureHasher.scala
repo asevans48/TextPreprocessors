@@ -15,17 +15,32 @@ import com.simplrtek.enriched.Implicits._
 class FeatureHasher{
   
   /**
-   * If there are more than 10000 features a resize is necessary.
+   * Resize the Vector
+   * 
+   * @param		vect		The original RandomAccessSparseVector
+   * @return	A RandomAccessSparseVector with an additional slot
    */
-  def resizeVector(arr:Array[Integer],size:Integer):Array[Integer]={
-    var newArr:Array[Integer] = Array.fill[Integer](arr.size + 1)(0)
-    Array.copy(arr, 0, newArr, 0, arr.length)
-    newArr
+  def resizeVector(vect:RandomAccessSparseVector):RandomAccessSparseVector={
+    var v2: RandomAccessSparseVector = new RandomAccessSparseVector(vect.size()+1)
+    v2.assign(vect)
+    v2
   }
   
   def fit()={
     
   }
+  
+  
+  def resizeList(arr:List[Double],cap:Integer):List[Double]={
+    var arr2:List[Double] = List.fill(cap)(0.0)
+    
+    for(i <- 0 to arr.size){
+      arr2.updated(i, arr(i))
+    }
+    
+    arr2
+  }
+  
   
   /**
    * Converts a List of String,Count Pairs to a Sparse Matrix
@@ -36,32 +51,37 @@ class FeatureHasher{
    * @param		{Integer}{features}				The minimum features size
    * @return	A Sparse Matrix
    */
-  def transform(counts:List[Map[String,Integer]],features:Integer = 10000):SparseMatrix={
-    var data = new RandomAccessSparseVector(features)
-    var indices = new RandomAccessSparseVector(features)
-    var currIndex: Integer = 0
+  def transform(counts:List[Map[String,Integer]],features:Integer = 10000)={
+    var vptrs: List[Integer] = List[Integer]()
+    var indices:List[Integer] = List[Integer]()
+    var values: List[Double] = List.fill(features)(0.0)
+    var feats:Integer = features
+    var size:Integer = 0
     
     for(map <- counts){
-      for(wtup <- map){
-        if(wtup._2 != 0){
-          val h = Hash.murmurHashString(wtup._1)
-          var value:Double = wtup._2.asInstanceOf[Double] 
-          if(!(h >= 0)){
-            value *= - 1
-          }
-          data.set(currIndex, value)
+      for(tup <- map){
+        var value = tup._2
+        if(value > 0){
+          var hash = Hash.murmurHashString(tup._1)
+          var index = hash % feats
+          indices = indices :+ index.asInstanceOf[Integer]
           
-          currIndex += 1
-          
-          if(currIndex == features){
-            
+          if(hash < 0){
+            value *= -1
           }
+          
+          values.updated(size, value)
+          
+          size += 1
+          
+          if(size == feats){
+            feats *= 2
+            values = resizeList(values,feats)    
+          }
+          
         }
       }
+      vptrs = vptrs :+ size
     }
-    
-    
-    //create a dense matrix from the list of arrays
-    null
   }
 }
