@@ -13,23 +13,7 @@ import com.simplrtek.enriched.Implicits._
  * Hashes Text Features to matrices.
  */
 class FeatureHasher{
-  
-  /**
-   * Resize the Vector
-   * 
-   * @param		vect		The original RandomAccessSparseVector
-   * @return	A RandomAccessSparseVector with an additional slot
-   */
-  def resizeVector(vect:RandomAccessSparseVector):RandomAccessSparseVector={
-    var v2: RandomAccessSparseVector = new RandomAccessSparseVector(vect.size()+1)
-    v2.assign(vect)
-    v2
-  }
-  
-  def fit()={
-    
-  }
-  
+
   
   def resizeList(arr:List[Double],cap:Integer):List[Double]={
     var arr2:List[Double] = List.fill(cap)(0.0)
