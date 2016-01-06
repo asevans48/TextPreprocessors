@@ -27,7 +27,7 @@ class Trie[V] {
     }//compareTo   
   }
   
-  def insertNode(data:List[V])={
+  def insertData(data:List[V])={
     
   }//insertNode
   
