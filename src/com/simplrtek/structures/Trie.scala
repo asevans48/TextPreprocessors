@@ -9,22 +9,24 @@ package com.simplrtek.structures
  * 
  * @author Andrew Evans 
  */
-class Trie[K,V] {
+class Trie[V] {
   
-  class Node extends MultiTreeNode[K,V] with Comparable[K]{
-    var children: List[K] = List[K]()
-    var root:K = _
+  var root: Node = _
+  
+  class Node extends Comparable[Node]{
+    var children: List[Node] = List[Node]()
+    var root:Node = _
     var data:V = _
     
-    def addChild(node:K)={
+    def addChild(node:Node)={
       
     }//addChild
     
-    def removeChild(node:K)={
+    def removeChild(node:Node)={
       
     }//removeChild
     
-     def compareTo(o:K):Int={
+     def compareTo(o:Node):Int={
       
       -1
     }//compareTo   
@@ -32,11 +34,13 @@ class Trie[K,V] {
   
   def insertNode()={
     
-  }
+  }//insertNode
   
   def removeNode()={
     
-  }
+  }//removeNode
   
- 
+  def search()={
+    
+  }//search
 }
