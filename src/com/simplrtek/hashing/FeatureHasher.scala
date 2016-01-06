@@ -6,6 +6,10 @@ import org.apache.mahout.math.{RandomAccessSparseVector,DenseVector}
 import com.simplrtek.hashing.Hash
 import com.simplrtek.enriched.Implicits._
 
+import scala.concurrent.{Future,Await}
+import scala.concurrent.duration.Duration
+import scala.concurrent.ExecutionContext.Implicits.global
+
 /**
  * https://github.com/scikit-learn/scikit-learn/blob/c9572494a82b364529374aafca15660a7366e2c4/sklearn/feature_extraction/_hashing.pyx
  * https://github.com/scikit-learn/scikit-learn/blob/c9572494a82b364529374aafca15660a7366e2c4/sklearn/utils/murmurhash.pyx
@@ -25,6 +29,39 @@ class FeatureHasher{
     arr2
   }
   
+  
+  def calculateVector(map:Map[String,Integer], features:Integer):Future[(List[Integer],List[Double],Integer)]=Future{
+    var feats = features
+    var size:Integer = 0
+    var indices:List[Integer] = List[Integer]()
+    var values:List[Double]= List.fill(feats)(0.0)
+    
+    for(tup <- map){
+      for(tup <- map){
+        var value = tup._2
+        if(value > 0){
+          var hash = Hash.murmurHashString(tup._1)
+          var index = hash % feats
+          indices = indices :+ index.asInstanceOf[Integer]
+          
+          if(hash < 0){
+            value *= -1
+          }
+          
+          values.updated(size, value)
+          
+          size += 1
+          
+          if(size == feats){
+            feats *= 2
+            values = resizeList(values,feats)    
+          }
+          
+        }
+      }
+    }
+    (indices,values,size)
+  }
   
   /**
    * Converts a List of String,Count Pairs to a Sparse Matrix
