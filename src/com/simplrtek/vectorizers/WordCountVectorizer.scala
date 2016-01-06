@@ -2,14 +2,22 @@ package com.simplrtek.vectorizers
 
 import breeze.linalg.{DenseMatrix,DenseVector}
 
+import com.simplrtek.preprocessors.WordTokenizer
+
 import java.io.File
 import com.simplrtek.pickle.Pickler
 
-class WordCountVectorizer(cols:Integer,rows:Integer) extends Vectorizer[String,Double] with Serializable{
+import scala.concurrent.{Future,Await}
+import scala.concurrent.duration.Duration
+import scala.concurrent.ExecutionContext.Implicits.global
+
+class WordCountVectorizer(cols:Integer,rows:Integer) extends Serializable{
   var matrix:DenseMatrix[Double] = new DenseMatrix[Double](cols,rows)
   var posMap:Map[String,Integer] = Map[String,Integer]() //serves as a lookup table
   
-  def transform(text:String):DenseVector[Double]={
+  def transform(text:String):Map[String,Integer]={
+    var map:Map[String,Integer] = Map[String,Integer]()
+    var words = WordTokenizer.wordTokenize(text)
     null
   }//vectorize
   
