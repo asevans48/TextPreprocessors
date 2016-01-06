@@ -36,6 +36,13 @@ class Trie[V] {
     }//compareTo   
   }
   
+  /**
+   * Check if the trie contains a child.
+   * 
+   * @param			data					The data to check for.
+   * @param			children			The children to check
+   * @return		The node if contained or null if not.
+   */
   def containsChild(data:V,children:List[Node]):Node={
     children.foreach { x =>  
         if(x.data.equals(data)){
@@ -77,10 +84,10 @@ class Trie[V] {
   }
   
   /**
-   * Check if the data is contained in the try and add if specified.
+   * Check if the data is contained in the trie and add if specified.
    * 
    * @param			data									The data to check for
-   * @param			{Boolean}{insert}			Whether to add to the try if the data is not present
+   * @param			{Boolean}{insert}			Whether to add to the trie if the data is not present
    * @return		Whether or not the data is in the try.
    */
   def contains(data:List[V],insert:Boolean = false):Boolean={
