@@ -13,7 +13,10 @@ class Trie[V] {
   
   var rootNode: Node = new Node()
   
-  class Node{
+  /**
+   * Inner Node class.
+   */
+   class Node{
     var children: List[Node] = List[Node]()
     var root:Node = _
     var data:V = _

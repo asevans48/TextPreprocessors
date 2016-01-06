@@ -18,6 +18,8 @@ class WordCountVectorizer(cols:Integer,rows:Integer) extends Serializable{
   def transform(text:String):Map[String,Integer]={
     var map:Map[String,Integer] = Map[String,Integer]()
     var words = WordTokenizer.wordTokenize(text)
+    
+    //get counts
     null
   }//vectorize
   
