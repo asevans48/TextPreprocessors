@@ -11,12 +11,21 @@ package com.simplrtek.structures
  */
 class Trie[V] {
   
-  var root: Node = _
+  var rootNode: Node = new Node()
   
   class Node extends Comparable[Node]{
     var children: List[Node] = List[Node]()
     var root:Node = _
     var data:V = _
+    
+    
+    def setRoot(n:Node)={
+      root = n
+    }
+    
+    def setData(d:V)={
+      data = d
+    }
     
     def addChild(node:Node)={
       
@@ -27,12 +36,70 @@ class Trie[V] {
     }//compareTo   
   }
   
-  def insertData(data:List[V])={
-    
-  }//insertNode
+  def containsChild(data:V,children:List[Node]):Node={
+    children.foreach { x =>  
+        if(x.data.equals(data)){
+          return x
+        }
+    }
+    null
+  }
   
+  /**
+   * Insert data into the try.
+   * 
+   * @param		data							The data to insert split into a list.
+   * @param		{Node}{inN}				The starting node defaulting to root.
+   * @param		{Integer}{start}	The datapoint to start from.
+   */
+  def insertData(data:List[V],inN:Node = rootNode,start:Integer = 0)={
+     var n:Node = inN
+     var tempN:Node = inN
+     var i:Integer = start
+     
+     while(i < data.size){
+       if(tempN != null){
+          tempN=this.containsChild(data(i),n.children)
+       }
+       
+       if(tempN == null){
+         val n2 = new Node()
+         n2.data = data(i)
+         n2.root = rootNode
+         n.children = n.children :+ n2
+         n=n2
+       }else{
+         n = tempN
+       }
+       i += 1
+     }
+     
+  }
   
-  def contains(data:List[V]):Boolean={
-    false
-  }//search
+  /**
+   * Check if the data is contained in the try and add if specified.
+   * 
+   * @param			data									The data to check for
+   * @param			{Boolean}{insert}			Whether to add to the try if the data is not present
+   * @return		Whether or not the data is in the try.
+   */
+  def contains(data:List[V],insert:Boolean = false):Boolean={
+    var n:Node = rootNode
+    var tempN:Node = rootNode
+    for(i <- 0 to data.size){
+      if(tempN != null){
+        tempN = this.containsChild(data(i), n.children)
+      }
+      
+      if(tempN == null){
+        if(insert){
+          this.insertData(data, n, i)
+        }
+        return false
+      }else{
+        n = tempN
+      }
+    } 
+    true
+  }
 }
