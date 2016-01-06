@@ -6,8 +6,6 @@ package com.simplrtek.structures
  * and allows the nodes to store anything. They must have pointer arrays to other nodes. A root node is provided to allow attachment 
  * when no other node is attached.
  * 
- * Another purpose of root is to make the tree searchable like a binary tree. The first node pointer should be in the binary-like structure. The
- * rest are valid nodes.
  * 
  * @author Andrew Evans 
  */
