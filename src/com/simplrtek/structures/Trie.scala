@@ -13,7 +13,7 @@ class Trie[V] {
   
   var rootNode: Node = new Node()
   
-  class Node extends Comparable[Node]{
+  class Node{
     var children: List[Node] = List[Node]()
     var root:Node = _
     var data:V = _
@@ -28,12 +28,8 @@ class Trie[V] {
     }
     
     def addChild(node:Node)={
-      
-    }//addChild
-    
-    override def compareTo(o:Node):Int={
-      -1
-    }//compareTo   
+      this.children = this.children :+ node
+    }
   }
   
   /**
