@@ -32,7 +32,7 @@ class Trie[V] {
   }//insertNode
   
   
-  def search(data:List[V]):Node={
-    null
+  def contains(data:List[V]):Boolean={
+    false
   }//search
 }
