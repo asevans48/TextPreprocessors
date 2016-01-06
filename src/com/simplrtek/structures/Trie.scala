@@ -26,21 +26,20 @@ class Trie[V] {
       
     }//removeChild
     
-     def compareTo(o:Node):Int={
-      
+     override def compareTo(o:Node):Int={
       -1
     }//compareTo   
   }
   
-  def insertNode()={
+  def insertNode(data:V)={
     
   }//insertNode
   
-  def removeNode()={
+  def removeNode(data:V)={
     
   }//removeNode
   
-  def search()={
-    
+  def search(data:V):Node={
+    null
   }//search
 }
