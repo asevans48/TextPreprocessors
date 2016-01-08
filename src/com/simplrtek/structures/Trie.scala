@@ -58,12 +58,12 @@ class Trie[V] {
    * @param		{Node}{inN}				The starting node defaulting to root.
    * @param		{Integer}{start}	The datapoint to start from.
    */
-  def insertData(data:List[V],inN:Node = rootNode,start:Integer = 0)={
+  def insertData(data:Array[V],inN:Node = rootNode,start:Integer = 0)={
      var n:Node = inN
      var tempN:Node = inN
      var i:Integer = start
      
-     while(i < data.size){
+     while(i < data.length){
        if(tempN != null){
           tempN=this.containsChild(data(i),n.children)
        }
@@ -89,7 +89,7 @@ class Trie[V] {
    * @param			{Boolean}{insert}			Whether to add to the trie if the data is not present
    * @return		Whether or not the data is in the try.
    */
-  def contains(data:List[V],insert:Boolean = false):Boolean={
+  def contains(data:Array[V],insert:Boolean = false):Boolean={
     var n:Node = rootNode
     var tempN:Node = rootNode
     for(i <- 0 to data.size){

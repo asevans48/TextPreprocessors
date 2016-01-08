@@ -19,8 +19,16 @@ class WordCountVectorizer(cols:Integer,rows:Integer) extends Serializable{
     var map:Map[String,Integer] = Map[String,Integer]()
     var words = WordTokenizer.wordTokenize(text)
     
+    for(word <- words){
+      if(map.contains(word)){
+        map.updated(word, map.get(word).get + 1)
+      }else{
+        map = map + (word -> 1)
+      }
+    }
+    
     //get counts
-    null
+    map
   }//vectorize
   
   def fit(vectorees:List[String]):DenseMatrix[Double]={
