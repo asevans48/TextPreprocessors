@@ -141,7 +141,7 @@ class FeatureHasher{
             value *= -1
           }
           
-          values = values.updated(size, value * 1.0)
+          values = values.updated(size, value.doubleValue())
           
           size += 1
           
@@ -159,13 +159,14 @@ class FeatureHasher{
     var sm:SparseMatrix = new SparseMatrix(counts.size,maxSz)
     var prev:Integer = 0
     var row:Integer = 0
+    
     for(i <- 0 to vptrs.size){
       if(i < counts.size){
         var start = prev
         while(prev < i){
           
           println(values(start))
-          sm.set(row, prev, values(start).asInstanceOf[Double])
+          sm.set(row, prev, values(start))
           prev += 1
         }
       }
