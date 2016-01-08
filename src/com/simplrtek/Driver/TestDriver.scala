@@ -11,6 +11,7 @@ import org.junit.Before
 
 import com.simplrtek.math.Smoother
 import java.lang.ArrayIndexOutOfBoundsException
+import com.simplrtek.vectorizers._
 
 class SmoothingTest extends FlatSpec with Matchers{
   
@@ -43,10 +44,7 @@ class VectorTest extends FlatSpec with Matchers{
 object TestDriver {
  
   def main(args:Array[String]):Unit={
-    //val arr=List(1.0,2.0,3.0,7.0,9.0,11.0,12.0,14.0,16.0,18.0)
-    //println(Smoother.simpleExponentialSmoother(arr, 3))
-    var v:DenseVector = new DenseVector(Array(1.0,2.0))
-    var v2:RandomAccessSparseVector = new RandomAccessSparseVector(6)
+   val wc:WordCountVectorizer = new WordCountVectorizer()
   }
   
 }
