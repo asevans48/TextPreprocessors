@@ -15,7 +15,7 @@ class WordCountVectorizer(cols:Integer,rows:Integer) extends Serializable{
   var matrix:DenseMatrix[Double] = new DenseMatrix[Double](cols,rows)
   var posMap:Map[String,Integer] = Map[String,Integer]() //serves as a lookup table
   
-  def transform(text:String):Map[String,Integer]={
+  def transform(text:String):Future[Map[String,Integer]]=Future{
     var map:Map[String,Integer] = Map[String,Integer]()
     var words = WordTokenizer.wordTokenize(text)
     
@@ -29,11 +29,11 @@ class WordCountVectorizer(cols:Integer,rows:Integer) extends Serializable{
     
     //get counts
     map
-  }//vectorize
+  }
   
-  def fit(vectorees:List[String]):DenseMatrix[Double]={
-    null
-  }//buildVectors
+  def fit(texts:List[String],duration:Duration = Duration.Inf):List[Map[String,Integer]]={
+    Await.result(Future.traverse(texts)(transform(_)),duration)
+  }
   
   /**
    * Return the vectorized data in a Dense matrix
