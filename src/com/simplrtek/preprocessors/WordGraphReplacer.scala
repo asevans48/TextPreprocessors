@@ -21,7 +21,7 @@ import com.simplrtek.pickle.Pickler
  * However, concurrency is used where possible.
  */
 class WordGraphReplacer(cols:Integer = 100, rows:Integer = 100){
-  var tokenizer:WordCountVectorizer = new WordCountVectorizer(cols,rows) //for tokenizing a sentence to a vector (must be built first)
+  var tokenizer:WordCountVectorizer = new WordCountVectorizer() //for tokenizing a sentence to a vector (must be built first)
   var replacementMap:ConcurrentHashMap[String,String] = new ConcurrentHashMap[String,String]()
   
   /**
@@ -76,14 +76,7 @@ class WordGraphReplacer(cols:Integer = 100, rows:Integer = 100){
    */
   def replaceWords(text:String,cosCutoff:Double = .9,binFile:String = "data/models/en-token.bin",termTime:Duration = Duration.Inf,tokenizerPath:File = null):List[List[String]]={
     
-    if(tokenizer.posMap.keys.size == 0){
-      try{
-        throw new NullPointerException("This is a two pass algorithm. Tokenizer must be generated first")
-      }catch{
-        case e:NullPointerException => println(e.getMessage+" "+e.getStackTraceString)
-        sys.exit()
-      }
-    }
+   
     
     /**
      * Replace the words in a sentence
