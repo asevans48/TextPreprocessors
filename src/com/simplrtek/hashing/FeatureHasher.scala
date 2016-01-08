@@ -132,7 +132,7 @@ class FeatureHasher{
       for(tup <- map){
         var value = tup._2
         if(value > 0){
-          var hash = Hash.murmurHashString(tup._1)
+          var hash = Hash.murmurHash(tup._1.getBytes)
           var index = hash % feats
           indices = indices :+ index.asInstanceOf[Integer]
           maxSz = Math.max(index,maxSz)
@@ -141,7 +141,7 @@ class FeatureHasher{
             value *= -1
           }
           
-          values.updated(size, value)
+          values = values.updated(size, value * 1.0)
           
           size += 1
           
@@ -153,16 +153,21 @@ class FeatureHasher{
         }
       }
       vptrs = vptrs :+ size
+    
     }
     
     var sm:SparseMatrix = new SparseMatrix(counts.size,maxSz)
     var prev:Integer = 0
     var row:Integer = 0
     for(i <- 0 to vptrs.size){
-      var start = prev
-      while(prev < i){
-        sm.set(row, prev, values(start))
-        prev += 1
+      if(i < counts.size){
+        var start = prev
+        while(prev < i){
+          
+          println(values(start))
+          sm.set(row, prev, values(start).asInstanceOf[Double])
+          prev += 1
+        }
       }
       row += 1
     }

@@ -19,7 +19,7 @@ class WordCountVectorizer{
     
     for(word <- words){
       if(map.contains(word)){
-        map.updated(word, map.get(word).get + 1)
+        map = map.updated(word, map.get(word).get + 1)
       }else{
         map = map + (word -> 1)
       }

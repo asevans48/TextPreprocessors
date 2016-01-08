@@ -12,6 +12,8 @@ import org.junit.Before
 import com.simplrtek.math.Smoother
 import java.lang.ArrayIndexOutOfBoundsException
 import com.simplrtek.vectorizers._
+import com.simplrtek.hashing._
+import sbt.io
 
 class SmoothingTest extends FlatSpec with Matchers{
   
@@ -41,10 +43,28 @@ class VectorTest extends FlatSpec with Matchers{
   
 }
 
+class VectorizerTest extends FlatSpec with Matchers{
+  
+  "the text" should "be split into a count map" in {
+    val wc:WordCountVectorizer = new WordCountVectorizer()
+    println(assert(wc.fit(List("a b a d c e f f f")).equals(List(Map("e" -> 1, "f" -> 3, "a" -> 2, "b" -> 1, "c" -> 1, "d" -> 1)))))
+    
+  }
+  
+  "the count map" should "be converted to an appropriate vector" in {
+    val wc:WordCountVectorizer = new WordCountVectorizer()
+    val fc:FeatureHasher = new FeatureHasher()
+    fc.transform(wc.fit(List("a b a d c e f f f")))
+  }
+  
+}
+
 object TestDriver {
  
   def main(args:Array[String]):Unit={
-   val wc:WordCountVectorizer = new WordCountVectorizer()
+    val wc:WordCountVectorizer = new WordCountVectorizer()
+    val fc:FeatureHasher = new FeatureHasher()
+    println(fc.transform(wc.fit(List("a b a d c e f f f"))))
   }
   
 }
