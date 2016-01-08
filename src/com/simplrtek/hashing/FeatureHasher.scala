@@ -103,7 +103,7 @@ class FeatureHasher{
     
       Await.result(Future.traverse(counts)(calculateVector(_,mx)),duration).foreach( tup => {
         for(i <- 0 to tup._1.size){
-          sm.set(row,tup._1(i), tup._2(i))
+          sm.set(row,tup._1(i), tup._2(i).doubleValue())
           row += 1
         }
       })
