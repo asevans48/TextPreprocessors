@@ -13,4 +13,12 @@ object WordnetAccess {
     
   }
   
+  def getGloss()={
+    
+  }
+  
+  def getLemma()={
+    
+  }
+  
 }
