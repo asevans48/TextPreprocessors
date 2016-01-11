@@ -1,12 +1,18 @@
 package com.simplrtek.wordnet
 
-import edu.mit.jwi
+import java.net.URL
+import edu.mit.jwi._
+import edu.mit.jwi.item._;
+import java.io.File
+import java.net.URL
 
-object WordnetAccess {
+class WordnetAccess(wndir:String = "/data/wordnet/" ){
   
+  val dataDict = new Dictionary(new URL("file",null,wndir))
+  dataDict.open()
   
   def getIdxWord()={
-    
+      
   }
   
   def getWordSense()={
