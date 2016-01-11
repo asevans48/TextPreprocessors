@@ -52,7 +52,7 @@ object SentTokenizer{
    * @return		The array of tokenized strings
    * @see SentTokenizer#load(String binFile)
    */
-  def getSentences(sentences:String,binFile:String = null):Array[String]={
+  def getSentences(sentences:String,binFile:String = "data/models/en-token.bin"):Array[String]={
     try{
       if(binFile != null){
         load(binFile)
