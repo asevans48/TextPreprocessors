@@ -16,7 +16,7 @@ import scala.collection.JavaConversions._
 /**
  * Offers general Wordnet Access. Functions include getting lemmas, getting synsets, getting POSTags.
  */
-class WordnetAccess(properties:String){
+class WordnetAccess(properties:String = "/data/wordnet"){
    JWNL.initialize(new FileInputStream(properties))
    val dict:Dictionary = Dictionary.getInstance
   
