@@ -4,7 +4,7 @@ import edu.stanford.nlp.tagger.maxent.MaxentTagger
 import java.io.File
 import java.net.URL
 import com.simplrtek.preprocessors.SentTokenizer
-import edu.mit.jwi.item.POS
+import net.didion.jwnl.data.POS
 
 /**
  * The tag converter is necessary to work with JWI
@@ -17,13 +17,18 @@ object TagConverter{
    * @return	A POS tag
    */
   def getTag(posString:String):POS={
-    posString match{
-      case "NN" => POS.NOUN
-      case "VB" => POS.VERB
-      case "RB" => POS.ADVERB
-      case "JJ" => POS.ADJECTIVE
-      case _ => null
-    }
+   
+      if(posString.startsWith("N") || posString.startsWith("n")){
+        POS.NOUN
+      }else if(posString.startsWith("V") || posString.startsWith("v")){
+        POS.VERB
+      }else if(posString.startsWith("J") || posString.startsWith("j")){
+        POS.ADJECTIVE
+      }else if(posString.startsWith("RB") || posString.startsWith("r")){
+        POS.ADVERB
+      }else{
+        POS.ADVERB
+      }
   }
   
   /**
