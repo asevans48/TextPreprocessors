@@ -7,6 +7,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils
 import java.io.{FileInputStream,IOException,File}
 import sbt.io.IO
 import com.simplrtek.logger.logger
+import com.simplrtek.preprocessors.PosTagger
 
 object SentTokenizer{
   var model:TokenizerModel = null 

@@ -54,7 +54,7 @@ object TagConverter{
  * Several methods into the Stanford NLP Maxent Pos Tagger.
  * 
  */
-class PosTagger(tagDir:String = "/data/taggers/english-left3words-distsim.tagger"){
+class PosTagger(tagDir:String = "data/taggers/english-left3words-distsim.tagger"){
   val tagger:MaxentTagger = new MaxentTagger(tagDir)
   
   /**
@@ -64,7 +64,7 @@ class PosTagger(tagDir:String = "/data/taggers/english-left3words-distsim.tagger
    * @return	The String split on words with word,tag array.
    */
   def tag(text:String):Array[Array[String]]={
-    tagger.tagString(text).split(" ").map { x => x.split("\\")}
+    tagger.tagString(text).split(" ").map { x => x.split("\\\\")}
   }
   
   /**

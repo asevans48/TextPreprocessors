@@ -16,8 +16,7 @@ import scala.collection.JavaConversions._
 /**
  * Offers general Wordnet Access. Functions include getting lemmas, getting synsets, getting POSTags.
  */
-class WordnetAccess(properties:String = "/data/wordnet"){
-   JWNL.initialize(new FileInputStream(properties))
+class WordnetAccess(properties:String = "C:\\Users\\packe\\Documents\\wordnet\\dict"){
    val dict:Dictionary = Dictionary.getInstance
   
    
@@ -29,6 +28,7 @@ class WordnetAccess(properties:String = "/data/wordnet"){
     */
    def getPOS(text:String):Array[Array[Array[String]]]={
      val tagger:PosTagger = new PosTagger()
+     
      tagger.tagSentences(text)
    }
    
@@ -53,4 +53,21 @@ class WordnetAccess(properties:String = "/data/wordnet"){
      val idw = dict.getIndexWord(pos, word)
      idw.getSenses().map({ x => x.getGloss }).toList
    }
+}
+
+
+
+object WNDriver{
+  
+  def main(args:Array[String]):Unit={
+    val wn:WordnetAccess = new WordnetAccess()
+    wn.getPOS("Verbs are the best thing ever.").foreach { x => 
+      x.foreach { y => 
+        y.foreach { w => 
+          println(w) 
+        }  
+      }  
+    }
+  }
+  
 }
