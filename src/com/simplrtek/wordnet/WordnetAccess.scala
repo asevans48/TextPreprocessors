@@ -54,20 +54,3 @@ class WordnetAccess(properties:String = "C:\\Users\\packe\\Documents\\wordnet\\d
      idw.getSenses().map({ x => x.getGloss }).toList
    }
 }
-
-
-
-object WNDriver{
-  
-  def main(args:Array[String]):Unit={
-    val wn:WordnetAccess = new WordnetAccess()
-    wn.getPOS("Verbs are the best thing ever.").foreach { x => 
-      x.foreach { y => 
-        y.foreach { w => 
-          println(w) 
-        }  
-      }  
-    }
-  }
-  
-}

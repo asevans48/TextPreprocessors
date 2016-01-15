@@ -1,6 +1,7 @@
 package com.simplrtek.disambiguation
 
-
+import com.simplrtek.wordnet.WordnetAccess
+import com.simplrtek.preprocessors.TagConverter
 import com.simplrtek.preprocessors.SentTokenizer
 import com.simplrtek.preprocessors.WordTokenizer
 import edu.mit.jwi._
@@ -21,14 +22,10 @@ class Lesk {
    * @retun 		A list of lists containing wordnet definitions.
    */
   def disambiguateSentence(text:String):Array[List[String]]={
-    var disArr:ArrayBuffer[List[String]] = new ArrayBuffer()
-   
-    val tokens = WordTokenizer.wordTokenize(text).filter { x => !StopWords.stopList.contains(x) }
-    for( i <- 0 until tokens.size){
-       disArr = disArr :+ disambiguate(tokens(i),text,i)
-    }
-
-    disArr.toArray
+     val wn = new WordnetAccess()
+     var senses = wn.getPOS(text).toList.flatten.flatten.map({ w => w.toLowerCase.split("_").toList }).filter { x => StopWords.stopList.contains(x(0)) == false }
+     
+     null
   }
   
   /**
@@ -40,18 +37,20 @@ class Lesk {
    * @param			pos						The word position in the string.
    * @return		The definition that best fits the string.
    */
-  def disambiguate(word:String,text:String,pos:Integer):List[String]={
-      val lemmas = Stemmer.lemmatize(text)
-      println("Lemmas")
-      println(lemmas)
-      val wordLem = lemmas(pos)
-      for(lemma <- lemmas){
-         //println(lemma)
-      }
-      
-      null
+  def disambiguate(word:String,senses:List[List[String]],arrpos:Integer):String={
+     null
   }
   
+}
+
+
+object LeskDriver{
+  
+  
+  def main(args:Array[String]):Unit={
+    val lsk = new Lesk()
+    lsk.disambiguateSentence("Fish live in the sea and fish are food.")
+  }
 }
 
 object TestDriver{

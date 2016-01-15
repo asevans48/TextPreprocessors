@@ -1,5 +1,8 @@
 package com.simplrtek.disambiguation
 
+
+import com.simplrtek.wordnet.WordnetAccess
+
 /**
  * Calculate a lin and resnik score to obtain the best definition.
  */
