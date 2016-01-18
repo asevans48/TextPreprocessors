@@ -75,7 +75,6 @@ class PosTagger(tagDir:String = "data/taggers/english-left3words-distsim.tagger"
    */
   def tagSentences(text:String):List[String]={
     SentTokenizer.load()
-    println(SentTokenizer.getSentences(text).toList)
-    SentTokenizer.getSentences(text).map { x => tag(x) }.toList
+    SentTokenizer.getSentences(text).filter { x => !StopWords.stopList.contains(x.toLowerCase)}.map { x => tag(x) }.toList
   }
 }

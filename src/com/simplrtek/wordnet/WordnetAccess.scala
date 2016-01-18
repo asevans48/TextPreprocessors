@@ -16,7 +16,8 @@ import scala.collection.JavaConversions._
 /**
  * Offers general Wordnet Access. Functions include getting lemmas, getting synsets, getting POSTags.
  */
-class WordnetAccess(properties:String = "C:\\Users\\packe\\Documents\\wordnet\\dict"){
+class WordnetAccess(properties:String = "C:\\Users\\packe\\Documents\\workspace-sts-3.7.1.RELEASE\\MahoutTest\\data\\jwnl\\props.xml"){
+   JWNL.initialize(new java.io.FileInputStream(properties))
    val dict:Dictionary = Dictionary.getInstance
   
    
@@ -28,7 +29,6 @@ class WordnetAccess(properties:String = "C:\\Users\\packe\\Documents\\wordnet\\d
     */
    def getPOS(text:String):List[String]={
      val tagger:PosTagger = new PosTagger()
-     
      tagger.tagSentences(text)
    }
    
@@ -50,6 +50,9 @@ class WordnetAccess(properties:String = "C:\\Users\\packe\\Documents\\wordnet\\d
     * @return 	The list of glosses.
     */
    def getSynset(pos:POS, word:String):List[String]={
+     println(pos)
+     println(word)
+     println(dict.getIndexWordIterator(pos))
      val idw = dict.getIndexWord(pos, word)
      idw.getSenses().map({ x => x.getGloss }).toList
    }

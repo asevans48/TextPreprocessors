@@ -1,5 +1,6 @@
 package com.simplrtek.disambiguation
 
+import com.simplrtek.preprocessors.TagConverter
 import com.simplrtek.wordnet.WordnetAccess
 import com.simplrtek.preprocessors.TagConverter
 import com.simplrtek.preprocessors.SentTokenizer
@@ -23,8 +24,11 @@ class Lesk {
    */
   def disambiguateSentence(text:String):Array[List[String]]={
      val wn = new WordnetAccess()
-     var senses = wn.getPOS(text)
-     println(senses)
+     var senses = wn.getPOS(text).map { x => x.split("_").toList}
+     senses.foreach { wtup => 
+       println(wn.getSynset(TagConverter.getTag(wtup(1)), wtup(0)))
+     }
+   
      null
   }
   
