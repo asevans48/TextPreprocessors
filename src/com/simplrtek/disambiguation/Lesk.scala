@@ -12,6 +12,8 @@ import scala.collection.mutable.ArrayBuffer
 
 import com.simplrtek.preprocessors.StopWords
 
+import com.simplrtek.structures.Trie
+
 import scala.collection.JavaConversions._
 
 class Lesk {
@@ -24,11 +26,36 @@ class Lesk {
    */
   def disambiguateSentence(text:String):Array[List[String]]={
      val wn = new WordnetAccess()
+     var tries:List[Trie[Char]] = List[Trie[Char]]()
+     
+     var idx:Integer = 0
+     var pointers:List[Integer] = List[Integer]()
+     
      var senses = wn.getPOS(text).map { x => x.split("_").toList}
      senses.foreach { wtup => 
-       println(wn.getSynset(TagConverter.getTag(wtup(1)), wtup(0)))
+       wn.getSynset(TagConverter.getTag(wtup(1)), wtup(0)).foreach { 
+         sense =>  
+           val trie:Trie[Char] = new Trie[Char]
+           WordTokenizer.wordTokenize(sense).foreach {
+             x => 
+               trie.contains(x.toCharArray(), true)
+           }
+           tries = tries :+ trie
+           idx += 1
+       } 
+       pointers = pointers :+ idx
      }
    
+     var overlaps:List[Integer] = List[Integer]()
+     var curr = 0
+     var i = 0
+     while(curr < tries.size * tries.size){
+       if(i % tries.size != curr){
+         
+       }
+       curr += 1
+     }
+     
      null
   }
   

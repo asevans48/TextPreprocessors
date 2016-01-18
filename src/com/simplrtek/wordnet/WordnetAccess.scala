@@ -50,9 +50,6 @@ class WordnetAccess(properties:String = "C:\\Users\\packe\\Documents\\workspace-
     * @return 	The list of glosses.
     */
    def getSynset(pos:POS, word:String):List[String]={
-     println(pos)
-     println(word)
-     println(dict.getIndexWordIterator(pos))
      val idw = dict.getIndexWord(pos, word)
      idw.getSenses().map({ x => x.getGloss }).toList
    }
