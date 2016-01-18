@@ -26,7 +26,7 @@ class WordnetAccess(properties:String = "C:\\Users\\packe\\Documents\\wordnet\\d
     * @param		text		The String to split and tag.
     * @return		The array of array of taged sentences.
     */
-   def getPOS(text:String):Array[Array[Array[String]]]={
+   def getPOS(text:String):List[String]={
      val tagger:PosTagger = new PosTagger()
      
      tagger.tagSentences(text)

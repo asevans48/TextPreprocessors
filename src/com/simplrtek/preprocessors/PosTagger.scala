@@ -63,8 +63,8 @@ class PosTagger(tagDir:String = "data/taggers/english-left3words-distsim.tagger"
    * @param		text		The string to tag
    * @return	The String split on words with word,tag array.
    */
-  def tag(text:String):Array[Array[String]]={
-    tagger.tagString(text).split(" ").map { x => x.split("\\\\")}
+  def tag(text:String):String={
+    tagger.tagString(text)
   }
   
   /**
@@ -73,8 +73,9 @@ class PosTagger(tagDir:String = "data/taggers/english-left3words-distsim.tagger"
    * @param		text		The string to split and tag.
    * @return	An array containing arrays of arrays of tags (word,tag).
    */
-  def tagSentences(text:String):Array[Array[Array[String]]]={
+  def tagSentences(text:String):List[String]={
     SentTokenizer.load()
-    SentTokenizer.getSentences(text).map { x => tag(x) }
+    println(SentTokenizer.getSentences(text).toList)
+    SentTokenizer.getSentences(text).map { x => tag(x) }.toList
   }
 }

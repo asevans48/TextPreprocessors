@@ -23,8 +23,8 @@ class Lesk {
    */
   def disambiguateSentence(text:String):Array[List[String]]={
      val wn = new WordnetAccess()
-     var senses = wn.getPOS(text).toList.flatten.flatten.map({ w => w.toLowerCase.split("_").toList }).filter { x => StopWords.stopList.contains(x(0)) == false }
-     
+     var senses = wn.getPOS(text)
+     println(senses)
      null
   }
   
