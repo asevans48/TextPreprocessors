@@ -95,7 +95,7 @@ class SubsumerBasedAlgorithms{
     intersection.foreach { 
       x => 
         val d = h2.get(x).get + h1.get(x).get
-        if(bestDepth > d){
+        if(bestDepth < d){
           bestDepth = d
           bestSet = x
           deptha = h2.get(x).get
