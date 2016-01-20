@@ -5,10 +5,9 @@ import java.io.File
 import com.simplrtek.preprocessors.{PosTagger,SentTokenizer}
 import java.net.URL
 import net.didion.jwnl._
-import net.didion.jwnl.dictionary.morph.DefaultMorphologicalProcessor
-import net.didion.jwnl.dictionary.morph.DetachSuffixesOperation
+import net.didion.jwnl.dictionary.morph.{DefaultMorphologicalProcessor,DetachSuffixesOperation}
 import net.didion.jwnl.dictionary.Dictionary
-import net.didion.jwnl.data.POS
+import net.didion.jwnl.data.{POS,Synset}
 import java.io.FileInputStream
 import com.simplrtek.preprocessors.Stemmer
 import scala.collection.JavaConversions._
@@ -52,5 +51,21 @@ class WordnetAccess(properties:String = "C:\\Users\\packe\\Documents\\workspace-
    def getSynset(pos:POS, word:String):List[String]={
      val idw = dict.getIndexWord(pos, word)
      idw.getSenses().map({ x => x.getGloss }).toList
+   }
+   
+   /**
+    * Get the senses of the word.
+    * 
+    * @param		pos 		The POS
+    * @param		word		The word to acquire
+    */
+   def getSenses(pos:POS,word:String):List[Synset]={
+     val idw = dict.getIndexWord(pos, word)
+     
+     if(idw != null){
+       idw.getSenses.toList
+     }else{
+       null
+     }
    }
 }
