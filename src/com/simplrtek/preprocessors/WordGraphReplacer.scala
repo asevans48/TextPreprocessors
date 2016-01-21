@@ -15,13 +15,30 @@ import java.io.File
 
 import com.simplrtek.pickle.Pickler
 
+import net.didion.jwnl.data.Synset
 
 /**
  * Replace words in an object and create a replacement model. This is not distributable because of the iterative nature of building a replacement model.
  * However, concurrency is used where possible.
  */
-class WordGraphReplacer(cols:Integer = 100, rows:Integer = 100){
+class WordGraphReplacer(rows : Integer = 100, cols : Integer = 100,cosCutoff : Double = 0.6){
   
+  var synMap : Map[Synset,String] = Map[Synset,String]()
+  
+  
+  def replaceWord()={
+    
+  }//replaceWord
+  
+  
+  def replace(text : String)={
+    
+  }//replace
+  
+  
+  def replaceFile( f: File)={
+    
+  }//replaceFile
   
 }
 
