@@ -112,13 +112,13 @@ class SubsumerBasedAlgorithms{
     rc.calcRelatednessOfWords(worda, wordb)
   }
   
-  def getResnik(worda : String, wordb : String)={
+  def getResnik(worda : String, wordb : String):Double={
     val rc = new Resnik(db)
     rc.calcRelatednessOfWords(worda, wordb)
   }
   
-  def getLeskForText(text : String)={
-    val rc = new Lesk()
-    rc.disambiguateSentence(text)
+  def getLeskForWords(worda : String,wordb  : String):Double={
+    val rc = new Lesk(db)
+    rc.calcRelatednessOfWords(worda, wordb)
   }
 }

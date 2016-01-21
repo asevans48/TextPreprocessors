@@ -1,4 +1,4 @@
-package com.simplrtek.disambiguation
+package com.simplrtek.similarity
 
 import com.simplrtek.preprocessors.TagConverter
 import com.simplrtek.wordnet.WordnetAccess
@@ -25,7 +25,7 @@ class Lesk {
    * @param			text		The text to disambiguage.
    * @retun 		A list of lists containing wordnet definitions.
    */
-  def disambiguateText(text:String):List[List[(String,POS,String)]]={
+  def disambiguateText(text:String):List[List[(String,POS,Synset)]]={
      SentTokenizer.getSentences(text).map { s => disambiguateSentence(s) }.toList
   }
   
@@ -36,19 +36,19 @@ class Lesk {
    * 
    * @return		A list of senses
    */
-  def disambiguateSentence(text:String):List[(String,POS,String)] ={
+  def disambiguateSentence(text:String):List[(String,POS,Synset)] ={
      //split to words
      val wn = new WordnetAccess()
      val posArr = wn.getPOS(text)
      val words = WordTokenizer.wordTokenize(text).filter { x => !StopWords.stopList.contains(x.toLowerCase) }
      
      //get senses
-     var senseArr: List[List[Synset]] = List[List[Synset]]()
+     var senseArr: List[List[(String,Object)]] = List[List[(String,Object)]]()
      for(i <- 0 until posArr.size){
         if(posArr(i) != null){
           val pos = TagConverter.getTag(posArr(i).replaceAll(".*?_",""))
           if(pos != null){
-            senseArr = senseArr :+ wn.getSenses(pos, words(i)).asInstanceOf[List[Synset]]
+            senseArr = senseArr :+ List((words(i),wn.getSenses(pos, words(i)).asInstanceOf[List[Synset]]))
           }else{
             senseArr = senseArr :+ null
           }
@@ -58,16 +58,16 @@ class Lesk {
      val senseStrings = senseArr.map{ x => 
        if(x != null){
          x.map{ y =>
-           if(y != null) y.getGloss else " "  
+           if(y != null) y._2.asInstanceOf[Synset].getGloss else " "  
          }.mkString
        }else{
          " "
        }
      }
      
-     var retArr:List[(String,POS,String)] = List[(String,POS,String)]()
+     var retArr:List[(String,POS,Synset)] = List[(String,POS,Synset)]()
      for(i <- 0 until words.size){
-       retArr = retArr :+ disambiguate(words(i),TagConverter.getTag(posArr(i).replaceAll(".*?_","")),senseArr(i),i,senseStrings)
+       retArr = retArr :+ disambiguate(words(i),TagConverter.getTag(posArr(i).replaceAll(".*?_","")),senseArr(i),i,senseStrings,words)
      }
 
      retArr
@@ -84,19 +84,31 @@ class Lesk {
    * @param			senseStrings	The sense glosses combined.
    * @return		The definition that best fits the string.
    */
-  def disambiguate(word:String,pos:POS,senses:List[Synset],sensePos: Integer,senseStrings : List[String]):(String,POS,String)={
+  def disambiguate(word:String,pos:POS,senses:List[(String,Object)],sensePos: Integer,senseStrings : List[String],words : List[String]):(String,POS,Synset)={
      println(word)
      println(pos)
      println(senses)
      println(senseStrings)
      println(" ")
+     
+     var bestSense : Synset = null
+     var maxOverlap : Integer = 0
+     
      if(pos == null || senses == null){
        return (word,pos,null)
      }
      
+     for(sense <- senses){
+       val signature = WordTokenizer.wordTokenize(sense._2.asInstanceOf[Synset].getGloss)
+       val overlap = signature.intersect(words).size
+       
+       if(overlap > maxOverlap){
+         bestSense = sense._2.asInstanceOf[Synset]
+         maxOverlap = overlap
+       }
+     }
      
-     
-     null
+     return (word, pos, bestSense)
   }
   
 }
