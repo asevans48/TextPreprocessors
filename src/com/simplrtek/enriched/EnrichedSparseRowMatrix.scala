@@ -1,14 +1,71 @@
 package com.simplrtek.enriched
 
+import org.apache.mahout.math.function.VectorFunction
 import org.apache.mahout.math.{SparseMatrix,SparseRowMatrix}
 import org.apache.mahout.math.DenseMatrix
 import org.apache.mahout.math.{RandomAccessSparseVector,DenseVector,Vector}
 import com.simplrtek.pickle.Pickler
 import java.io.File
 import org.apache.commons.lang3.exception.ExceptionUtils 
+import org.apache.mahout.math._
+import scalabindings._
+import RLikeOps._
+import drm._
+
 
 class EnrichedSparseRowMatrix(matrix : SparseRowMatrix){
+  
+  
+     /**
+      * Get number of non-zero elements in a row / vector
+      */
+     class NonZeroCounter extends VectorFunction{
+        def apply(v : Vector):Double={
+          var nz : Double = 0
+          val it = v.all.iterator
+          while(it.hasNext){
+            if(it.next.get != 0.0){
+              nz += 1
+            }
+          }
+          nz
+        }
+     }
+  
+     
+    /**
+     * Reduces the rows by summing them
+     */
+    class RowReducer extends VectorFunction{
+      def apply(v : Vector):Double={
+        v.zSum()
+      }
+    }
     
+    def getRowNNZ():Vector={
+      this.matrix.aggregateRows(new NonZeroCounter)
+    }
+    
+    def getRowReduction():Vector={
+      this.matrix.aggregateRows(new RowReducer)
+    }
+    
+    def getColumnNNZ():Vector={
+      this.matrix.aggregateColumns(new NonZeroCounter)
+    }
+    
+    def getColumnReduction():Vector={
+      this.matrix.aggregateColumns(new RowReducer)
+    }
+    
+    /**
+     * Get the number of non-zero elements
+     */
+    def getNNZ():Int={
+      this.matrix.getNumNondefaultElements.length
+    }
+    
+  
     /**
      * Load a Sparse Matrix from a file.
      * @param		f		The file to load from
@@ -129,4 +186,5 @@ class EnrichedSparseRowMatrix(matrix : SparseRowMatrix){
       
       m2
     }//hstack
+    
   }

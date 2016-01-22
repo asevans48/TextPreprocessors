@@ -6,6 +6,11 @@ import org.apache.commons.lang3.exception.ExceptionUtils
 import java.io.File
 import scala.collection.JavaConverters._
 import com.simplrtek.pickle.Pickler
+import org.apache.mahout.math._
+import scalabindings._
+import RLikeOps._
+import drm._
+
 
   /**
    * Some functions are missing from the vector interface likely for
@@ -13,6 +18,17 @@ import com.simplrtek.pickle.Pickler
    */
  class RichVector(vector:Vector){
     
+    def reduceVector():Double={
+      this.vector.zSum
+    }
+    
+    /**
+     * Get the number of non-zero elements
+     */
+    def getNNZ():Int={
+      this.vector.getNumNonZeroElements
+    }
+  
     /**
      * Load a vector from a file.
      * @param		f		The file to load from.
@@ -125,4 +141,5 @@ import com.simplrtek.pickle.Pickler
       arr
     }//asArray
     
+
   }

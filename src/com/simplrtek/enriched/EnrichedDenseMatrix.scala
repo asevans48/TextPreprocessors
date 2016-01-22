@@ -6,9 +6,66 @@ import org.apache.mahout.math.{RandomAccessSparseVector,DenseVector,Vector}
 import com.simplrtek.pickle.Pickler
 import java.io.File
 import org.apache.commons.lang3.exception.ExceptionUtils
+import org.apache.mahout.math._
+import org.apache.mahout.math.function.VectorFunction
+import scalabindings._
+import RLikeOps._
+import drm._
+
+
 
 class EnrichedDenseMatrix(matrix:DenseMatrix){
     
+  
+    /**
+      * Get number of non-zero elements in a row / vector
+      */
+     class NonZeroCounter extends VectorFunction{
+        def apply(v : Vector):Double={
+          var nz : Double = 0
+          val it = v.all.iterator
+          while(it.hasNext){
+            if(it.next.get != 0.0){
+              nz += 1
+            }
+          }
+          nz
+        }
+     }
+  
+     
+    /**
+     * Reduces the rows by summing them
+     */
+    class RowReducer extends VectorFunction{
+      def apply(v : Vector):Double={
+        v.zSum()
+      }
+    }
+    
+    def getRowNNZ():Vector={
+      this.matrix.aggregateRows(new NonZeroCounter)
+    }
+    
+    def getRowReduction():Vector={
+      this.matrix.aggregateRows(new RowReducer)
+    }
+    
+    def getColumnNNZ():Vector={
+      this.matrix.aggregateColumns(new NonZeroCounter)
+    }
+    
+    def getColumnReduction():Vector={
+      this.matrix.aggregateColumns(new RowReducer)
+    }
+    
+    /**
+     * Get the number of non-zero elements
+     */
+    def getNNZ():Int={
+      this.matrix.getNumNondefaultElements.length
+    }
+  
     /**
      * Convert the dense matrix to an array. (Useful for instantiation of other Matrices)
      * @return		A multi-dimensional array of the data.
@@ -159,5 +216,4 @@ class EnrichedDenseMatrix(matrix:DenseMatrix){
       
       m2
     }
-    
   }

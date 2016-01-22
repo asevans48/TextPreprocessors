@@ -6,9 +6,55 @@ import scala.collection.JavaConverters._
 import com.simplrtek.pickle.Pickler
 import java.lang.ArrayIndexOutOfBoundsException
 import org.apache.commons.lang3.exception.ExceptionUtils
+import org.apache.mahout.math._
+import scalabindings._
+import RLikeOps._
+import drm._
+
+import org.apache.mahout.math.function.VectorFunction
+
 
 class RichDenseVector(vector:DenseVector){
+  
     
+    /**
+      * Get number of non-zero elements in a row / vector
+      */
+     class NonZeroCounter extends VectorFunction{
+        def apply(v : Vector):Double={
+          var nz : Double = 0
+          val it = v.all.iterator
+          while(it.hasNext){
+            if(it.next.get != 0.0){
+              nz += 1
+            }
+          }
+          nz
+        }
+     }
+  
+     
+    /**
+     * Reduces the rows by summing them
+     */
+    class RowReducer extends VectorFunction{
+      def apply(v : Vector):Double={
+        v.zSum()
+      }
+    }
+    
+    def reduceVector():Double={
+      this.vector.zSum
+    }
+    
+    /**
+     * Get the number of non-zero elements
+     */
+    def getNNZ():Int={
+      this.vector.getNumNonZeroElements
+    }
+  
+  
     /**
      * Load a vector from a file.
      * @param		f		The file to load from.

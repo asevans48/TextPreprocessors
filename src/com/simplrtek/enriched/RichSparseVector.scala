@@ -5,10 +5,24 @@ import scala.collection.JavaConverters._
 import com.simplrtek.pickle.Pickler
 import java.lang.ArrayIndexOutOfBoundsException
 import org.apache.commons.lang3.exception.ExceptionUtils
+import org.apache.mahout.math._
+import scalabindings._
+import RLikeOps._
+import drm._
+
 
 class RichSparseVector(vector:RandomAccessSparseVector) {
   
+    def reduceVector():Double={
+      this.vector.zSum
+    }
     
+    /**
+     * Get the number of non-zero elements
+     */
+    def getNNZ():Int={
+      this.vector.getNumNonZeroElements
+    }
     
     /**
      * Load a vector from a file.
@@ -161,5 +175,6 @@ class RichSparseVector(vector:RandomAccessSparseVector) {
       }
       arr
     }
-
+    
+   
 }
