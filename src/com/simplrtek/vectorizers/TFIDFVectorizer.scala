@@ -1,45 +1,34 @@
 package com.simplrtek.vectorizers
 
-import breeze.linalg.{DenseMatrix,DenseVector}
+import org.apache.mahout.math.SparseMatrix
+import org.apache.mahout.math.SparseMatrix
+import org.apache.mahout.sparkbindings._
 
 /**
- * For small files on a single node, This class works well. It uses breeze directly to perform TFIDF 
- * conversions from a Word Count Vectorizer.
- * 
- * Distributed versions can easily make use of Sparks TFIDF Converter.  
- * 
- * @see WordCountVectorizer
+ *	A TFIDF Vectorizer that Should be Used with the Feature Hasher.
+ * 	The goal is for implementation during testing and use on a single 
+ * 	node.
  */
-class TFIDFTransformer(cols:Integer = 100, rows:Integer = 100) extends Transformer[Double,Double] with Serializable{
-  /**
-   * The matrix containing the relevant data.
-   */
-  var matrix:DenseMatrix[Double] = new DenseMatrix[Double](rows,cols)
+class TFIDFVectorizer {
   
-  /**
-   * Fit vectors without actually transforming them.
-   * @param		vectorees		The DenseMatrix to fit
-   */
-  def fit(vectorees:DenseMatrix[Double])={
+  
+  def fit(freqMat : SparseMatrix)={
+   var tfidfMat : SparseMatrix = new SparseMatrix(freqMat.numRows(),freqMat.numCols())
+     
+  }//fit
+  
+  def transform()={
     
-  }
+  }//transform
   
-  /**
-   * Fit and transform vectors, returning the transformed Dense Matrix
-   * @param		vectorees		The Dense Matrix to Fit and transform.
-   * @return	A transformed Dense Matrix
-   */
-  def fit_transform(vectorees:DenseMatrix[Double]):DenseMatrix[Double]={
-    null
-  }
+  def fit_transform()={
+    
+  }//fit_transform
   
-  /**
-   * Transform a vector using the matrix.
-   * 
-   * @param		vectoree		The Dense Vector to transform
-   * @retun		The dense vectors to be fit into the system.
-   */
-  def transform(vectoree:DenseVector[Double]):DenseVector[Double]={
-    null
-  }
+}
+
+object TFIDFTester{
+  
+  
+  
 }
