@@ -112,10 +112,3 @@ object NamedEntity {
     strings
   }
 }
-
-object TestDriver{
-  def main(args:Array[String]):Unit={
-    NamedEntity.load("data/models/epic-ner-en-conll_2.10-2015.2.19.jar")
-    NamedEntity.replaceEntities("My name is Mr. Andrew Evans. I am a person. There are five people in my family. Kim, Kevin, Tyler, Colin; me. Cheers. This is the red, white, and blue. Five ducks don't make a right. Laters from Andrew Evans.")
-  }
-}

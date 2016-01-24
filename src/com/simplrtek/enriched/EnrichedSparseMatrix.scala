@@ -10,11 +10,14 @@ import org.apache.mahout.math._
 import org.apache.mahout.math.function.VectorFunction
 import scalabindings._
 import RLikeOps._
-import drm._
-
-
+import scala.concurrent.{Future,Await}
+import scala.concurrent.duration.Duration
+import scala.concurrent.ExecutionContext.Implicits.global
 
 class EnrichedSparseMatrix(matrix:SparseMatrix){
+  
+    var batchSize : Integer = 100
+  
     /**
       * Get number of non-zero elements in a row / vector
       */
@@ -182,5 +185,6 @@ class EnrichedSparseMatrix(matrix:SparseMatrix){
        }
        
        m2
-    }//hstack
+    }//hstack    
+    
 }
