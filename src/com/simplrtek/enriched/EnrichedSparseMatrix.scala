@@ -36,7 +36,7 @@ class EnrichedSparseMatrix(matrix:SparseMatrix){
      * Reduces the rows by summing them
      */
     class RowReducer extends VectorFunction{
-      def apply(v : Vector):Double={
+      override def apply(v : Vector):Double={
         v.zSum()
       }
     }
