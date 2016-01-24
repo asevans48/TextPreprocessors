@@ -15,7 +15,7 @@ import com.simplrtek.preprocessors.StopWords
  * and driver max memory (15g,8g,4g respectively by default).  A hadoop directory should first be provided.
  */
 class DistributedStemmer(hadoopDir:String = "C:\\Users/packe/Documents/hadoop-2.7.1",mRS:String ="15g",emx:String = "8g",dmx:String="4g"){
-  System.setProperty("hadoop.home.dir", "C:\\Users/packe/Documents/hadoop-2.7.1")
+  System.setProperty("hadoop.home.dir", hadoopDir)
   var conf:SparkConf = new SparkConf().setMaster("local").setAppName("TestApp")
   conf=conf.set("spark.driver.maxResultSize", mRS)
   conf=conf.set("spark.executor.memory",emx)
