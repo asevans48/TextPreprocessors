@@ -21,12 +21,6 @@
   </build>
   <dependencies>
   		<dependency>
-			<groupId>org.scalanlp</groupId>
-			<artifactId>breeze-math_2.10</artifactId>
-			<version>0.4</version>
-		</dependency>
-  		
-  		<dependency>
 			<groupId>edu.mit</groupId>
 			<artifactId>jwi</artifactId>
 			<version>2.2.3</version>

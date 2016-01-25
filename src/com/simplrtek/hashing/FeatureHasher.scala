@@ -1,8 +1,8 @@
 package com.simplrtek.hashing
 
 import com.simplrtek.tokenizers.CountTokenizer
-import org.apache.mahout.math.{SparseRowMatrix,SparseMatrix}
-import org.apache.mahout.math.{RandomAccessSparseVector,DenseVector}
+import breeze.linalg._
+import breeze.linalg.CSCMatrix
 import com.simplrtek.hashing.Hash
 import com.simplrtek.enriched.Implicits._
 
@@ -90,10 +90,10 @@ class FeatureHasher{
    * @param		{Integer}{mul}					The multiplier to multiply the maximum size of the vectors by.
    * @return	A Sparse Matrix that contains built from the mappings.		
    */
-  def fjpTransform(counts:List[Map[String,Integer]],mul:Integer = 1000,maxProcs:Integer = 100, duration:Duration = Duration.Inf):SparseMatrix={
+  def fjpTransform(counts:List[Map[String,Integer]],mul:Integer = 1000,maxProcs:Integer = 100, duration:Duration = Duration.Inf):CSCMatrix[Double]={
     var cts = counts.map(f => f.keys.size)
     var mx = cts.max * mul
-    var sm:SparseMatrix = new SparseMatrix(counts.size,mx)
+    var sm = new CSCMatrix.Builder[Double](counts.size,mx)
     var row:Integer = 0
     
     var start:Integer = 0
@@ -103,12 +103,12 @@ class FeatureHasher{
     
       Await.result(Future.traverse(counts)(calculateVector(_,mx)),duration).foreach( tup => {
         for(i <- 0 to tup._1.size){
-          sm.set(row,tup._1(i), tup._2(i).doubleValue())
+          sm.add(row,tup._1(i), tup._2(i).doubleValue())
           row += 1
         }
       })
     }
-    sm
+    sm.result
   }
   
   /**
@@ -120,7 +120,7 @@ class FeatureHasher{
    * @param		{Integer}{features}				The minimum features size
    * @return	A Sparse Matrix
    */
-  def transform(counts:List[Map[String,Integer]],features:Integer = 10000):SparseMatrix={
+  def transform(counts:List[Map[String,Integer]],features:Integer = 10000):CSCMatrix[Double]={
     var vptrs: List[Integer] = List[Integer]()
     var indices:List[Integer] = List[Integer]()
     var values: List[Double] = List.fill(features)(0.0)
@@ -156,7 +156,7 @@ class FeatureHasher{
     
     }
     
-    var sm:SparseMatrix = new SparseMatrix(counts.size,maxSz)
+    val sm = new CSCMatrix.Builder[Double](counts.size,maxSz)
     var prev:Integer = 0
     var row:Integer = 0
     
@@ -166,14 +166,14 @@ class FeatureHasher{
         while(prev < i){
           
           println(values(start))
-          sm.set(row, prev, values(start))
+          sm.add(row, prev, values(start))
           prev += 1
         }
       }
       row += 1
     }
     
-    sm
+    sm.result
     
   }
 }
