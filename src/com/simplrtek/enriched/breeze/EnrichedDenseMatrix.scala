@@ -4,10 +4,7 @@ import breeze.linalg.DenseMatrix
 
 class EnrichedDenseMatrix(matrix : DenseMatrix[Double]){
 
-  
-  def slice(rows:Int,cols:Int){
-    
-  }
+
   
   def getNNZ():Int={
     matrix.activeSize

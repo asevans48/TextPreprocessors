@@ -1,7 +1,6 @@
 package com.simplrtek.enriched.breeze
 
 import breeze.linalg.CSCMatrix
-import breeze.linalg.VectorBuilder
 import scala.concurrent.{Await,Future}
 import scala.concurrent.duration.Duration
 import scala.concurrent.ExecutionContext.Implicits.global
