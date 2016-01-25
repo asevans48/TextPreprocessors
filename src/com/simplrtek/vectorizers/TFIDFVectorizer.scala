@@ -16,10 +16,8 @@ import scala.util.{Success,Failure}
  */
 class TFIDFVectorizer {
   
-  private var docTotalCount : Vector[Double] =_
-  private var totalDocTermCount : Vector[Double] = _
-  private var maxFreqs : Vector[Double] = _ 
-  private var tf : Vector[Double] = _
+  private var docTermCount : Vector[Double] = _
+  private var maxDocFreqs : Vector[Double] = _ 
   
   def getMax(mat : Matrix[Double]):Future[Double]=Future{
     mat.activeValuesIterator.max
@@ -34,10 +32,10 @@ class TFIDFVectorizer {
      var start : Int = 0
      var end : Int = batchSize
      
-     while(start < freqMat.rows){
+     while(start < freqMat.cols){
      
        for(i <- start until end){
-          matrices = matrices :+ freqMat(0 until freqMat.rows, i to i)
+          matrices = matrices :+ freqMat(i to i, 0 until freqMat.cols)
        }
        
        val r = Await.ready(Future.traverse(matrices)(getMax), duration)
@@ -57,18 +55,10 @@ class TFIDFVectorizer {
        start += batchSize 
      }
      
-     maxFreqs = builder.result
+     maxDocFreqs = builder.result
     
   }
   
-  def tfCalculator(freqs : Matrix[Double], max : Double):Future[Double]=Future{
-    0.5 + 0.5 * 
-  }
-  
-  def getTFMat(freqMats : CSCMatrix[Double],maxFreqs : Vector[Double])={
-    val builder = Vector.newBuilder[Double] 
-    
-  }
   
   def getIDFMat(freqMats : CSCMatrix[Double])={
     for(i <- 0 until freqMats.cols){
@@ -76,9 +66,14 @@ class TFIDFVectorizer {
     }
   }
   
-  private def distributedFit()={
+  def tfCalculator(freqs : Matrix[Double], max : Double):Future[Double]=Future{
+    0
+  }
+  
+  def getTFMat(freqMats : CSCMatrix[Double],maxFreqs : Vector[Double])={
+    val builder = Vector.newBuilder[Double] 
     
-  }//distributedFit
+  }
   
   def fit(freqMat : CSCMatrix[Double])={
    
