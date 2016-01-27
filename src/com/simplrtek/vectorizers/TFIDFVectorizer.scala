@@ -113,6 +113,7 @@ class TFIDFVectorizer(batchSize : Int  = 100, duration : Duration = Duration.Inf
         }
         case Failure(e) =>{
           println("Failure in Futures for DocTermCount. Failure!")
+          println(e.getMessage)
           System.exit(-1)
         }
       }
@@ -124,8 +125,8 @@ class TFIDFVectorizer(batchSize : Int  = 100, duration : Duration = Duration.Inf
   }
   
   
-  def tfCalculator(freqs : Matrix[Double]):Future[Double]=Future{
-    0
+  def calcTF(v : (Int,Matrix[Double])):Future[(Int,Matrix[Double])]=Future{
+    (v._1,(0.5 * v._2 / maxDocFreqs(v._1)) += 0.5)
   }
   
   /**
@@ -135,17 +136,102 @@ class TFIDFVectorizer(batchSize : Int  = 100, duration : Duration = Duration.Inf
    * 
    * @param			freqMat			The frequency matrix
    */
-  def getTFMat(freqMat : CSCMatrix[Double])={
-    val builder = Vector.newBuilder[Double] 
+  def getTFMat(freqMat : CSCMatrix[Double]):CSCMatrix[Double]={
+    val nrows = freqMat.rows
+    var futs:List[(Int,Matrix[Double])] = List[(Int,Matrix[Double])]()
     
+    var i = 0
+    val end = batchSize
+    while( i < freqMat.cols){
+      val slice:Matrix[Double] = freqMat(0 until nrows, i to i)
+      futs = futs :+ (i,slice)
+      i += 1
+      
+      if(i == batchSize || i == freqMat.cols){
+        val r = Await.ready(Future.traverse(futs)(calcTF), duration).value.get
+        
+        r match {
+          case Success(r) => {
+            r.foreach({
+               row => 
+                 val col = row._1
+                 val v = row._2
+                 for( j <- 0 until v.rows){
+                     freqMat(j,col) = v(j,0)
+                 }
+            })
+            
+          }
+          case Failure(r) => {
+            println("Failed to Get Tf!")
+            println(r.getMessage)
+            System.exit(-1)
+          }
+        }
+      }
+      
+    }
+    return freqMat
+  }
+  
+  /**
+   * Get the IDF multiple per term
+   */
+  def calcIDF(v : (Int,Matrix[Double],Int,Double)):Future[(Int,Matrix[Double])]=Future{
+    (v._1,v._2 *= Math.log(v._3 + 1 / v._4 + 1))
+  }
+  
+  /**
+   * Converts TFMat to TFIDF Mat. This uses some previous calculations to transform
+   * a TFMAT to a TFIDFMat.
+   */
+  def getIDF(tfMat : CSCMatrix[Double]):CSCMatrix[Double]={
+    val cols = tfMat.cols
+    val rows = tfMat.rows
+    
+    var futs:List[(Int,Matrix[Double],Int,Double)] = List[(Int,Matrix[Double],Int,Double)]()
+    var i = 0
+    val end = batchSize
+    while( i < tfMat.rows){
+      val slice:Matrix[Double] = tfMat( i to i, 0 to cols)
+      futs = futs :+ (i,slice,rows,this.docTermCount(i))
+      i += 1
+      
+      if(i == batchSize || i == tfMat.cols){
+        val r = Await.ready(Future.traverse(futs)(calcIDF), duration).value.get
+        
+        r match {
+          case Success(r) => {
+            r.foreach({
+               row => 
+                 val rowIndex = row._1
+                 val v = row._2
+                 for( j <- 0 until v.cols){
+                     tfMat(rowIndex,j) = v(0,j)
+                 }
+            })
+            
+          }
+          case Failure(r) => {
+            println("Failed to Get Tf!")
+            println(r.getMessage)
+            System.exit(-1)
+          }
+        }
+      }
+      
+    }
+    tfMat
   }
   
   
   /**
    * Fit and transform the vector.
    */
-  def fit_transform()={
-    
+  def fit_transform(hashMat : CSCMatrix[Double]):CSCMatrix[Double]={
+    this.getMaxFreqs(hashMat)
+    this.getDocTermCount(hashMat)
+    this.getIDF(this.getTFMat(hashMat))
   }//fit_transform
   
 }
