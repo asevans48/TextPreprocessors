@@ -1,5 +1,6 @@
 package com.simplrtek.preprocessors
 
+import scala.io.Source
 import scala.concurrent.{Future,Await}
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.Duration
@@ -37,7 +38,8 @@ class WordGraphReplacer(rows : Integer = 100, cols : Integer = 100,cosCutoff : D
   
   
   def replaceFile( f: File)={
-    
+     val sents = SentTokenizer.getSentencesFromFile(f)
+     
   }//replaceFile
   
 }
