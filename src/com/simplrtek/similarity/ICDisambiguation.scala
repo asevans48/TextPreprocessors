@@ -1,4 +1,4 @@
-package com.simplrtek.disambiguation
+package com.simplrtek.similarity
 
 import net.didion.jwnl.JWNL
 import net.didion.jwnl.JWNLException
@@ -8,14 +8,20 @@ import edu.cmu.lti.ws4j.impl.{WuPalmer,Resnik,Lesk}
 import edu.cmu.lti.ws4j.RelatednessCalculator
 import edu.cmu.lti.lexical_db.{ILexicalDatabase,NictWordNet}
 import edu.cmu.lti.ws4j.util.WS4JConfiguration
+import com.simplrtek.preprocessors.PosTagger
+import com.simplrtek.wordnet.WordnetAccess
+
+import com.simplrtek.preprocessors.{WordTokenizer,PosTagger}
+import com.simplrtek.preprocessors.TagConverter
 
 /**
  * Subsumer based algorithms with a least common subsumer based algorithms.
  * This code can aid in the attainment by getting hypernyms and subsumers
  * or return scores based on ws4j
  */
-class SubsumerBasedAlgorithms{
-  
+class ICDisambiguation{
+  private var wna : WordnetAccess = _
+  private var tagger : PosTagger = _
   private val db : ILexicalDatabase  = new NictWordNet();
   WS4JConfiguration.getInstance().setMFS(true);
   
@@ -120,5 +126,65 @@ class SubsumerBasedAlgorithms{
   def getLeskForWords(worda : String,wordb  : String):Double={
     val rc = new Lesk(db)
     rc.calcRelatednessOfWords(worda, wordb)
+  }
+  
+  
+  /**
+   * Get a count of the overlapping sentences.
+   */
+  def getOverlaps(pos : Int, start : Int, end : Int,syn : Synset, syns : List[Synset])={
+    
+    
+  }
+  
+  /**
+   * Disambiguate a sentence. Return a list of words and a list of their
+   * appropriate sentences.
+   */
+  def disambiguateSentence(sentence : String):(List[String],List[String])={
+    if(tagger == null){
+      tagger= new PosTagger
+    }
+    
+    //get senses and sentences
+    var ptrs : List[Int] = List[Int]()
+    ptrs = ptrs :+ 0
+    val sentences = sentence.split("\\!\\.,;").toList
+    var stags : List[List[Synset]] = List[List[Synset]]()
+    
+    for(i <- 0 to sentences.size){
+        val tags = tagger.tag(sentences(i)).split("[^A-Za-z0-9]+")
+        
+        for(j <- 0 to tags.size){
+           val senses = tags.flatMap {  
+            tagword =>
+               val parr = tagword.split("_")
+               wna.getSynset(TagConverter.getTag(parr(1)), parr(0)).asInstanceOf[List[Synset]]
+          }.toList
+          stags = stags :+ senses
+          ptrs = ptrs :+ senses.size
+        }
+    }
+        
+    
+    //get overlaps
+    var i : Int = 0
+    var ptrIndex : Int = 0
+    var start = 0
+    var end = ptrs(i)
+    
+    while(i < ptrs.size){
+     //calculate overlaps
+      
+      i+=1
+    }
+    
+    //tfidf
+    
+    //get best cosines
+    
+    //highest similairty wins
+    
+    null
   }
 }
