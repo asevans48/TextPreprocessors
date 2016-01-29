@@ -14,6 +14,11 @@ import com.simplrtek.wordnet.WordnetAccess
 import com.simplrtek.preprocessors.{WordTokenizer,PosTagger}
 import com.simplrtek.preprocessors.TagConverter
 
+import scala.concurrent.{Await,Future}
+import scala.concurrent.duration.Duration
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.util.{Success,Failure}
+
 /**
  * Subsumer based algorithms with a least common subsumer based algorithms.
  * This code can aid in the attainment by getting hypernyms and subsumers
@@ -131,26 +136,43 @@ class ICDisambiguation{
   
   /**
    * Get a count of the overlapping sentences.
+   * 
+   * @param		The position of the word in the sentence
+   * @param		The start position for the synsets of this word
+   * @param		The end position for the synsets of this word
+   * @param		The synset to use in comparison
+   * @param		The synsets in totality
+   * 
+   * @return 	A future containing the array position, pointer index position, and the overlap
    */
-  def getOverlaps(pos : Int, start : Int, end : Int,syn : Synset, syns : List[Synset])={
+  def getOverlaps(pos : Int, start : Int, end : Int,syn : Synset, syns : List[Synset]):Future[Int]=Future{
     
-    
+    0
   }
   
   /**
    * Disambiguate a sentence. Return a list of words and a list of their
    * appropriate sentences.
+   * 
+   * @param		The sentence
+   * 
+   * @return	 A list of words and a list of synsets as a tuple2	
    */
-  def disambiguateSentence(sentence : String):(List[String],List[String])={
+  def disambiguateSentence(sentence : String, batchSize : Int = 100, duration : Duration = Duration.Inf):(List[String],List[String])={
     if(tagger == null){
       tagger= new PosTagger
+    }
+    
+    if(wna == null){
+      wna = new WordnetAccess
     }
     
     //get senses and sentences
     var ptrs : List[Int] = List[Int]()
     ptrs = ptrs :+ 0
     val sentences = sentence.split("\\!\\.,;").toList
-    var stags : List[List[Synset]] = List[List[Synset]]()
+    var stags : List[Synset] = List[Synset]()
+    var overlaps : List[Integer] = List[Integer]()
     
     for(i <- 0 to sentences.size){
         val tags = tagger.tag(sentences(i)).split("[^A-Za-z0-9]+")
@@ -161,8 +183,8 @@ class ICDisambiguation{
                val parr = tagword.split("_")
                wna.getSynset(TagConverter.getTag(parr(1)), parr(0)).asInstanceOf[List[Synset]]
           }.toList
-          stags = stags :+ senses
-          ptrs = ptrs :+ senses.size
+          stags = stags ++ senses
+          ptrs = ptrs :+ (ptrs(ptrs.size - 1 )+senses.size)
         }
     }
         
@@ -173,17 +195,31 @@ class ICDisambiguation{
     var start = 0
     var end = ptrs(i)
     
-    while(i < ptrs.size){
+    var futs : List[Future[Int]] = List[Future[Int]]() 
+    
+    while(i < stags.size){
      //calculate overlaps
+      futs = futs :+ this.getOverlaps(i, start, end,stags(i), stags)
       
       i+=1
+      
+      if(futs.size == 100 || i == stags.size){
+        val r = Await.ready(Future.sequence(futs), duration).value.get
+        r match {
+          case Success(r) =>{
+            overlaps ++ r
+          }
+          case Failure(r) => {
+            println("Failed to Get Overlaps in Les for Sentence Disambiguation! \n"+r.getMessage)
+            System.exit(-1)
+          }
+        }
+        
+      }
     }
     
-    //tfidf
-    
-    //get best cosines
-    
-    //highest similairty wins
+    //here is where we can go lesk and just rip the max overlaps or use a cosines based approach
+    //filtering out based on no or a number of overlaps required to form a decent connection
     
     null
   }
