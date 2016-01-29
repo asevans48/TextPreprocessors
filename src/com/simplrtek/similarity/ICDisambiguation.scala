@@ -145,9 +145,17 @@ class ICDisambiguation{
    * 
    * @return 	A future containing the array position, pointer index position, and the overlap
    */
-  def getOverlaps(pos : Int, start : Int, end : Int,syn : Synset, syns : List[Synset]):Future[Int]=Future{
+  def getOverlaps(pos : Int, start : Int, end : Int,syn : Synset, synGlosses : List[List[String]]):Future[Int]=Future{
+    var inter : Int = 0
+    val gloss : List[String] = WordTokenizer.wordTokenize(syn.getGloss) ++ syn.getWords.map { x => x.getLemma }
+    for(i <- 0 until synGlosses.size){
+      if(i < start || i >= end){
+         //get overlap of each 
+          inter += gloss.intersect(synGlosses).size
+      }
+    }
     
-    0
+    inter
   }
   
   /**
@@ -174,10 +182,10 @@ class ICDisambiguation{
     var stags : List[Synset] = List[Synset]()
     var overlaps : List[Integer] = List[Integer]()
     
-    for(i <- 0 to sentences.size){
+    for(i <- 0 until sentences.size){
         val tags = tagger.tag(sentences(i)).split("[^A-Za-z0-9]+")
         
-        for(j <- 0 to tags.size){
+        for(j <- 0 until tags.size){
            val senses = tags.flatMap {  
             tagword =>
                val parr = tagword.split("_")
@@ -196,10 +204,10 @@ class ICDisambiguation{
     var end = ptrs(i)
     
     var futs : List[Future[Int]] = List[Future[Int]]() 
-    
+    var stagGlosses : List[List[String]] = stags.map { x => WordTokenizer.wordTokenize(x.getGloss)}
     while(i < stags.size){
      //calculate overlaps
-      futs = futs :+ this.getOverlaps(i, start, end,stags(i), stags)
+      futs = futs :+ this.getOverlaps(i, start, end,stags(i), stagGlosses)
       
       i+=1
       
