@@ -79,6 +79,18 @@ object SentTokenizer{
   }
   
   /**
+   * Use a regular expression to split sentences. This may
+   * work better for certain data. 
+   * 
+   * @param		sents		The text to split.
+   * @return	A list of split sentences.
+   */
+  def getSentencesFromRegex(sents : String) : List[String] ={
+    """(?mis)[^.?!]+""".r.findAllMatchIn(sents).toList.map { x => x.group(0) }
+  }
+  
+  
+  /**
    * This method gets sentences from the EPIC API as opposed to openNLP.
    * This method uses the TreeBank Tokenizer.
    * 

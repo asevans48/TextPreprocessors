@@ -42,6 +42,7 @@ object Hash {
    */
   def murmurHashString(text:String):Integer={
     MurmurHash3.stringHash(text)
+    
   }
   
 }

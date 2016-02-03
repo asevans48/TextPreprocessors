@@ -18,14 +18,14 @@ class WordCountVectorizer{
     var words = WordTokenizer.wordTokenize(text)
     
     for(word <- words){
-      if(map.contains(word)){
-        map = map.updated(word, map.get(word).get + 1)
+      val w = word.trim()
+      if(map.contains(w)){
+        map = map.updated(w, map.get(w).get + 1)
       }else{
-        map = map + (word -> 1)
+        map = map + (w -> 1)
       }
     }
-    
-    //get counts
+
     map
   }
   

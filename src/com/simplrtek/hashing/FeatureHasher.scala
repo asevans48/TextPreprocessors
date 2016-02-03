@@ -22,8 +22,13 @@ import scala.concurrent.ExecutionContext.Implicits.global
  * 
  * Hashes Text Features to matrices.
  */
-class FeatureHasher{
-
+class FeatureHasher(features :Integer = 500000){
+  var vptrs: List[Integer] = List[Integer]()
+  var indices:List[Integer] = List[Integer]()
+  var values: List[Double] = List.fill(features)(0.0)
+  var ndocs : Int = 0
+  var mx : Int = 0
+  
   /**
    * Resizes the list. 
    * 
@@ -120,29 +125,23 @@ class FeatureHasher{
    * @param		{Integer}{features}				The minimum features size
    * @return	A Sparse Matrix
    */
-  def transform(counts:List[Map[String,Integer]],features:Integer = 10000):CSCMatrix[Double]={
-    var vptrs: List[Integer] = List[Integer]()
-    var indices:List[Integer] = List[Integer]()
-    var values: List[Double] = List.fill(features)(0.0)
+  def transform(counts:List[Map[String,Integer]])={
     var feats:Integer = features
     var size:Integer = 0
-    var maxSz:Integer = 0
-    
+    ndocs = counts.size
     for(map <- counts){
       for(tup <- map){
         var value = tup._2
         if(value > 0){
-          var hash = Hash.murmurHash(tup._1.getBytes)
-          var index = hash % feats
+          var hash = Hash.murmurHashString(tup._1)
+          var index = Math.abs(hash) % feats
           indices = indices :+ index.asInstanceOf[Integer]
-          maxSz = Math.max(index,maxSz)
-          
+          mx = Math.max(mx,index)
           if(hash < 0){
             value *= -1
           }
           
           values = values.updated(size, value.doubleValue())
-          
           size += 1
           
           if(size == feats){
@@ -155,25 +154,23 @@ class FeatureHasher{
       vptrs = vptrs :+ size
     
     }
+  }
+  
+  def getCSCMatrix()={
     
-    val sm = new CSCMatrix.Builder[Double](counts.size,maxSz)
-    var prev:Integer = 0
-    var row:Integer = 0
-    
-    for(i <- 0 to vptrs.size){
-      if(i < counts.size){
-        var start = prev
-        while(prev < i){
-          
-          println(values(start))
-          sm.add(row, prev, values(start))
-          prev += 1
-        }
-      }
-      row += 1
+    if(vptrs.size ==0){
+      throw new Exception("Count maps must have data. Size of row pointers is 0")
     }
+
     
+    val sm = new CSCMatrix.Builder[Double](mx,ndocs)
+    var start:Integer = 0
+    for(i <- 0 until vptrs.size){
+       while(start < vptrs(i)){
+         sm.add(indices(start),i, values(start))
+         start += 1
+       }
+    }
     sm.result
-    
   }
 }

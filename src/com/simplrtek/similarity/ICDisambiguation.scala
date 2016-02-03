@@ -166,7 +166,7 @@ class ICDisambiguation{
    * 
    * @return	 A list of words and a list of synsets as a tuple2	
    */
-  def disambiguateSentence(sentence : String, batchSize : Int = 100, duration : Duration = Duration.Inf):(List[String],List[String])={
+  def disambiguateSentence(sentence : String, batchSize : Int = 100, duration : Duration = Duration.Inf,minOverlaps : Int = 1):(List[String],List[String])={
     if(tagger == null){
       tagger= new PosTagger
     }
@@ -228,6 +228,16 @@ class ICDisambiguation{
     
     //here is where we can go lesk and just rip the max overlaps or use a cosines based approach
     //filtering out based on no or a number of overlaps required to form a decent connection
+    
+    //hash the vectors
+    //https://github.com/ririw/scalaNMF
+    
+    //iterate ignoring non-fits and choosing in intervals
+var senseChoices : List[Synset] = List[Synset]  ()
+    start = 0
+    end  = ptrs(0)
+    
+    
     
     null
   }

@@ -10,8 +10,51 @@ import scala.concurrent.duration.Duration
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.collection.immutable.VectorBuilder
 import scala.util.{Success,Failure}
+import com.simplrtek.hashing.FeatureHasher
+
 /**
- *	A TFIDF Vectorizer that Should be Used with the Feature Hasher.
+ * This class takes in the hash arrays from the FeatureHasher
+ * class and uses the lists to build a tfidf matrix. This 
+ * would be faster than converting to a breeze matrix first.
+ */
+class TFIDFVectorizer{
+  var hasher : FeatureHasher = _
+  var tfidfMatrix : CSCMatrix[Double] = _
+  
+  def fit(featureClass : FeatureHasher)={
+    this.hasher = featureClass
+    
+  }
+  
+  def getMax(mat : List[Double]):Future[Double]=Future{
+    0.0
+  }//getMax
+  
+  def getMaxFreqs(freqArr : List[Double])={
+    
+  }//getMaxFreqs
+  
+  
+  def calculateDocTerms(freqs : Matrix[Double])={
+    
+  }//calculateDocTerms
+  
+  def calcTF(v : (Int,Matrix[Double]))={
+    
+  }//calcTF
+  
+  def getTFMat(freqMat : CSCMatrix[Double])={
+    
+  }//getTFMat
+  
+   def calcIDF(v : (Int,Matrix[Double],Int,Double))={
+     
+   }//calcIDF
+   
+   
+}
+
+/**	A TFIDF Vectorizer that Should be Used with the Feature Hasher.
  * 	The goal is for implementation during testing and use on a single 
  * 	node. 
  * 
@@ -20,7 +63,7 @@ import scala.util.{Success,Failure}
  * @param		{Int}{batchSize}									The batchsize to use in multi-core processing
  * @param		{Duration}{duration}							The duration to await results
  */
-class TFIDFVectorizer(batchSize : Int  = 100, duration : Duration = Duration.Inf){
+class TFIDFMatrixVectorizer(batchSize : Int  = 100, duration : Duration = Duration.Inf){
   
   private var docTermCount : Vector[Double] = _
   private var maxDocFreqs : Vector[Double] = _ 
