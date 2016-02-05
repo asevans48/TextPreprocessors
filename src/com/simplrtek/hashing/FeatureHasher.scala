@@ -45,77 +45,9 @@ class FeatureHasher(features :Integer = 500000){
     
     arr2
   }
-  
-  
-  /**
-   * A future that can be used to generate sparse indices using the hashing trick.
-   * 
-   * @param		map						The count map to use
-   * @param		features			The number of features to hash to (much larger than the actual maximum size)
-   * @return	A list of indices and values.
-   */
-  def calculateVector(map:Map[String,Integer], features:Integer):Future[(List[Integer],List[Double])]=Future{
-    var feats = features
-    var size:Integer = 0
-    var indices:List[Integer] = List[Integer]()
-    var values:List[Double]= List.fill(feats)(0.0)
-    
-    for(tup <- map){
-        var value = tup._2
-        if(value > 0){
-          var hash = Hash.murmurHashString(tup._1)
-          var index = hash % feats
-          indices = indices :+ index.asInstanceOf[Integer]
-          
-          if(hash < 0){
-            value *= -1
-          }
-          
-          values.updated(size, value)
-          
-          size += 1
-          
-          if(size == feats){
-            feats *= 2
-            values = resizeList(values,feats)    
-          }
-          
-        }
-    }
-    (indices,values)
-  }
 
-  /**
-   * This is a Fork Join approach to building the sparse matrix and may actually be able to save
-   * some memory. Its benefit may be outweighed in small quantities.
-   * 
-   * @param		counts									A list of mapped counts.
-   * @param		{Duration}{duration}		A duration to wait for the processes to finish.
-   * @param		{Integer}{maxProcs}			The maximum number of processes to use. 
-   * @param		{Integer}{mul}					The multiplier to multiply the maximum size of the vectors by.
-   * @return	A Sparse Matrix that contains built from the mappings.		
-   */
-  def fjpTransform(counts:List[Map[String,Integer]],mul:Integer = 1000,maxProcs:Integer = 100, duration:Duration = Duration.Inf):CSCMatrix[Double]={
-    var cts = counts.map(f => f.keys.size)
-    var mx = cts.max * mul
-    var sm = new CSCMatrix.Builder[Double](counts.size,mx)
-    var row:Integer = 0
-    
-    var start:Integer = 0
-    var end:Integer = if(counts.size < maxProcs) counts.size else maxProcs
-    
-    while(start < counts.size){
-    
-      Await.result(Future.traverse(counts)(calculateVector(_,mx)),duration).foreach( tup => {
-        for(i <- 0 to tup._1.size){
-          sm.add(row,tup._1(i), tup._2(i).doubleValue())
-          row += 1
-        }
-      })
-    }
-    sm.result
-  }
   
+
   /**
    * Converts a List of String,Count Pairs to a Sparse Matrix
    * using the hashing trick. Uses Mahout and the Implicits to
@@ -123,12 +55,23 @@ class FeatureHasher(features :Integer = 500000){
    * 
    * @param		counts										A list of document counts
    * @param		{Integer}{features}				The minimum features size
+   * @param		partial										The boolean stating whether to only partially transform the document.
    * @return	A Sparse Matrix
    */
-  def transform(counts:List[Map[String,Integer]])={
+  def transform(counts:List[Map[String,Integer]],partial : Boolean = false)={
     var feats:Integer = features
     var size:Integer = 0
-    ndocs = counts.size
+    
+    if(partial == false){
+      vptrs = List[Integer]()
+      indices = List[Integer]()
+      values = List.fill(features)(0.0)
+      ndocs = counts.size
+      mx = 0
+    }else{
+      ndocs += counts.size
+    }
+    
     for(map <- counts){
       for(tup <- map){
         var value = tup._2
