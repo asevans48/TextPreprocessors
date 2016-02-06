@@ -10,6 +10,22 @@ import scala.concurrent.{Future,Await}
 import scala.concurrent.duration.Duration
 import scala.concurrent.ExecutionContext.Implicits.global
 
+
+/**
+ * The parallel Feature Hasher creates a more memory intensive version 
+ * of a hasher that must be matched with an appropriately parallel TFIDF
+ * or other vectorizer. 
+ * 
+ * The values are Array[Array[(Int,Double)]] representing rows with sparse
+ * index to value mappings. This contrasts to 3 large arrays representing
+ * values, indices, and row pointers
+ * 
+ * 
+ */
+class ParallelFeatureHasher(features : Integer = 500000){
+  
+}
+
 /**
  * This class contains feature hashing capabilities. Capabilities includes the 
  * use of a basic feature hashing task using multiple arrays to then build a Sparse Matrix. 
