@@ -22,7 +22,81 @@ import scala.concurrent.ExecutionContext.Implicits.global
  * 
  * 
  */
-class ParallelFeatureHasher(features : Integer = 500000){
+class ParallelFeatureHasher(total_features : Integer = 500000){
+  var features : Int = total_features
+  var cmr : scala.collection.mutable.ArrayBuffer[Array[(Int,Double)]] = scala.collection.mutable.ArrayBuffer[Array[(Int,Double)]]()
+  var ndocs : Int = 0
+  var mx : Int = 0
+  var words : scala.collection.mutable.Map[Int,String] = scala.collection.mutable.Map[Int,String]()
+  
+  /**
+   * Resize each row array to match the new features size. This will take 2x memory
+   * so please use the total_features variable.
+   */
+  def resize()={
+    var tempCmr2 =  scala.collection.mutable.ArrayBuffer[Array[(Int,Double)]]()
+    var words2 : scala.collection.mutable.Map[Int,String] = scala.collection.mutable.Map[Int,String]()
+  
+    mx = 0
+    
+    for(arr <- cmr){
+          
+    }
+    
+  }
+  
+  /**
+   * Converts a List of String,Count Pairs to a Sparse Matrix
+   * using the hashing trick. Uses Mahout and the Implicits to
+   * build the matrix. The algorithm uses the Hashing Trick.
+   * 
+   * @param		counts										A list of document counts
+   * @param		partial										The boolean stating whether to only partially transform the document.
+   */
+  def transform(counts:List[Map[String,Integer]],partial : Boolean = false)={
+    if(partial == false){
+      cmr = scala.collection.mutable.ArrayBuffer[Array[(Int,Double)]]()
+      ndocs = 0
+      mx = 0
+    }else{
+      ndocs += counts.size
+    }
+    
+    for(ctMap <- counts){
+      
+      if(ctMap.size > this.features / 3){
+        try{
+          throw new Exception("Too Few Features Per Row.")
+        }catch{
+           case t : Throwable =>{
+             println(t.getMessage+"\nNumber of Features must be greater than "+this.features+".Please use the features variable. Resizing!")
+           }
+           resize()          
+        }
+      }
+      
+      ndocs += 1
+      var row : scala.collection.mutable.ArrayBuffer[(Int,Double)] = scala.collection.mutable.ArrayBuffer[(Int,Double)]()
+      
+      
+      for(tup <- ctMap){
+        var value : Double = tup._2.asInstanceOf[Double]
+        var hash = Hash.murmurHashString(tup._1)
+        var index = hash % this.features
+        mx = Math.max(mx, index)
+        
+        if(hash < 0){
+          value *= -1
+        }
+           
+        row = row :+ (index,value)
+      
+      }
+      cmr.append(row.toArray)
+    }
+    
+  }
+  
   
 }
 
@@ -38,31 +112,56 @@ class ParallelFeatureHasher(features : Integer = 500000){
  * 
  * Hashes Text Features to matrices.
  */
-class FeatureHasher(features :Integer = 500000){
+class FeatureHasher(total_features :Integer = 500000){
+  var features : Integer = total_features
   var vptrs: List[Integer] = List[Integer]()
   var indices:List[Integer] = List[Integer]()
   var values: List[Double] = List.fill(features)(0.0)
   var ndocs : Int = 0
   var mx : Int = 0
+  var words : scala.collection.mutable.Map[Int,String] = scala.collection.mutable.Map[Int,String]()
   
+
   /**
-   * Resizes the list. 
-   * 
-   * @param		arr		The list to resize
-   * @param		cap		The new cap
-   * @return	The resized array.
+   * Resize the indcies by growing the number of features.
+   * This requires 2x the memory.
    */
-  def resizeList(arr:List[Double],cap:Integer):List[Double]={
-    var arr2:List[Double] = List.fill(cap)(0.0)
+  def resize()={
+    mx = 0
+    var size : Integer = 0
+    var vptrs2 : List[Integer] = List[Integer]()
+    var indices2 : List[Integer] = List[Integer]()
+    var values2 : List[Double] = List[Double]()
+    var words2 : scala.collection.mutable.Map[Int,String] = scala.collection.mutable.Map[Int,String]()
+    this.features *= 3
     
-    for(i <- 0 to arr.size){
-      arr2.updated(i, arr(i))
+    var start = 0
+    for(i <- 0 until vptrs.size){
+       while(start < vptrs(i)){
+         val oldIndex = indices(start)
+         var value = Math.abs(this.values(start))
+         val w = words.get(oldIndex).get
+         val hash = Hash.murmurHashString(w)
+         val index = hash % this.features
+         words2.put(index, w)
+         indices2 = indices2 :+ index.asInstanceOf[Integer]
+         mx = Math.max(mx,index)
+         if(hash < 0){
+           value *= -1
+         }
+          
+         values2 = values.updated(size, value.doubleValue())
+         size += 1
+         start += 1
+       }
+       vptrs2 = vptrs2 :+ size
     }
     
-    arr2
+    this.vptrs = vptrs2
+    this.indices = indices
+    this.values = values2
+    this.words = words2
   }
-
-  
 
   /**
    * Converts a List of String,Count Pairs to a Sparse Matrix
@@ -70,12 +169,9 @@ class FeatureHasher(features :Integer = 500000){
    * build the matrix. The algorithm uses the Hashing Trick.
    * 
    * @param		counts										A list of document counts
-   * @param		{Integer}{features}				The minimum features size
    * @param		partial										The boolean stating whether to only partially transform the document.
-   * @return	A Sparse Matrix
    */
   def transform(counts:List[Map[String,Integer]],partial : Boolean = false)={
-    var feats:Integer = features
     var size:Integer = 0
     
     if(partial == false){
@@ -89,11 +185,25 @@ class FeatureHasher(features :Integer = 500000){
     }
     
     for(map <- counts){
+      
+      if(map.size >= this.features/3){
+            try{
+              throw new Exception("Too Few Features Per Row.")
+            }catch{
+              case t : Throwable =>{
+                println(t.getMessage+"\nNumber of Features must be greater than "+this.features+".Please use the features variable. Resizing!")
+              }
+              resize()          
+            }
+       }
+      
       for(tup <- map){
+        
         var value = tup._2
         if(value > 0){
           var hash = Hash.murmurHashString(tup._1)
-          var index = Math.abs(hash) % feats
+          var index = Math.abs(hash) % this.features
+          words.update(index, tup._1)
           indices = indices :+ index.asInstanceOf[Integer]
           mx = Math.max(mx,index)
           if(hash < 0){
@@ -103,10 +213,6 @@ class FeatureHasher(features :Integer = 500000){
           values = values.updated(size, value.doubleValue())
           size += 1
           
-          if(size == feats){
-            feats *= 2
-            values = resizeList(values,feats)    
-          }
           
         }
       }
