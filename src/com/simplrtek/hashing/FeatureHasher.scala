@@ -34,15 +34,53 @@ class ParallelFeatureHasher(total_features : Integer = 500000){
    * so please use the total_features variable.
    */
   def resize()={
-    var tempCmr2 =  scala.collection.mutable.ArrayBuffer[Array[(Int,Double)]]()
+    this.features *= 3
+    var cmr2 =  scala.collection.mutable.ArrayBuffer[Array[(Int,Double)]]()
     var words2 : scala.collection.mutable.Map[Int,String] = scala.collection.mutable.Map[Int,String]()
   
     mx = 0
     
     for(arr <- cmr){
-          
+         var row2 : scala.collection.mutable.ArrayBuffer[(Int,Double)] = scala.collection.mutable.ArrayBuffer[(Int,Double)]()
+         arr.foreach({
+           tup =>
+             var rowWords : scala.collection.mutable.ListBuffer[Int] = scala.collection.mutable.ListBuffer[Int]()
+             val w = words2.get(tup._1).get
+             val value = tup._2
+             val h = Hash.murmurHashString(w)
+             val index = h % this.features
+             
+            if(words2.contains(index) && !words2.get(index).equals(tup._1)){ //safer than using put
+                if(rowWords.contains(index)){
+                  var j =0
+                  var run = true
+                  while(run && j < row2.size){
+                    if(tup._1 == index){
+                      row2.update(j, (index,tup._2 - value))
+                    }
+                    j += 1
+                  }
+                  
+                  if(j == row2.size){
+                    row2.append((index,-1*value))
+                  }
+                }else{
+                  rowWords = rowWords :+ index
+                  row2.append((index,-1*value))
+                }
+                
+               
+            }else{
+                rowWords :+ tup._1
+                words2.put(index, w)
+                row2 = row2 :+ (index,value)
+            }
+             
+         })
+         cmr2.append(row2.toArray)    
     }
-    
+    words = words2
+    cmr = cmr2
   }
   
   /**
@@ -77,19 +115,40 @@ class ParallelFeatureHasher(total_features : Integer = 500000){
       
       ndocs += 1
       var row : scala.collection.mutable.ArrayBuffer[(Int,Double)] = scala.collection.mutable.ArrayBuffer[(Int,Double)]()
-      
+      var rowWords : scala.collection.mutable.ListBuffer[Int] = scala.collection.mutable.ListBuffer[Int]()
       
       for(tup <- ctMap){
         var value : Double = tup._2.asInstanceOf[Double]
         var hash = Hash.murmurHashString(tup._1)
         var index = hash % this.features
         mx = Math.max(mx, index)
+        ndocs += 1
         
-        if(hash < 0){
-          value *= -1
-        }
+        if(words.contains(index) && !words.get(index).equals(tup._1)){ //safer than using put
+            if(rowWords.contains(index)){
+              var j =0
+              var run = true
+              while(run && j < row.size){
+                if(tup._1 == index){
+                  row.update(j, (index,tup._2 - value))
+                }
+                j += 1
+              }
+              
+              if(j == row.size){
+                row.append((index,-1*value))
+              }
+            }else{
+              rowWords = rowWords :+ index
+              row.append((index,-1*value))
+            }
+            
            
-        row = row :+ (index,value)
+        }else{
+            rowWords :+ tup._1
+            words.put(index, tup._1)
+            row = row :+ (index,value)
+        }
       
       }
       cmr.append(row.toArray)
@@ -97,6 +156,21 @@ class ParallelFeatureHasher(total_features : Integer = 500000){
     
   }
   
+  
+  /**
+   * Get A CSC Matruix from the Sparse Matrix Representation.
+   */
+  def getCSCMatrix():CSCMatrix[Double]={
+    var csc = new CSCMatrix.Builder[Double](mx,ndocs)
+    
+    for(i <- 0 until  cmr.size){
+      for(j <- 0 until cmr(i).size){
+        csc.add(cmr(i)(j)._1,i,cmr(i)(j)._2)
+      }
+    }
+    
+    csc.result
+  }
   
 }
 
@@ -203,11 +277,13 @@ class FeatureHasher(total_features :Integer = 500000){
         if(value > 0){
           var hash = Hash.murmurHashString(tup._1)
           var index = Math.abs(hash) % this.features
-          words.update(index, tup._1)
+     
           indices = indices :+ index.asInstanceOf[Integer]
           mx = Math.max(mx,index)
-          if(hash < 0){
+          if(words.contains(index) && !words.get(index).equals(tup._1)){ //safer than using put
             value *= -1
+          }else if(!words.contains(index)){
+            words.put(index, tup._1)
           }
           
           values = values.updated(size, value.doubleValue())
