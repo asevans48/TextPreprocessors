@@ -158,7 +158,9 @@ class ParallelFeatureHasher(total_features : Integer = 500000){
   
   
   /**
-   * Get A CSC Matruix from the Sparse Matrix Representation.
+   * Get A CSC Matrix from the Sparse Matrix Representation.
+   * 
+   * @return		The CSC Double Matrix. Use words to get word indices.
    */
   def getCSCMatrix():CSCMatrix[Double]={
     var csc = new CSCMatrix.Builder[Double](mx,ndocs)
