@@ -164,8 +164,7 @@ class ParallelTFIDFVectorizer(hashClass: ParallelFeatureHasher,batchSize : Int =
  * would be faster than converting to a breeze matrix first.
  */
 class TFIDFVectorizer(hasher: FeatureHasher,batchSize : Int = 100, duration : Duration = Duration.Inf){
-  private var docTermCount : List[Double] =_
-  private var maxDocFreqs : List[Double] = _
+  private var maxDocFreqs : List[Double] = List[Double]()
   private var idfVals : scala.collection.mutable.Map[Int,Double] = scala.collection.mutable.Map[Int,Double]()
   
   /**
@@ -214,11 +213,18 @@ class TFIDFVectorizer(hasher: FeatureHasher,batchSize : Int = 100, duration : Du
     }
   }
   
-  
+  /**
+   * Control the TFIDF transformation
+   */
   def transform()={
-    
+    this.getMaxDocFreqs()
+    this.getDocTerms()
+    this.getTF()
   }
   
+  /**
+   * Return a CSC Matrix from the provided hasher.
+   */
   def getCSCMatrix():CSCMatrix[Double]={
     this.hasher.getCSCMatrix
   }
