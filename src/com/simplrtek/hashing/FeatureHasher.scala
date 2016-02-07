@@ -10,6 +10,9 @@ import scala.concurrent.{Future,Await}
 import scala.concurrent.duration.Duration
 import scala.concurrent.ExecutionContext.Implicits.global
 
+import java.util.ArrayList
+import scala.collection.JavaConversions._
+
 
 /**
  * The parallel Feature Hasher creates a more memory intensive version 
@@ -192,7 +195,7 @@ class FeatureHasher(total_features :Integer = 500000){
   var features : Integer = total_features
   var vptrs: List[Integer] = List[Integer]()
   var indices:List[Integer] = List[Integer]()
-  var values: List[Double] = List.fill(features)(0.0)
+  var values: ArrayList[Double] = new ArrayList[Double](this.features)
   var ndocs : Int = 0
   var mx : Int = 0
   var words : scala.collection.mutable.Map[Int,String] = scala.collection.mutable.Map[Int,String]()
@@ -207,9 +210,9 @@ class FeatureHasher(total_features :Integer = 500000){
     var size : Integer = 0
     var vptrs2 : List[Integer] = List[Integer]()
     var indices2 : List[Integer] = List[Integer]()
-    var values2 : List[Double] = List[Double]()
     var words2 : scala.collection.mutable.Map[Int,String] = scala.collection.mutable.Map[Int,String]()
     this.features *= 3
+    var values2 : ArrayList[Double] = new ArrayList[Double](this.features)
     
     var start = 0
     for(i <- 0 until vptrs.size){
@@ -225,8 +228,8 @@ class FeatureHasher(total_features :Integer = 500000){
          if(hash < 0){
            value *= -1
          }
-          
-         values2 = values.updated(size, value.doubleValue())
+         
+         values2.set(size, value.doubleValue())
          size += 1
          start += 1
        }
@@ -253,7 +256,7 @@ class FeatureHasher(total_features :Integer = 500000){
     if(partial == false){
       vptrs = List[Integer]()
       indices = List[Integer]()
-      values = List.fill(features)(0.0)
+      values = new ArrayList[Double](this.features)
       ndocs = counts.size
       mx = 0
     }else{
@@ -288,7 +291,7 @@ class FeatureHasher(total_features :Integer = 500000){
             words.put(index, tup._1)
           }
           
-          values = values.updated(size, value.doubleValue())
+          values.set(size, value.doubleValue())
           size += 1
           
           

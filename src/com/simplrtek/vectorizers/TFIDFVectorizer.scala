@@ -166,28 +166,60 @@ class ParallelTFIDFVectorizer(hashClass: ParallelFeatureHasher,batchSize : Int =
 class TFIDFVectorizer(hasher: FeatureHasher,batchSize : Int = 100, duration : Duration = Duration.Inf){
   private var docTermCount : List[Double] =_
   private var maxDocFreqs : List[Double] = _
+  private var idfVals : scala.collection.mutable.Map[Int,Double] = scala.collection.mutable.Map[Int,Double]()
   
+  /**
+   * Get the maximum document frequency counts. 
+   */
   def getMaxDocFreqs()={
-    
+     var start : Int = 0 
+     for(i <- 0 until this.hasher.vptrs.size){
+       var mxFreq : Double = 0
+       while(start < this.hasher.vptrs(i)){
+         mxFreq = Math.max(this.hasher.values.get(start), mxFreq)
+         start += 1
+       }
+       maxDocFreqs = maxDocFreqs :+ mxFreq
+     }
   }
   
+  /**
+   * Get the document max document frequencies. Generates an IDF Values map.
+   * 
+   */
   def getDocTerms()={
-    
+      for(i <- 0 until this.hasher.values.size){
+        if(idfVals.contains(this.hasher.indices(i))){
+          this.idfVals.update(this.hasher.indices(i), this.idfVals.get(this.hasher.indices(i)).get + 1)
+        }else{
+          this.idfVals.put(this.hasher.indices(i), 1)         
+        }
+      }
+      
+      for(k <- this.idfVals.keys){
+        this.idfVals.update(k, Math.log(this.hasher.vptrs.size / this.idfVals.get(k).get))
+      }
   }
   
+  
+  /**
+   * Calculate the TFIDF value.
+   */
   def getTF()={
-    
+    var start : Int = 0
+    for(i <- 0 until this.hasher.vptrs.size){
+      while(start < this.hasher.vptrs(i)){
+        this.hasher.values.set(start, (0.5+(this.hasher.values.get(start)*0.5)/this.maxDocFreqs(i))* this.idfVals.get(this.hasher.indices(start)).get)
+      }
+    }
   }
   
-  def getIDF()={
-    
-  }
   
   def transform()={
     
   }
   
-  def getCSCMatrix()={
-    
+  def getCSCMatrix():CSCMatrix[Double]={
+    this.hasher.getCSCMatrix
   }
 }
