@@ -208,7 +208,7 @@ class TFIDFVectorizer(hasher: FeatureHasher,batchSize : Int = 100, duration : Du
     var start : Int = 0
     for(i <- 0 until this.hasher.vptrs.size){
       while(start < this.hasher.vptrs(i)){
-        this.hasher.values.set(start, (0.5+(this.hasher.values.get(start)*0.5)/this.maxDocFreqs(i))* this.idfVals.get(this.hasher.indices(start)).get)
+        this.hasher.values.set(start, (0.5+((this.hasher.values.get(start)*0.5)/this.maxDocFreqs(i)))* this.idfVals.get(this.hasher.indices(start)).get)
       }
     }
   }
