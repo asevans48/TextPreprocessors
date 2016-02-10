@@ -186,5 +186,4 @@ class EnrichedSparseRowMatrix(matrix : SparseRowMatrix){
       
       m2
     }//hstack
-    
   }
