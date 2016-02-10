@@ -34,4 +34,9 @@ class EnrichedCSCMatrix(matrix : CSCMatrix[Double]) {
    this.matrix.map { x => Math.pow(x, e)}
  }
   
+ def norm():Double={
+   var v : Double =0
+   matrix.valuesIterator.foreach { x => v = v + x*x }
+   Math.sqrt(v)
+ }
 }
