@@ -12,7 +12,7 @@ class EnrichedSparseVector(vector : SparseVector[Double]){
     this.vector.map { x => Math.pow(x, e) }
   }
  
-  def norm():Double={
+  def linalgNorm():Double={
     var v : Double = 0
     vector.valuesIterator.foreach { x => v = v + x*x }
     Math.sqrt(v)
