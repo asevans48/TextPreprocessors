@@ -285,13 +285,13 @@ class FeatureHasher(total_features :Integer = 500000){
      
           indices = indices :+ index.asInstanceOf[Integer]
           mx = Math.max(mx,index)
-          if(words.contains(index) && !words.get(index).equals(tup._1)){ //safer than using put
-            value *= -1
+          value = Math.abs(value)
+          if(words.contains(index) && !words.get(index).get.equals(tup._1)){ //safer than using put
+            value = -1 * value
           }else if(!words.contains(index)){
             words.put(index, tup._1)
           }
-          
-          values.set(size, value.doubleValue())
+          values.add(size,value.doubleValue())
           size += 1
           
           

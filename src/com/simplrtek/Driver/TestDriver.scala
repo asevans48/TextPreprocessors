@@ -32,14 +32,16 @@ object HTestDriver{
      //val counts = wc.fit(List("apple apple green red eat good full."))
      var testLines = List[String]()
      var testString ="this is a string."
-     for(i <- 0 to 100000){
-       testString += "apple fish green red eat good full. fish live in the sea; fish are food."
+     for(i <- 0 to 100){
+       testString += "apple fish green red eat good full yum fish."
      }
     println("Starting")
     testLines=SentTokenizer.getSentencesFromRegex(testString)
    
      val t = System.currentTimeMillis()
      val counts = wc.fit(testLines)
+     hasher.transform(counts)
+     println(hasher.getCSCMatrix())
      println(System.currentTimeMillis()-t)
   }
 }
