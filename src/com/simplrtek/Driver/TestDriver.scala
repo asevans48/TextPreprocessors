@@ -19,23 +19,36 @@ import sbt.io
 import com.simplrtek.preprocessors.SentTokenizer
 
 import com.simplrtek.hashing.FeatureHasher
+import com.simplrtek.hashing.ParallelFeatureHasher
 import com.simplrtek.vectorizers.WordCountVectorizer
 import scala.collection.immutable.StringOps
 import com.simplrtek.vectorizers.TFIDFVectorizer
+import com.simplrtek.vectorizers.ParallelTFIDFVectorizer
 
 object HTestDriver{
   
   def main(args:Array[String]):Unit={
     val hasher : FeatureHasher = new FeatureHasher()
+    val parallelHasher :ParallelFeatureHasher = new ParallelFeatureHasher()
     val wc : WordCountVectorizer = new  WordCountVectorizer()
      
      //val counts = wc.fit(List("apple apple green red eat good full."))
      var testLines = List[String]()
      var testString ="this is a string."
-     for(i <- 0 to 100000){
+     for(i <- 0 to 500){
        testString += "apple fish green red eat good full yum fish. one fish two fish red fish blue fish."
      }
     println("Starting")
+    testLines=SentTokenizer.getSentencesFromRegex(testString)
+    var t = System.currentTimeMillis()
+    val counts = wc.fit(testLines)
+    parallelHasher.transform(counts)
+    //println(parallelHasher.getCSCMatrix())
+    val tfpar : ParallelTFIDFVectorizer = new ParallelTFIDFVectorizer(parallelHasher)
+    tfpar.transform()
+    println(System.currentTimeMillis() - t)
+    println(tfpar.getCSCMatrix())
+    /**
     testLines=SentTokenizer.getSentencesFromRegex(testString)
      var t = System.currentTimeMillis()
      val counts = wc.fit(testLines)
@@ -48,5 +61,7 @@ object HTestDriver{
      
      println(System.currentTimeMillis() - t)
      println(tfidf.getCSCMatrix())
+     * 
+     */
   }
 }

@@ -21,7 +21,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils
  * The hasher array will be transformed.
  */
 class ParallelTFIDFVectorizer(hashClass: ParallelFeatureHasher,batchSize : Int = 100, duration : Duration = Duration.Inf){
-  private var docTermCounts : Map[Int,Int] = Map[Int,Int]()
+  private var docTermCounts : scala.collection.mutable.Map[Int,Int] = scala.collection.mutable.Map[Int,Int]()
   private var maxDocFreqs : List[Double] = _
   var hasher : ParallelFeatureHasher = hashClass
   
@@ -44,7 +44,7 @@ class ParallelTFIDFVectorizer(hashClass: ParallelFeatureHasher,batchSize : Int =
    * Calculate the rows TF values
    */
   def calcTF( counts : Array[(Int,Double)], maxFreq : Double):Future[Array[(Int,Double)]]=Future{
-    counts.map({x => (x._1,0.5 + 0.5 * (x._2/maxFreq))})
+    counts.map({x => (x._1,0.5 + 0.5 * (x._2/(maxFreq)))})
   }
   
   /**
@@ -90,7 +90,8 @@ class ParallelTFIDFVectorizer(hashClass: ParallelFeatureHasher,batchSize : Int =
     //calc the tf
     var tfFuts : List[Future[Array[(Int,Double)]]] = List[Future[Array[(Int,Double)]]]()
     var j : Int = 0
-    for(i <- 0 until this.hasher.cmr.length){
+
+    for(i <- 0 until this.hasher.cmr.size){
       tfFuts = tfFuts :+ this.calcTF(this.hasher.cmr(i),this.maxDocFreqs(i))
       
       if(tfFuts.size == this.batchSize || (i + 1) == this.hasher.cmr.length){
@@ -98,10 +99,11 @@ class ParallelTFIDFVectorizer(hashClass: ParallelFeatureHasher,batchSize : Int =
         r match{
           case Success(x) =>{
             x.foreach({
-              r =>
-                this.hasher.cmr.update(j, r)
+              row =>
+                this.hasher.cmr.update(j, row)
                 j += 1
             })
+            tfFuts = List[Future[Array[(Int,Double)]]]()
            }
           case Failure(t) =>{
             println("Failed to Calculate TF!\n"+t.getMessage+"\n"+ExceptionUtils.getStackTrace(t))
@@ -121,7 +123,7 @@ class ParallelTFIDFVectorizer(hashClass: ParallelFeatureHasher,batchSize : Int =
     for(i <- 0 until this.hasher.cmr.length){
        for(j <- 0 until this.hasher.cmr(i).length){
         if(this.docTermCounts.contains(this.hasher.cmr(i)(j)._1)){
-          this.docTermCounts = this.docTermCounts.updated(this.hasher.cmr(i)(j)._1, this.hasher.cmr(i)(j)._2.asInstanceOf[Int] + 1)
+          this.docTermCounts.update(this.hasher.cmr(i)(j)._1, this.hasher.cmr(i)(j)._2.toInt + this.docTermCounts.get(this.hasher.cmr(i)(j)._1).get)
         }else{
           this.docTermCounts = this.docTermCounts +  (this.hasher.cmr(i)(j)._1 -> 1)
         }
@@ -133,9 +135,9 @@ class ParallelTFIDFVectorizer(hashClass: ParallelFeatureHasher,batchSize : Int =
    * Calculates the TFIDF value via multiplication
    */
   def getTFIDF()={
-    for(i <- 0 until this.hasher.cmr.length){
-      for(j <- 0 until this.hasher.cmr(i).length){
-         this.hasher.cmr(i)(j) = (this.hasher.cmr(i)(j)._1,Math.log(this.hasher.ndocs / this.docTermCounts(this.hasher.cmr(i)(j)._1)) * this.hasher.cmr(i)(j)._2) 
+    for(i <- 0 until this.hasher.cmr.size){
+      for(j <- 0 until this.hasher.cmr(i).size){
+         this.hasher.cmr(i)(j) = (this.hasher.cmr(i)(j)._1,Math.log(this.hasher.cmr.size / (1.0+this.docTermCounts(this.hasher.cmr(i)(j)._1))) * this.hasher.cmr(i)(j)._2) 
       }
     }
   }

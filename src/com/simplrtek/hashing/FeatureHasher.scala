@@ -49,11 +49,11 @@ class ParallelFeatureHasher(total_features : Integer = 500000){
            tup =>
              var rowWords : scala.collection.mutable.ListBuffer[Int] = scala.collection.mutable.ListBuffer[Int]()
              val w = words2.get(tup._1).get
-             val value = tup._2
-             val h = Hash.murmurHashString(w)
+             val value = Math.abs(tup._2)
+             val h = Math.abs(Hash.murmurHashString(w))
              val index = h % this.features
              
-            if(words2.contains(index) && !words2.get(index).equals(tup._1)){ //safer than using put
+            if(words2.contains(index) && !words2.get(index).get.equals(tup._1)){ //safer than using put
                 if(rowWords.contains(index)){
                   var j =0
                   var run = true
@@ -121,13 +121,13 @@ class ParallelFeatureHasher(total_features : Integer = 500000){
       var rowWords : scala.collection.mutable.ListBuffer[Int] = scala.collection.mutable.ListBuffer[Int]()
       
       for(tup <- ctMap){
-        var value : Double = tup._2.asInstanceOf[Double]
+        var value : Double = Math.abs(tup._2.toDouble)
         var hash = Hash.murmurHashString(tup._1)
-        var index = hash % this.features
+        var index = Math.abs(hash) % this.features
         mx = Math.max(mx, index)
         ndocs += 1
         
-        if(words.contains(index) && !words.get(index).equals(tup._1)){ //safer than using put
+        if(words.contains(index) && !words.get(index).get.equals(tup._1)){ //safer than using put
             if(rowWords.contains(index)){
               var j =0
               var run = true
@@ -143,7 +143,7 @@ class ParallelFeatureHasher(total_features : Integer = 500000){
               }
             }else{
               rowWords = rowWords :+ index
-              row.append((index,-1*value))
+              row = row :+ (index,-1*value)
             }
             
            
@@ -166,7 +166,7 @@ class ParallelFeatureHasher(total_features : Integer = 500000){
    * @return		The CSC Double Matrix. Use words to get word indices.
    */
   def getCSCMatrix():CSCMatrix[Double]={
-    var csc = new CSCMatrix.Builder[Double](mx,ndocs)
+    var csc = new CSCMatrix.Builder[Double](mx,this.cmr.size)
     
     for(i <- 0 until  cmr.size){
       for(j <- 0 until cmr(i).size){
