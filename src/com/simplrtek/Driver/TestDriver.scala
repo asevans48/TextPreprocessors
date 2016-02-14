@@ -32,19 +32,19 @@ object HTestDriver{
      //val counts = wc.fit(List("apple apple green red eat good full."))
      var testLines = List[String]()
      var testString ="this is a string."
-     for(i <- 0 to 100){
+     for(i <- 0 to 100000){
        testString += "apple fish green red eat good full yum fish. one fish two fish red fish blue fish."
      }
     println("Starting")
     testLines=SentTokenizer.getSentencesFromRegex(testString)
-   
      var t = System.currentTimeMillis()
      val counts = wc.fit(testLines)
      hasher.transform(counts)
      println(System.currentTimeMillis()-t)
      t= System.currentTimeMillis()
      val tfidf = new TFIDFVectorizer(hasher)
-     tfidf.transform()
+    println("ROWS: "+hasher.getCSCMatrix().cols) 
+    tfidf.transform()
      
      println(System.currentTimeMillis() - t)
      println(tfidf.getCSCMatrix())

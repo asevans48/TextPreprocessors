@@ -187,7 +187,6 @@ class TFIDFVectorizer(hasher: FeatureHasher,batchSize : Int = 100, duration : Du
    * Get the maximum document frequency counts. 
    */
   def getMaxDocFreqs()={
-    println("Getting Max Doc Freqs")
      var start : Int = 0 
      for(i <- 0 until this.hasher.vptrs.size){
        var mxFreq : Double = 0
@@ -204,7 +203,6 @@ class TFIDFVectorizer(hasher: FeatureHasher,batchSize : Int = 100, duration : Du
    * 
    */
   def getDocTerms()={
-      println("Getting Doc Terms")
       for(i <- 0 until this.hasher.values.size){
         if(idfVals.contains(this.hasher.indices(i))){
           this.idfVals.update(this.hasher.indices(i), this.idfVals.get(this.hasher.indices(i)).get + 1)
@@ -214,7 +212,7 @@ class TFIDFVectorizer(hasher: FeatureHasher,batchSize : Int = 100, duration : Du
       }
       
       for(k <- this.idfVals.keys){
-        this.idfVals.update(k, Math.log(this.hasher.vptrs.size / this.idfVals.get(k).get))
+        this.idfVals.update(k, Math.log(this.hasher.vptrs.size / (1 + this.idfVals.get(k).get)))
       }
   }
   
@@ -223,13 +221,17 @@ class TFIDFVectorizer(hasher: FeatureHasher,batchSize : Int = 100, duration : Du
    * Calculate the TFIDF value.
    */
   def getTF()={
-    println("GETTING TF")
-    var start : Int = 0
-    for(i <- 0 until this.hasher.vptrs.size){
-      while(start < this.hasher.vptrs(i)){
-        this.hasher.values.set(start, (0.5+((this.hasher.values.get(start)*0.5)/this.maxDocFreqs(i)))* this.idfVals.get(this.hasher.indices(start)).get)
-        start += 1
-      }
+    var i = 0
+    var vptrMax = this.hasher.vptrs(this.hasher.vptrs.size-1)
+    var smr : SparseRowMatrix = new SparseRowMatrix(this.hasher.vptrs.size,this.hasher.mx)
+    var index = 0
+    while(index < vptrMax){
+        if(index == this.hasher.vptrs(i)){
+          i += 1
+        }
+        this.hasher.values.set(index, (0.5+((this.hasher.values.get(index)*0.5)/this.maxDocFreqs(i)))* this.idfVals.get(this.hasher.indices(index)).get)
+        index += 1
+
     }
   }
   
@@ -237,11 +239,9 @@ class TFIDFVectorizer(hasher: FeatureHasher,batchSize : Int = 100, duration : Du
    * Control the TFIDF transformation
    */
   def transform()={
-    println("Starting")
     this.getMaxDocFreqs()
     this.getDocTerms()
     this.getTF()
-    println("Complete")
   }
   
   /**
@@ -258,13 +258,17 @@ class TFIDFVectorizer(hasher: FeatureHasher,batchSize : Int = 100, duration : Du
    * @return		A Mahout Sparse Row Matrix
    */
   def getMahoutSparseRowMatrix():SparseRowMatrix={
+    var i = 0
+    var vptrMax = this.hasher.vptrs(this.hasher.vptrs.size-1)
     var smr : SparseRowMatrix = new SparseRowMatrix(this.hasher.vptrs.size,this.hasher.mx)
-    var start = 0
-    for(i <- 0 until this.hasher.vptrs.size){
-      while(start < this.hasher.vptrs(i)){
-        smr.setQuick(i,this.hasher.indices(start), this.hasher.values.get(start))
-        start += 1
+    var index = 0
+    while(index < vptrMax){
+      if(index == this.hasher.vptrs(i)){
+         i += 1
       }
+      
+      smr.setQuick(i,this.hasher.indices(index), this.hasher.values.get(index))
+      index += 1  
     }
     smr
   }

@@ -307,15 +307,18 @@ class FeatureHasher(total_features :Integer = 500000){
     if(vptrs.size ==0){
       throw new Exception("Count maps must have data. Size of row pointers is 0")
     }
-
+    var i = 0
+    var vptrMax = vptrs(vptrs.size-1)
+    var index = 0
     
     val sm = new CSCMatrix.Builder[Double](mx,ndocs)
-    var start:Integer = 0
-    for(i <- 0 until vptrs.size){
-       while(start < vptrs(i)){
-         sm.add(indices(start),i, values(start))
-         start += 1
-       }
+    while(index < vptrMax){
+      if(index == vptrs(i)){
+         i += 1
+      }
+      
+         sm.add(indices(index),i, values(index))
+         index += 1
     }
     sm.result
   }
