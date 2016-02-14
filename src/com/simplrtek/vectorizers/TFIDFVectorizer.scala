@@ -187,6 +187,7 @@ class TFIDFVectorizer(hasher: FeatureHasher,batchSize : Int = 100, duration : Du
    * Get the maximum document frequency counts. 
    */
   def getMaxDocFreqs()={
+    println("Getting Max Doc Freqs")
      var start : Int = 0 
      for(i <- 0 until this.hasher.vptrs.size){
        var mxFreq : Double = 0
@@ -203,6 +204,7 @@ class TFIDFVectorizer(hasher: FeatureHasher,batchSize : Int = 100, duration : Du
    * 
    */
   def getDocTerms()={
+      println("Getting Doc Terms")
       for(i <- 0 until this.hasher.values.size){
         if(idfVals.contains(this.hasher.indices(i))){
           this.idfVals.update(this.hasher.indices(i), this.idfVals.get(this.hasher.indices(i)).get + 1)
@@ -221,10 +223,12 @@ class TFIDFVectorizer(hasher: FeatureHasher,batchSize : Int = 100, duration : Du
    * Calculate the TFIDF value.
    */
   def getTF()={
+    println("GETTING TF")
     var start : Int = 0
     for(i <- 0 until this.hasher.vptrs.size){
       while(start < this.hasher.vptrs(i)){
         this.hasher.values.set(start, (0.5+((this.hasher.values.get(start)*0.5)/this.maxDocFreqs(i)))* this.idfVals.get(this.hasher.indices(start)).get)
+        start += 1
       }
     }
   }
@@ -233,9 +237,11 @@ class TFIDFVectorizer(hasher: FeatureHasher,batchSize : Int = 100, duration : Du
    * Control the TFIDF transformation
    */
   def transform()={
+    println("Starting")
     this.getMaxDocFreqs()
     this.getDocTerms()
     this.getTF()
+    println("Complete")
   }
   
   /**
