@@ -35,7 +35,7 @@ object HTestDriver{
      //val counts = wc.fit(List("apple apple green red eat good full."))
      var testLines = List[String]()
      var testString ="this is a string."
-     for(i <- 0 to 500){
+     for(i <- 0 to 10){
        testString += "apple fish green red eat good full yum fish. one fish two fish red fish blue fish."
      }
     println("Starting")

@@ -47,17 +47,7 @@ class ParallelTFIDFVectorizer(hashClass: ParallelFeatureHasher,batchSize : Int =
     counts.map({x => (x._1,0.5 + 0.5 * (x._2/(maxFreq)))})
   }
   
-  /**
-   * Calculate the TFIDF
-   */
-  def calcTFIDF(row : Array[(Int,Double)]):Future[Array[(Int,Double)]]=Future{
-    var newArr : Array[(Int,Double)] = Array.fill(row.length)(null)
-    for(i <- 0 until row.length){
-      newArr.update(i, (row(i)._1,row(i)._2/this.docTermCounts(i)))
-    }
-    newArr
-  }
-  
+
   /**
    * Calculate the TF part of TFIDF
    */
@@ -100,6 +90,7 @@ class ParallelTFIDFVectorizer(hashClass: ParallelFeatureHasher,batchSize : Int =
           case Success(x) =>{
             x.foreach({
               row =>
+            
                 this.hasher.cmr.update(j, row)
                 j += 1
             })
@@ -123,7 +114,7 @@ class ParallelTFIDFVectorizer(hashClass: ParallelFeatureHasher,batchSize : Int =
     for(i <- 0 until this.hasher.cmr.length){
        for(j <- 0 until this.hasher.cmr(i).length){
         if(this.docTermCounts.contains(this.hasher.cmr(i)(j)._1)){
-          this.docTermCounts.update(this.hasher.cmr(i)(j)._1, this.hasher.cmr(i)(j)._2.toInt + this.docTermCounts.get(this.hasher.cmr(i)(j)._1).get)
+          this.docTermCounts.update(this.hasher.cmr(i)(j)._1, 1 + this.docTermCounts.get(this.hasher.cmr(i)(j)._1).get)
         }else{
           this.docTermCounts = this.docTermCounts +  (this.hasher.cmr(i)(j)._1 -> 1)
         }
@@ -137,7 +128,8 @@ class ParallelTFIDFVectorizer(hashClass: ParallelFeatureHasher,batchSize : Int =
   def getTFIDF()={
     for(i <- 0 until this.hasher.cmr.size){
       for(j <- 0 until this.hasher.cmr(i).size){
-         this.hasher.cmr(i)(j) = (this.hasher.cmr(i)(j)._1,Math.log(this.hasher.cmr.size / (1.0+this.docTermCounts(this.hasher.cmr(i)(j)._1))) * this.hasher.cmr(i)(j)._2) 
+         //println(this.hasher.cmr.size+":::"+this.hasher.cmr(i)(j)._2+":::"+this.docTermCounts(this.hasher.cmr(i)(j)._1)+":::"+(1.0+this.docTermCounts(this.hasher.cmr(i)(j)._1))+":::"+Math.log(this.hasher.cmr.size / (1.0+this.docTermCounts(this.hasher.cmr(i)(j)._1)))+":::"+Math.log(this.hasher.cmr.size.toDouble / (1.0+this.docTermCounts(this.hasher.cmr(i)(j)._1))) * this.hasher.cmr(i)(j)._2)
+         this.hasher.cmr(i)(j) = (this.hasher.cmr(i)(j)._1,Math.log(this.hasher.cmr.size.toDouble / (1.0+this.docTermCounts(this.hasher.cmr(i)(j)._1))) * this.hasher.cmr(i)(j)._2) 
       }
     }
   }
