@@ -4,7 +4,6 @@ import com.simplrtek.tokenizers.CountTokenizer
 import breeze.linalg._
 import breeze.linalg.CSCMatrix
 import com.simplrtek.hashing.Hash
-import com.simplrtek.enriched.Implicits._
 
 import scala.concurrent.{Future,Await}
 import scala.concurrent.duration.Duration

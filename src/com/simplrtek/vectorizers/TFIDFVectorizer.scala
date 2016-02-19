@@ -1,7 +1,6 @@
 package com.simplrtek.vectorizers
 
 import com.simplrtek.enriched.breeze.Implicits._
-import org.apache.mahout.math.SparseRowMatrix
 import breeze.linalg.{CSCMatrix,Matrix}
 import breeze.linalg.max
 import breeze.linalg.*
@@ -151,21 +150,6 @@ class ParallelTFIDFVectorizer(hashClass: ParallelFeatureHasher,batchSize : Int =
     this.hasher.getCSCMatrix
   }
   
-  /**
-   * Get a Mahout Sparse Row Matrix from the values
-   * 
-   * @return		A Mahout Sparse Row Matrix
-   */
-  def getMahoutSparseRowMatrix():SparseRowMatrix={
-    var smr : SparseRowMatrix = new SparseRowMatrix(this.hasher.cmr.length,this.hasher.mx)
-    for(i <- 0 until this.hasher.cmr.length){
-      for(j <- 0 until this.hasher.cmr(i).length){
-        smr.setQuick(i,this.hasher.cmr(i)(j)._1, this.hasher.cmr(i)(j)._2.asInstanceOf[Double])
-      }
-    }
-    smr
-  }
-  
 }
 
 /**
@@ -217,7 +201,6 @@ class TFIDFVectorizer(hasher: FeatureHasher,batchSize : Int = 100, duration : Du
   def getTF()={
     var i = 0
     var vptrMax = this.hasher.vptrs(this.hasher.vptrs.size-1)
-    var smr : SparseRowMatrix = new SparseRowMatrix(this.hasher.vptrs.size,this.hasher.mx)
     var index = 0
     while(index < vptrMax){
         if(index == this.hasher.vptrs(i)){
@@ -243,27 +226,5 @@ class TFIDFVectorizer(hasher: FeatureHasher,batchSize : Int = 100, duration : Du
    */
   def getCSCMatrix():CSCMatrix[Double]={
     this.hasher.getCSCMatrix
-  }
-  
-  
-    /**
-   * Get a Mahout Sparse Row Matrix from the values
-   * 
-   * @return		A Mahout Sparse Row Matrix
-   */
-  def getMahoutSparseRowMatrix():SparseRowMatrix={
-    var i = 0
-    var vptrMax = this.hasher.vptrs(this.hasher.vptrs.size-1)
-    var smr : SparseRowMatrix = new SparseRowMatrix(this.hasher.vptrs.size,this.hasher.mx)
-    var index = 0
-    while(index < vptrMax){
-      if(index == this.hasher.vptrs(i)){
-         i += 1
-      }
-      
-      smr.setQuick(i,this.hasher.indices(index), this.hasher.values.get(index))
-      index += 1  
-    }
-    smr
   }
 }

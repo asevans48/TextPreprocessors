@@ -1,6 +1,4 @@
 package com.simplrtek.Driver
-import com.simplrtek.enriched.Implicits._
-import org.apache.mahout.math.{RandomAccessSparseVector,DenseVector,Vector}
 
 import org.scalatest._
 import org.scalatest.Matchers._
