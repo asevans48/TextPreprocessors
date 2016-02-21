@@ -98,8 +98,6 @@ class ParallelFeatureHasher(total_features : Integer = 500000){
       cmr = scala.collection.mutable.ArrayBuffer[Array[(Int,Double)]]()
       ndocs = 0
       mx = 0
-    }else{
-      ndocs += counts.size
     }
     
     for(ctMap <- counts){
@@ -165,15 +163,21 @@ class ParallelFeatureHasher(total_features : Integer = 500000){
    * @return		The CSC Double Matrix. Use words to get word indices.
    */
   def getCSCMatrix():CSCMatrix[Double]={
-    var csc = new CSCMatrix.Builder[Double](mx,this.cmr.size)
-    
-    for(i <- 0 until  cmr.size){
-      for(j <- 0 until cmr(i).size){
-        csc.add(cmr(i)(j)._1,i,cmr(i)(j)._2)
+    var vptrs: scala.collection.mutable.ArrayBuffer[Int] = scala.collection.mutable.ArrayBuffer[Int]()
+    var indices: scala.collection.mutable.ArrayBuffer[Int] = scala.collection.mutable.ArrayBuffer[Int]()
+    var values : scala.collection.mutable.ArrayBuffer[Double] = scala.collection.mutable.ArrayBuffer[Double]()
+    vptrs = vptrs :+ 0
+    for(i <- 0 until cmr.size){
+      vptrs = vptrs :+ vptrs(i) + cmr(i).size
+
+      
+      for(ctup <- cmr(i)){
+        indices = indices :+ ctup._1
+        values = values :+ ctup._2
       }
     }
-    
-    csc.result
+    val csc = new CSCMatrix(values.toArray,mx + 1,vptrs.size - 1,vptrs.toArray,indices.toArray)
+    csc
   }
   
 }
@@ -319,6 +323,8 @@ class FeatureHasher(total_features :Integer = 500000){
          sm.add(indices(index),i, values(index))
          index += 1
     }
+    
+    //new CSCMatrix(values.toArray,mx,ndocs,vptrs.toArray.asInstanceOf[Array[Int]],indices.toArray.asInstanceOf[Array[Int]])
     sm.result
   }
 }

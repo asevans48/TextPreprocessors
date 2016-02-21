@@ -9,7 +9,6 @@ object RandomWeightedChoice {
         sum += distribution(i)
       }
     }
-    
     sum = Math.random() * sum
     var currSum : Double = 0.0
     var index : Int = -1
