@@ -45,22 +45,7 @@ object HTestDriver{
     val tfpar : ParallelTFIDFVectorizer = new ParallelTFIDFVectorizer(parallelHasher)
     tfpar.transform()
     println(System.currentTimeMillis() - t)
-    tfpar.getCSCMatrix()
-    //println(tfpar.getCSCMatrix())
-    /**
-    testLines=SentTokenizer.getSentencesFromRegex(testString)
-     var t = System.currentTimeMillis()
-     val counts = wc.fit(testLines)
-     hasher.transform(counts)
-     println(System.currentTimeMillis()-t)
-     t= System.currentTimeMillis()
-     val tfidf = new TFIDFVectorizer(hasher)
-    println("ROWS: "+hasher.getCSCMatrix().cols) 
-    tfidf.transform()
-     
-     println(System.currentTimeMillis() - t)
-     println(tfidf.getCSCMatrix())
-     * 
-     */
+    println(tfpar.getCSCMatrix())
+    println(tfpar.getCSCMatrix().t)
   }
 }

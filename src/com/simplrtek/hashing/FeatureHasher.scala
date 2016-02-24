@@ -171,10 +171,10 @@ class ParallelFeatureHasher(total_features : Integer = 500000){
     var currptr = 0
     for(i <- 0 until cmr.size){
       
-      if(i+1 < cmr.size){
-        currptr += cmr(i).size
-        vptrs = vptrs :+ currptr
-      }
+       vptrs = vptrs :+ currptr
+       currptr += cmr(i).size
+
+      
       
       for(ctup <- cmr(i).sortBy(_._1)){
         indices = indices :+ ctup._1
