@@ -4,6 +4,7 @@ import com.simplrtek.tokenizers.CountTokenizer
 import breeze.linalg._
 import breeze.linalg.CSCMatrix
 import com.simplrtek.enriched.breeze.Implicits.enrichSparseMatrix
+import scala.collection.mutable.ArrayBuffer
 
 import scala.concurrent.{Future,Await}
 import scala.concurrent.duration.Duration
@@ -270,8 +271,8 @@ class FeatureHasher(total_features :Integer = 500000){
       ndocs += counts.size
     }
     
-    for(map <- counts){
-      
+    for(mi <- 0 to counts.size){
+      var map = counts(mi)
       if(map.size >= this.features/3){
             try{
               throw new Exception("Too Few Features Per Row.")
