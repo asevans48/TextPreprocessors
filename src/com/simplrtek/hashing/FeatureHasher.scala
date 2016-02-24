@@ -3,7 +3,7 @@ package com.simplrtek.hashing
 import com.simplrtek.tokenizers.CountTokenizer
 import breeze.linalg._
 import breeze.linalg.CSCMatrix
-import com.simplrtek.hashing.Hash
+import com.simplrtek.enriched.breeze.Implicits.enrichSparseMatrix
 
 import scala.concurrent.{Future,Await}
 import scala.concurrent.duration.Duration
@@ -167,16 +167,20 @@ class ParallelFeatureHasher(total_features : Integer = 500000){
     var indices: scala.collection.mutable.ArrayBuffer[Int] = scala.collection.mutable.ArrayBuffer[Int]()
     var values : scala.collection.mutable.ArrayBuffer[Double] = scala.collection.mutable.ArrayBuffer[Double]()
     vptrs = vptrs :+ 0
+    var currptr = 0
     for(i <- 0 until cmr.size){
-      vptrs = vptrs :+ vptrs(i) + cmr(i).size
-
       
-      for(ctup <- cmr(i)){
+      if(i+1 < cmr.size){
+        currptr += cmr(i).size
+        vptrs = vptrs :+ currptr
+      }
+      
+      for(ctup <- cmr(i).sortBy(_._1)){
         indices = indices :+ ctup._1
         values = values :+ ctup._2
       }
     }
-    val csc = new CSCMatrix(values.toArray,mx + 1,vptrs.size - 1,vptrs.toArray,indices.toArray)
+    val csc = new CSCMatrix(values.toArray,mx ,vptrs.size,vptrs.toArray,indices.toArray)
     csc
   }
   

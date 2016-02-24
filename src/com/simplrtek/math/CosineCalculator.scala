@@ -5,7 +5,7 @@ import breeze.linalg.Transpose
 import breeze.linalg.SparseVector
 import breeze.linalg.{CSCMatrix,Matrix,DenseVector}
 
-object CosineCalculator {
+object CosineCalculator{
   
   
   /**
@@ -16,7 +16,7 @@ object CosineCalculator {
    * 
    * @return 	The cosine similarity as a double.
    */
-  def getCosines(documenta : SparseVector[Double],documentb : SparseVector[Double]):Double={
+  def getSparseCosines(documenta : SparseVector[Double],documentb : SparseVector[Double]):Double={
     documenta.dot(documentb) / (norm(documenta) * norm(documentb))
   }
   

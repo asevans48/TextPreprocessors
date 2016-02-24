@@ -45,7 +45,8 @@ object HTestDriver{
     val tfpar : ParallelTFIDFVectorizer = new ParallelTFIDFVectorizer(parallelHasher)
     tfpar.transform()
     println(System.currentTimeMillis() - t)
-    println(tfpar.getCSCMatrix())
+    tfpar.getCSCMatrix()
+    //println(tfpar.getCSCMatrix())
     /**
     testLines=SentTokenizer.getSentencesFromRegex(testString)
      var t = System.currentTimeMillis()

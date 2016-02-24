@@ -75,11 +75,13 @@ class EnrichedCSCMatrix(matrix : CSCMatrix[Double]) {
   def getColumn(col : Int):SparseVector[Double]={
     var data : ArrayBuffer[Double] = new ArrayBuffer[Double]()
     var indices : ArrayBuffer[Int] = new ArrayBuffer[Int]()
-    
-    for(row <- 0 to matrix.rows){
-      if(matrix.apply(row,col) != 0.0){
+    for(row <- 0 until matrix.rows){
+      
+          
+      if(matrix.apply(row,col) > 0.0){
+        
         data += matrix.apply(row, col)
-        indices += col
+        indices += row
       }
     }
     
