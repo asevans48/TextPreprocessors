@@ -114,7 +114,7 @@ class ParallelFeatureHasher(total_features : Integer = 500000){
         }
       }
       
-      var hashes = ctMap.map({x => Hash.murmurHashString(x._1)})
+      var hashes = ctMap.map({x => Math.abs(Hash.murmurHashString(x._1)) % this.features})
       ndocs += 1
       var row : scala.collection.mutable.ArrayBuffer[(Int,Double)] = scala.collection.mutable.ArrayBuffer[(Int,Double)]()
       var rowWords : scala.collection.mutable.ListBuffer[Int] = scala.collection.mutable.ListBuffer[Int]()
@@ -122,8 +122,7 @@ class ParallelFeatureHasher(total_features : Integer = 500000){
       for(ctup <- hashes.zip(ctMap).toList.sortBy(f => f._1)){
         var tup = ctup._2
         var value : Double = Math.abs(tup._2.toDouble)
-        var hash = ctup._1
-        var index = Math.abs(hash) % this.features
+        var index = ctup._1
         mx = Math.max(mx, index)
         ndocs += 1
         

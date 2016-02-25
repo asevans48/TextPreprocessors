@@ -40,7 +40,7 @@ object HTestDriver{
      var testLines = List[String]()
       var testSet = List("its just natural. it doesnt have to be forever though at this point im completely gone","weird thing is I just liked how she looked until i started talking to her. that, I can manage but the rest. shit. modarchod.","why cant I get through to this one?","there would be a hole in my heart if she left work","i could look into those blue eyes for days on end","i like that she likes interesting things","shes sweet and yet calculated","sometimes she puts her hair behind her ears a bit or lets it out a little and i get sent to the moon for days","i have not felt like this about a girl in ten years","shes even has a photographic eye with great attention to detail","I like her smile and her eyes can pierce your soul","best of all, she isnt stupid","i think i have a crush","if i could marry that woman, i would","unlike other women who are as good looking as she is, she is not a bitch","she looks 25","she is a great cook","she has so many awesome interests","cheryl gansel is an amazing woman","hippies. smelly hippies.","no kitty thats my pot pie","screw you guys I am a going home","test this","apple fish green red eat good full yum fish. one fish two fish red fish blue fish.","this is a string.","this is a test, test, test.","I am sentence one. I am sentence two")
      var testString = testSet((Math.random() * testSet.size).asInstanceOf[Int])
-     for(i <- 0 to 5000){
+     for(i <- 0 to 25000){
        testString += testSet((Math.random() * testSet.size).asInstanceOf[Int])
      }
     println("Starting")
