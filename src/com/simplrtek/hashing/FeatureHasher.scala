@@ -241,7 +241,6 @@ class FeatureHasher(nfeats : Int = 500000){
           var hash = ctup._1
           var index = Math.abs(hash) % totalfeats
      
-          indices = indices :+ index.asInstanceOf[Integer]
           mx = Math.max(mx,index)
           value = Math.abs(value)
           if(words.contains(index) && !words.get(index).get.equals(tup._1)){ //safer than using put
@@ -250,13 +249,16 @@ class FeatureHasher(nfeats : Int = 500000){
             words.put(index, tup._1)
           }
           
+          indices(size) = index.asInstanceOf[Integer]
           values(size) = value.doubleValue()
           size += 1
           
           
         }
       }
-      vptrs = vptrs :+ size
+      if(mi + 1 < vptrs.length){
+        vptrs(mi + 1) =  size
+      }
     
     }
   }
@@ -267,6 +269,6 @@ class FeatureHasher(nfeats : Int = 500000){
       throw new Exception("Count maps must have data. Size of row pointers is 0")
     }
 
-    new CSCMatrix(values.toArray,mx,ndocs,vptrs.toArray.asInstanceOf[Array[Int]],indices.toArray.asInstanceOf[Array[Int]])
+    new CSCMatrix(values.toArray,mx + 500,ndocs,vptrs.map { x => x.toInt },indices.map { x => x.toInt })
   }
 }
