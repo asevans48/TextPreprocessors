@@ -4,7 +4,10 @@ import breeze.linalg.norm
 import breeze.linalg.Transpose
 import breeze.linalg.SparseVector
 import breeze.linalg.{CSCMatrix,Matrix,DenseVector}
-
+import scala.concurrent.{Await,Future}
+import scala.concurrent.duration.Duration
+import scala.concurrent.ExecutionContext.Implicits.global
+import com.simplrtek.enriched.breeze.Implicits.enrichSparseMatrix
 object CosineCalculator{
   
   
@@ -31,17 +34,10 @@ object CosineCalculator{
   def calcCosineSimilarity(documents : CSCMatrix[Double], vec : CSCMatrix[Double])={
     var vals = vec.t * documents
     var d : Double  = 0
-    for(v <- documents.activeValuesIterator){
-      d += (v * v)
-    }
-    
-    var d2 : Double = 0
-    for(v <- vec.activeValuesIterator){
-      d2 += (v*v)
-    }
-    
-    d = d * d2
-    vals.mapActiveValues { x => x / d }
+    var futs = List[Future[Double]]()
+    futs = futs :+ vec.linalgNorm :+ documents.linalgNorm
+    Await.result(Future.sequence(futs),Duration.Inf).reduce(_*_)
+    vals.mapActiveValues { x => x /Await.result(Future.sequence(futs),Duration.Inf).reduce(_*_) }
   }
   
   /**
