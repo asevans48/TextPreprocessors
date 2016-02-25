@@ -114,13 +114,15 @@ class ParallelFeatureHasher(total_features : Integer = 500000){
         }
       }
       
+      var hashes = ctMap.map({x => Hash.murmurHashString(x._1)})
       ndocs += 1
       var row : scala.collection.mutable.ArrayBuffer[(Int,Double)] = scala.collection.mutable.ArrayBuffer[(Int,Double)]()
       var rowWords : scala.collection.mutable.ListBuffer[Int] = scala.collection.mutable.ListBuffer[Int]()
       
-      for(tup <- ctMap){
+      for(ctup <- hashes.zip(ctMap).toList.sortBy(f => f._1)){
+        var tup = ctup._2
         var value : Double = Math.abs(tup._2.toDouble)
-        var hash = Hash.murmurHashString(tup._1)
+        var hash = ctup._1
         var index = Math.abs(hash) % this.features
         mx = Math.max(mx, index)
         ndocs += 1
@@ -154,6 +156,8 @@ class ParallelFeatureHasher(total_features : Integer = 500000){
       }
       cmr.append(row.toArray)
     }
+
+    Runtime.getRuntime.gc()
     
   }
   
@@ -167,21 +171,20 @@ class ParallelFeatureHasher(total_features : Integer = 500000){
     var vptrs: scala.collection.mutable.ArrayBuffer[Int] = scala.collection.mutable.ArrayBuffer[Int]()
     var indices: scala.collection.mutable.ArrayBuffer[Int] = scala.collection.mutable.ArrayBuffer[Int]()
     var values : scala.collection.mutable.ArrayBuffer[Double] = scala.collection.mutable.ArrayBuffer[Double]()
-    vptrs = vptrs :+ 0
+
     var currptr = 0
     for(i <- 0 until cmr.size){
       
        vptrs = vptrs :+ currptr
-       currptr += cmr(i).size
+       currptr = vptrs(i) + cmr(i).size
 
-      
-      
-      for(ctup <- cmr(i).sortBy(_._1)){
+      for(ctup <- cmr(i)){
         indices = indices :+ ctup._1
         values = values :+ ctup._2
       }
     }
-    val csc = new CSCMatrix(values.toArray,mx ,vptrs.size,vptrs.toArray,indices.toArray)
+
+    val csc = new CSCMatrix(values.toArray,mx+10 ,vptrs.size - 1 ,vptrs.toArray,indices.toArray)
     csc
   }
   
@@ -199,56 +202,15 @@ class ParallelFeatureHasher(total_features : Integer = 500000){
  * 
  * Hashes Text Features to matrices.
  */
-class FeatureHasher(total_features :Integer = 500000){
-  var features : Integer = total_features
-  var vptrs: List[Integer] = List[Integer]()
-  var indices:List[Integer] = List[Integer]()
-  var values: ArrayList[Double] = new ArrayList[Double](this.features)
+class FeatureHasher(nfeats : Int = 500000){
+ 
+  var vptrs: Array[Integer] = null
+  var indices:Array[Integer] = null
+  var values: Array[Double] = null
   var ndocs : Int = 0
   var mx : Int = 0
   var words : scala.collection.mutable.Map[Int,String] = scala.collection.mutable.Map[Int,String]()
   
-
-  /**
-   * Resize the indcies by growing the number of features.
-   * This requires 2x the memory.
-   */
-  def resize()={
-    mx = 0
-    var size : Integer = 0
-    var vptrs2 : List[Integer] = List[Integer]()
-    var indices2 : List[Integer] = List[Integer]()
-    var words2 : scala.collection.mutable.Map[Int,String] = scala.collection.mutable.Map[Int,String]()
-    this.features *= 3
-    var values2 : ArrayList[Double] = new ArrayList[Double](this.features)
-    
-    var start = 0
-    for(i <- 0 until vptrs.size){
-       while(start < vptrs(i)){
-         val oldIndex = indices(start)
-         var value = Math.abs(this.values(start))
-         val w = words.get(oldIndex).get
-         val hash = Hash.murmurHashString(w)
-         val index = hash % this.features
-         words2.put(index, w)
-         indices2 = indices2 :+ index.asInstanceOf[Integer]
-         mx = Math.max(mx,index)
-         if(hash < 0){
-           value *= -1
-         }
-         
-         values2.set(size, value.doubleValue())
-         size += 1
-         start += 1
-       }
-       vptrs2 = vptrs2 :+ size
-    }
-    
-    this.vptrs = vptrs2
-    this.indices = indices
-    this.values = values2
-    this.words = words2
-  }
 
   /**
    * Converts a List of String,Count Pairs to a Sparse Matrix
@@ -258,38 +220,26 @@ class FeatureHasher(total_features :Integer = 500000){
    * @param		counts										A list of document counts
    * @param		partial										The boolean stating whether to only partially transform the document.
    */
-  def transform(counts:List[Map[String,Integer]],partial : Boolean = false)={
+  def transform(counts:List[Map[String,Integer]])={
     var size:Integer = 0
+    val totalfeats = counts.map({x => x.size}).sum
     
-    if(partial == false){
-      vptrs = List[Integer]()
-      indices = List[Integer]()
-      values = new ArrayList[Double](this.features)
-      ndocs = counts.size
-      mx = 0
-    }else{
-      ndocs += counts.size
-    }
+     vptrs = Array.fill[Integer](totalfeats)(0)
+     indices = Array.fill[Integer](totalfeats)(0)
+     values = Array.fill[Double](totalfeats)(0.0)
+     ndocs = counts.size
+     mx = 0
     
-    for(mi <- 0 to counts.size){
-      var map = counts(mi)
-      if(map.size >= this.features/3){
-            try{
-              throw new Exception("Too Few Features Per Row.")
-            }catch{
-              case t : Throwable =>{
-                println(t.getMessage+"\nNumber of Features must be greater than "+this.features+".Please use the features variable. Resizing!")
-              }
-              resize()          
-            }
-       }
-      
-      for(tup <- map){
-        
+    
+    for(mi <- 0 until counts.size){
+      var map = counts(mi).map({x => Hash.murmurHashString(x._1)}).zip(counts(mi)).toList.sortBy(f => f._1)
+
+      for(ctup <- map){
+        val tup = ctup._2
         var value = tup._2
         if(value > 0){
-          var hash = Hash.murmurHashString(tup._1)
-          var index = Math.abs(hash) % this.features
+          var hash = ctup._1
+          var index = Math.abs(hash) % totalfeats
      
           indices = indices :+ index.asInstanceOf[Integer]
           mx = Math.max(mx,index)
@@ -299,7 +249,8 @@ class FeatureHasher(total_features :Integer = 500000){
           }else if(!words.contains(index)){
             words.put(index, tup._1)
           }
-          values.add(size,value.doubleValue())
+          
+          values(size) = value.doubleValue()
           size += 1
           
           
@@ -315,21 +266,7 @@ class FeatureHasher(total_features :Integer = 500000){
     if(vptrs.size ==0){
       throw new Exception("Count maps must have data. Size of row pointers is 0")
     }
-    var i = 0
-    var vptrMax = vptrs(vptrs.size-1)
-    var index = 0
-    
-    val sm = new CSCMatrix.Builder[Double](mx,ndocs)
-    while(index < vptrMax){
-      if(index == vptrs(i)){
-         i += 1
-      }
-      
-         sm.add(indices(index),i, values(index))
-         index += 1
-    }
-    
-    //new CSCMatrix(values.toArray,mx,ndocs,vptrs.toArray.asInstanceOf[Array[Int]],indices.toArray.asInstanceOf[Array[Int]])
-    sm.result
+
+    new CSCMatrix(values.toArray,mx,ndocs,vptrs.toArray.asInstanceOf[Array[Int]],indices.toArray.asInstanceOf[Array[Int]])
   }
 }
