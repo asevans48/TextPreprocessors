@@ -34,10 +34,9 @@ object CosineCalculator{
   def calcCosineSimilarity(documents : CSCMatrix[Double], vec : CSCMatrix[Double])={
     var vals = vec.t * documents
     var d : Double  = 0
-    var futs = List[Future[Double]]()
-    futs = futs :+ vec.linalgNorm :+ documents.linalgNorm
-    Await.result(Future.sequence(futs),Duration.Inf).reduce(_*_)
-    vals.mapActiveValues { x => x /Await.result(Future.sequence(futs),Duration.Inf).reduce(_*_) }
+    var futs:List[Future[Double]] = List[Future[Double]]()
+    var fb = futs :+ vec.linalgNorm :+ documents.linalgNorm  
+    vals.mapActiveValues { x => x /Await.result(Future.sequence(fb.asInstanceOf[List[Future[Double]]]),Duration.Inf).reduce(_*_) }
   }
   
   /**
