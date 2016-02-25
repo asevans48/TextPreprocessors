@@ -65,7 +65,8 @@ object HTestDriver{
     Runtime.getRuntime.gc()
     println(csc(0 until csc.rows,0).activeIterator.toList.filter(_._2 > 0.0))
     println("Calc Cosines")
-    val cos =  csc.t * csc / (csc.activeValuesIterator.map { x => x * x }.reduce(_*_))
+    println(csc.activeValuesIterator.map { x => x * x }.toList.reduce(_+_))
+    val cos =  csc.t * csc / (csc.activeValuesIterator.map { x => x * x }.reduce(_+_))
     println(cos)
   }
 }
